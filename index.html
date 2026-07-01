@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Basic SEO so Google can find the site ===== -->
+  <title>KMJ Dynamics — Beach Cart Project</title>
+  <meta name="description" content="KMJ Dynamics: the story, photos, and technology behind the smart beach cart project. See how it came about and how it works." />
+  <meta name="author" content="KMJ Dynamics" />
+  <link rel="canonical" href="https://kmjdynamics.com/" />
+
+  <!-- Nice preview when the link is shared on text/social -->
+  <meta property="og:title" content="KMJ Dynamics — Beach Cart Project" />
+  <meta property="og:description" content="The story, photos, and technology behind the smart beach cart project." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kmjdynamics.com/" />
+  <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <nav class="nav">
+      <span class="brand">KMJ&nbsp;Dynamics</span>
+      <div class="nav-links">
+        <a href="#story">The Story</a>
+        <a href="#tech">How It Works</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="badge">🛰️ Fully autonomous — it follows you</span>
+        <h1>The beach cart that follows you.</h1>
+        <p class="tagline">No handle. No hauling. Load it up and it follows you across the sand all on its own — or grab the remote and drive it yourself. Cooler, chairs, umbrella and all.</p>
+        <a class="btn" href="#story">See how it came about</a>
+      </div>
+      <div class="hero-photo">
+        <img src="images/cart-hero.jpg" alt="The KMJ Dynamics beach cart loaded with chairs, a cooler and gear, rolling across the sand" />
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= STORY ================= -->
+  <section class="section" id="story">
+    <div class="container">
+      <h2>How It Came About</h2>
+      <div class="story-grid">
+        <div class="story-text">
+          <p>It started the way every beach day did: a mountain of gear — cooler, chairs, umbrella, toys, boogie boards — and a long, sweaty drag across soft sand that swallowed every wheel I threw at it. There had to be a better way, so I set out to build one.</p>
+          <p>What began as "just haul the stuff" became a real engineering project — one built for the real world, not a workbench. The frame is hand-welded two-inch aluminum, sized to haul roughly 500–600&nbsp;lbs of gear across the sand without blinking. Big balloon tires float over loose sand instead of plowing into it. Two electric motors and a closed-loop speed controller deliver smooth, steady power up the dunes, and a Raspberry&nbsp;Pi serves as the brain that ties it all together.</p>
+          <p>The fun was in the problem-solving. Nearly every part of this cart is something I designed, printed, wired, or wrote from scratch — and almost every step meant hitting a wall and engineering my way through it: dialing in the drivetrain so it eases in smoothly instead of lurching, building custom power systems so sensitive electronics stay rock-solid right next to high-current motors, 3D-modeling brackets and enclosures tough enough to survive sand and sun, and tuning it all one prototype at a time until it simply worked.</p>
+          <p>Then it got ambitious. I added a small wearable tag and four sensors on the cart's corners so it can pinpoint exactly where I am and drive itself right to me — completely hands-free — while a spinning 360° scanner and a ring of sensors steer it around people and stop it cold at curbs and drop-offs. Feel like driving instead? Flip a switch on the remote and take over in an instant.</p>
+          <p>That's KMJ&nbsp;Dynamics: top-notch engineering aimed squarely at a real-world need — a cart tough enough for the job, smart enough to carry its own weight, and built to make beach days effortless.</p>
+        </div>
+        <div class="story-highlights">
+          <div class="highlight">
+            <span class="num">01</span>
+            <h3>The Problem</h3>
+            <p>Hauling a mountain of gear across soft sand — every single beach day.</p>
+          </div>
+          <div class="highlight">
+            <span class="num">02</span>
+            <h3>The Build</h3>
+            <p>A hand-welded aluminum cart on balloon tires, electric drive, and a Raspberry Pi brain.</p>
+          </div>
+          <div class="highlight">
+            <span class="num">03</span>
+            <h3>The Result</h3>
+            <p>A cart that follows you on its own — or drives by remote — with everything loaded.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TECH ================= -->
+  <section class="section alt" id="tech">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="section-lead">A quick look at what makes the cart tick.</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Follow-Me Mode</h3>
+          <p>Wear the little tag and the cart figures out exactly where you are — then drives itself right to you, hands-free.</p>
+        </div>
+        <div class="feature">
+          <h3>Manual RC Control</h3>
+          <p>Rather drive? Flip the safety switch on the remote and take over instantly — full manual control on demand.</p>
+        </div>
+        <div class="feature">
+          <h3>Sees &amp; Avoids</h3>
+          <p>A 360° scanner and obstacle sensors let it steer around people and stop itself at curbs and drop-offs.</p>
+        </div>
+        <div class="feature">
+          <h3>Rolls Over Sand</h3>
+          <p>Big soft balloon tires and a welded aluminum frame float over loose sand instead of digging in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="section-lead">Photos from the build and the beach. <em>(Drop your images into the <code>images/</code> folder and update the file names below.)</em></p>
+      <div class="gallery">
+        <!-- To use a real photo: replace the whole .photo block with:
+             <img src="images/your-photo.jpg" alt="Describe the photo" /> -->
+        <figure class="photo"><span>Photo 1</span></figure>
+        <figure class="photo"><span>Photo 2</span></figure>
+        <figure class="photo"><span>Photo 3</span></figure>
+        <figure class="photo"><span>Photo 4</span></figure>
+        <figure class="photo"><span>Photo 5</span></figure>
+        <figure class="photo"><span>Photo 6</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT / FOOTER ================= -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p>Questions about the project? Reach out.</p>
+      <a class="btn light" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
+      <p class="copyright">&copy; <span id="year"></span> KMJ Dynamics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-update the year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
