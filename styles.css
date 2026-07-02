@@ -221,6 +221,12 @@ h1, h2, h3, .brand { font-family: 'Poppins', sans-serif; }
 .footer p { color: rgba(255,255,255,.85); margin-bottom: 22px; }
 .footer .btn { margin-bottom: 40px; }
 .copyright { font-size: .85rem; color: rgba(255,255,255,.55); margin: 0; }
+/* Discreet owner-only link to the live cart control panel (private: works only
+   on devices signed in to Tailscale). Kept low-contrast so it doesn't read as a
+   public call-to-action. */
+.owner-panel { margin: 14px 0 0; }
+.owner-panel a { font-size: .8rem; color: rgba(255,255,255,.4); text-decoration: none; letter-spacing: .3px; }
+.owner-panel a:hover { color: rgba(255,255,255,.8); text-decoration: underline; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
