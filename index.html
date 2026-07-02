@@ -17,6 +17,16 @@
   <meta property="og:url" content="https://kmjdynamics.com/" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
 
+  <!-- Twitter/X large-image link preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KMJ Dynamics — Beach Cart Project" />
+  <meta name="twitter:description" content="The story, photos, and technology behind the smart beach cart project." />
+  <meta name="twitter:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
+
+  <!-- Browser theme color + inline SVG favicon (no extra file needed) -->
+  <meta name="theme-color" content="#0e6ba8" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230e6ba8'/><text x='32' y='34' font-family='Poppins,Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
@@ -24,11 +34,14 @@
 </head>
 <body>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero" id="top">
-    <nav class="nav">
-      <span class="brand">KMJ&nbsp;Dynamics</span>
-      <div class="nav-links">
+  <!-- ================= STICKY NAV ================= -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">KMJ&nbsp;Dynamics</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
         <a href="#story">The Story</a>
         <a href="#tech">How It Works</a>
         <a href="#approach">Approach</a>
@@ -36,8 +49,11 @@
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-text">
         <span class="badge">🛰️ Fully autonomous — it follows you</span>
@@ -208,6 +224,22 @@
   <script>
     // Auto-update the year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav (hamburger) toggle + close on link tap
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navLinks.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        })
+      );
+    }
   </script>
 </body>
 </html>
