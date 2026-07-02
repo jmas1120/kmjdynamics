@@ -181,6 +181,53 @@ section[id], header[id] { scroll-margin-top: 76px; }
 }
 .mission-strip .accent { color: var(--accent); }
 
+/* ---------- By the numbers ---------- */
+.stats-section { padding: 64px 0; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.stat {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px 18px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(6, 52, 79, .07);
+  border-top: 4px solid var(--accent);
+}
+.stat-num {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  line-height: 1;
+  color: var(--ocean);
+}
+.stat-unit { font-size: .5em; margin-left: 2px; color: var(--ocean-d); }
+.stat-label { display: block; margin-top: 12px; color: var(--muted); font-size: .95rem; line-height: 1.4; }
+
+/* ---------- Under the hood (deep-dive cards) ---------- */
+.deep-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.deep-card {
+  background: linear-gradient(160deg, var(--white) 0%, #fbfdff 100%);
+  border-radius: 16px;
+  padding: 30px 30px 32px;
+  box-shadow: 0 8px 26px rgba(6, 52, 79, .08);
+  border-left: 4px solid var(--ocean);
+}
+.deep-tag {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ocean);
+  background: rgba(14, 107, 168, .10);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.deep-card h3 { color: var(--deep); font-size: 1.3rem; margin-bottom: 10px; }
+.deep-card p { color: var(--muted); font-size: 1rem; }
+
 /* ---------- Sections ---------- */
 .section { padding: 90px 0; }
 .section.alt { background: var(--sand-2); }
@@ -280,6 +327,8 @@ section[id], header[id] { scroll-margin-top: 76px; }
   .hero-photo { order: 2; width: 100%; max-width: 460px; }
   .tagline { margin-left: auto; margin-right: auto; }
   .story-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .deep-grid { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .patent-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }

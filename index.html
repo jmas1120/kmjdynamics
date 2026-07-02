@@ -44,6 +44,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#story">The Story</a>
         <a href="#tech">How It Works</a>
+        <a href="#engineering">Engineering</a>
         <a href="#approach">Approach</a>
         <a href="#patents">Patents</a>
         <a href="#gallery">Gallery</a>
@@ -71,6 +72,30 @@
   <div class="mission-strip">
     <p>Homegrown, self-taught engineering — turning <span class="accent">outside-the-box</span> ideas into things you can touch, drive, and plug in.</p>
   </div>
+
+  <!-- ================= BY THE NUMBERS ================= -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Granted U.S. patents</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">500+<span class="stat-unit">lb</span></span>
+          <span class="stat-label">Gear it hauls across soft sand</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">360°</span>
+          <span class="stat-label">Laser scanning for obstacles</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100<span class="stat-unit">%</span></span>
+          <span class="stat-label">Self-taught &amp; custom-built</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= STORY ================= -->
   <section class="section" id="story">
@@ -126,6 +151,36 @@
         <div class="feature">
           <h3>Rolls Over Sand</h3>
           <p>Big soft balloon tires and a welded aluminum frame float over loose sand instead of digging in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= UNDER THE HOOD ================= -->
+  <section class="section" id="engineering">
+    <div class="container">
+      <h2>Under the Hood</h2>
+      <p class="section-lead">The parts you never see — where most of the real engineering actually lives. Every one of these was designed, built, and debugged from scratch.</p>
+      <div class="deep-grid">
+        <div class="deep-card">
+          <span class="deep-tag">Power Electronics</span>
+          <h3>Built to survive its own motors</h3>
+          <p>Early on, a single voltage spike wiped out the main computer. So I re-engineered the entire power system: distributed, individually-regulated supplies and dedicated surge protection that keep delicate control electronics rock-steady sitting inches from high-current motors. Failure became the spec.</p>
+        </div>
+        <div class="deep-card">
+          <span class="deep-tag">Real-Time Control</span>
+          <h3>Smooth, not lurching</h3>
+          <p>Drive and steering run on the Raspberry&nbsp;Pi&nbsp;5's dedicated hardware timers — not jittery software signals — with slew-rate limiting and closed-loop PID speed control. The result is silky, predictable motion that eases in and out of power instead of jerking, even under a full load of gear.</p>
+        </div>
+        <div class="deep-card">
+          <span class="deep-tag">Autonomy</span>
+          <h3>Map-free navigation</h3>
+          <p>A wearable radio beacon fixes exactly where you are while a spinning 360° laser scanner and a "follow-the-gap" algorithm let the cart flow around people and obstacles and then resume its line to you. No pre-built maps and no GPS — it simply senses and reacts, in real time.</p>
+        </div>
+        <div class="deep-card">
+          <span class="deep-tag">Telemetry</span>
+          <h3>Watch it from anywhere</h3>
+          <p>Battery voltage, current and state-of-charge are read straight off the motor controllers over an industrial CAN&nbsp;bus, then streamed — alongside a live obstacle radar — to a phone dashboard over a private, encrypted network. Check on the cart from across the beach or across the country.</p>
         </div>
       </div>
     </div>
