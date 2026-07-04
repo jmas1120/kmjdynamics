@@ -5,63 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ===== Basic SEO so Google can find the site ===== -->
-  <title>KMJ Dynamics — Beach Cart Project</title>
-  <meta name="description" content="KMJ Dynamics: the story, photos, and technology behind the smart beach cart project. See how it came about and how it works." />
+  <title>KMJ Dynamics — The Beach Cart That Follows You</title>
+  <meta name="description" content="KMJ Dynamics: the story, photos, and technology behind the autonomous beach cart. UWB follow-me, 360° obstacle sensing, and patented power engineering." />
   <meta name="author" content="KMJ Dynamics" />
+  <meta name="theme-color" content="#fdfaf4" />
   <link rel="canonical" href="https://kmjdynamics.com/" />
 
   <!-- Nice preview when the link is shared on text/social -->
-  <meta property="og:title" content="KMJ Dynamics — Beach Cart Project" />
-  <meta property="og:description" content="The story, photos, and technology behind the smart beach cart project." />
+  <meta property="og:title" content="KMJ Dynamics — The Beach Cart That Follows You" />
+  <meta property="og:description" content="The story, photos, and technology behind the autonomous beach cart." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kmjdynamics.com/" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- ================= NAV (sticky, goes glassy on scroll) ================= -->
+  <nav class="nav" id="nav">
+    <a class="brand" href="#top">KMJ<span class="brand-accent">DYNAMICS</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#story">The Story</a>
+      <a href="#tech">How It Works</a>
+      <a href="#approach">Approach</a>
+      <a href="#patents">Patents</a>
+      <a href="#gallery">Gallery</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </div>
+  </nav>
+
   <!-- ================= HERO ================= -->
   <header class="hero" id="top">
-    <nav class="nav">
-      <span class="brand">KMJ&nbsp;Dynamics</span>
-      <div class="nav-links">
-        <a href="#story">The Story</a>
-        <a href="#tech">How It Works</a>
-        <a href="#approach">Approach</a>
-        <a href="#patents">Patents</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-bg" aria-hidden="true"></div>
 
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="badge">🛰️ Fully autonomous — it follows you</span>
-        <h1>The beach cart that follows you.</h1>
-        <p class="tagline">No handle. No hauling. Load it up and it follows you across the sand all on its own — or grab the remote and drive it yourself. Cooler, chairs, umbrella and all.</p>
-        <a class="btn" href="#story">See how it came about</a>
+        <span class="badge"><span class="badge-dot"></span>Fully autonomous · Follow-me mode</span>
+        <h1>The beach cart that <span class="grad-text">follows you.</span></h1>
+        <p class="tagline">No handle. No hauling. Load it up and it tracks you across the sand on its own — or grab the remote and drive. Cooler, chairs, umbrella and all.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#story">See how it came about</a>
+          <a class="btn ghost" href="#tech">How it works</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong>500<span class="unit">+ lbs</span></strong><span>payload over sand</span></li>
+          <li><strong>360<span class="unit">°</span></strong><span>obstacle scanning</span></li>
+          <li><strong>0</strong><span>hands required</span></li>
+        </ul>
       </div>
       <div class="hero-photo">
+        <div class="photo-ring" aria-hidden="true"></div>
         <img src="images/cart-hero.jpg" alt="The KMJ Dynamics beach cart loaded with chairs, a cooler and gear, rolling across the sand" />
       </div>
     </div>
+
+    <a class="scroll-cue" href="#story" aria-label="Scroll down">
+      <span class="scroll-cue-line"></span>
+    </a>
   </header>
 
-  <!-- ================= MISSION STRIP ================= -->
-  <div class="mission-strip">
-    <p>Homegrown, self-taught engineering — turning <span class="accent">outside-the-box</span> ideas into things you can touch, drive, and plug in.</p>
+  <!-- ================= TICKER STRIP ================= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>UWB precision tracking</span><i>◆</i>
+      <span>360° LiDAR scanning</span><i>◆</i>
+      <span>Dual electric drive</span><i>◆</i>
+      <span>Hand-welded aluminum frame</span><i>◆</i>
+      <span>Raspberry Pi brain</span><i>◆</i>
+      <span>Balloon tires — floats over sand</span><i>◆</i>
+      <span>UWB precision tracking</span><i>◆</i>
+      <span>360° LiDAR scanning</span><i>◆</i>
+      <span>Dual electric drive</span><i>◆</i>
+      <span>Hand-welded aluminum frame</span><i>◆</i>
+      <span>Raspberry Pi brain</span><i>◆</i>
+      <span>Balloon tires — floats over sand</span><i>◆</i>
+    </div>
   </div>
 
   <!-- ================= STORY ================= -->
   <section class="section" id="story">
     <div class="container">
-      <h2>How It Came About</h2>
+      <p class="kicker reveal">01 — The Story</p>
+      <h2 class="reveal">How It Came About</h2>
       <div class="story-grid">
-        <div class="story-text">
+        <div class="story-text reveal">
           <p>It started the way every beach day did: a mountain of gear — cooler, chairs, umbrella, toys, boogie boards — and a long, sweaty drag across soft sand that swallowed every wheel I threw at it. There had to be a better way, so I set out to build one.</p>
           <p>What began as "just haul the stuff" became a real engineering project — one built for the real world, not a workbench. The frame is hand-welded two-inch aluminum, sized to haul roughly 500–600&nbsp;lbs of gear across the sand without blinking. Big balloon tires float over loose sand instead of plowing into it. Two electric motors and a closed-loop speed controller deliver smooth, steady power up the dunes, and a Raspberry&nbsp;Pi serves as the brain that ties it all together.</p>
           <p>The fun was in the problem-solving. Nearly every part of this cart is something I designed, printed, wired, or wrote from scratch — and almost every step meant hitting a wall and engineering my way through it: dialing in the drivetrain so it eases in smoothly instead of lurching, building custom power systems so sensitive electronics stay rock-solid right next to high-current motors, 3D-modeling brackets and enclosures tough enough to survive sand and sun, and tuning it all one prototype at a time until it simply worked.</p>
@@ -69,17 +104,17 @@
           <p>That's KMJ&nbsp;Dynamics: top-notch engineering aimed squarely at a real-world need — a cart tough enough for the job, smart enough to carry its own weight, and built to make beach days effortless.</p>
         </div>
         <div class="story-highlights">
-          <div class="highlight">
+          <div class="highlight reveal">
             <span class="num">01</span>
             <h3>The Problem</h3>
             <p>Hauling a mountain of gear across soft sand — every single beach day.</p>
           </div>
-          <div class="highlight">
+          <div class="highlight reveal">
             <span class="num">02</span>
             <h3>The Build</h3>
             <p>A hand-welded aluminum cart on balloon tires, electric drive, and a Raspberry Pi brain.</p>
           </div>
-          <div class="highlight">
+          <div class="highlight reveal">
             <span class="num">03</span>
             <h3>The Result</h3>
             <p>A cart that follows you on its own — or drives by remote — with everything loaded.</p>
@@ -92,22 +127,35 @@
   <!-- ================= TECH ================= -->
   <section class="section alt" id="tech">
     <div class="container">
-      <h2>How It Works</h2>
-      <p class="section-lead">A quick look at what makes the cart tick.</p>
+      <p class="kicker reveal">02 — The Technology</p>
+      <h2 class="reveal">How It Works</h2>
+      <p class="section-lead reveal">A quick look at what makes the cart tick.</p>
       <div class="feature-grid">
-        <div class="feature">
+        <div class="feature reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+          </div>
           <h3>Follow-Me Mode</h3>
           <p>Wear the little tag and the cart figures out exactly where you are — then drives itself right to you, hands-free.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4.5"/><path d="M7.5 11v3M6 12.5h3"/><circle cx="16" cy="11.5" r="1" fill="currentColor"/><circle cx="18.2" cy="13.5" r="1" fill="currentColor"/></svg>
+          </div>
           <h3>Manual RC Control</h3>
           <p>Rather drive? Flip the safety switch on the remote and take over instantly — full manual control on demand.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 12 4.5"/><path d="M12 12l5.5 3.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+          </div>
           <h3>Sees &amp; Avoids</h3>
           <p>A 360° scanner and obstacle sensors let it steer around people and stop itself at curbs and drop-offs.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3M6 6l2.1 2.1M15.9 15.9 18 18M18 6l-2.1 2.1M8.1 15.9 6 18"/></svg>
+          </div>
           <h3>Rolls Over Sand</h3>
           <p>Big soft balloon tires and a welded aluminum frame float over loose sand instead of digging in.</p>
         </div>
@@ -118,43 +166,45 @@
   <!-- ================= GALLERY ================= -->
   <section class="section" id="gallery">
     <div class="container">
-      <h2>Gallery</h2>
-      <p class="section-lead">Photos from the build and the beach. <em>(Drop your images into the <code>images/</code> folder and update the file names below.)</em></p>
+      <p class="kicker reveal">03 — Gallery</p>
+      <h2 class="reveal">From the Build &amp; the Beach</h2>
+      <p class="section-lead reveal">Photos from the workshop and the shoreline — real hardware, real sand.</p>
       <div class="gallery">
-        <!-- To use a real photo: replace the whole .photo block with:
-             <img src="images/your-photo.jpg" alt="Describe the photo" /> -->
-        <figure class="photo"><span>Photo 1</span></figure>
-        <figure class="photo"><span>Photo 2</span></figure>
-        <figure class="photo"><span>Photo 3</span></figure>
-        <figure class="photo"><span>Photo 4</span></figure>
-        <figure class="photo"><span>Photo 5</span></figure>
-        <figure class="photo"><span>Photo 6</span></figure>
+        <!-- To use a real photo: replace a .photo block with:
+             <figure class="shot reveal"><img src="images/your-photo.jpg" alt="Describe the photo" /></figure> -->
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
+        <figure class="photo reveal"><span>Photo coming soon</span></figure>
       </div>
     </div>
   </section>
 
   <!-- ================= APPROACH / COMPANY ================= -->
-  <section class="section" id="approach">
+  <section class="section alt" id="approach">
     <div class="container">
-      <h2>The KMJ Dynamics Way</h2>
-      <p class="section-lead">Every discipline under one roof — mechanical, electrical, and software — learned by doing and proven by building.</p>
-      <div class="patent-intro">
+      <p class="kicker reveal">04 — The Shop</p>
+      <h2 class="reveal">The KMJ Dynamics Way</h2>
+      <p class="section-lead reveal">Every discipline under one roof — mechanical, electrical, and software — learned by doing and proven by building.</p>
+      <div class="patent-intro reveal">
         <p>KMJ Dynamics is an independent engineering shop with no blueprint handed down and no department to defer to. Hard, cross-disciplinary problems get tackled from the ground up — welded frames, patented power electronics, and autonomy code all come off the same bench, driven by one stubborn habit: keep building until the idea works in the real world.</p>
       </div>
       <div class="feature-grid">
-        <div class="feature">
+        <div class="feature reveal">
           <h3>Think Outside the Box</h3>
           <p>Where others see "that's not how it's done," we see the opening. The best solutions rarely sit on the obvious path.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <h3>Self-Taught, Hands-On</h3>
           <p>Every skill here — welding, power electronics, software, 3D design — is homegrown and learned by doing. Granted patents and a self-driving cart to show for it.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <h3>Solve Real Problems</h3>
           <p>Every project starts with a genuine need and ends with something that works in the real world — sand, sun, load and all.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <h3>Iterate Relentlessly</h3>
           <p>One prototype at a time. Hit a wall, engineer through it, and refine until it simply works.</p>
         </div>
@@ -163,29 +213,33 @@
   </section>
 
   <!-- ================= PATENTS ================= -->
-  <section class="section alt" id="patents">
+  <section class="section" id="patents">
     <div class="container">
-      <h2>Patented Engineering</h2>
-      <p class="section-lead">KMJ Dynamics is more than the beach cart. Its founder, John&nbsp;Maslowski, is the sole inventor on a family of granted U.S. patents for a novel electrical power system.</p>
-      <div class="patent-intro">
+      <p class="kicker reveal">05 — Patents</p>
+      <h2 class="reveal">Patented Engineering</h2>
+      <p class="section-lead reveal">KMJ Dynamics is more than the beach cart. Its founder, John&nbsp;Maslowski, is the sole inventor on a family of granted U.S. patents for a novel electrical power system.</p>
+      <div class="patent-intro reveal">
         <p>The invention is a compact, emission-free power system: a battery-driven motor turns a single shaft that spins two generators at once — a <strong>primary generator</strong> that delivers standard AC power to your devices, and a <strong>secondary generator</strong> that feeds charge back to the battery. The result is a clean, quiet alternative to fuel-burning generators, designed to run indoors and off-grid.</p>
         <p>It's the same first-principles engineering that drives the autonomous beach cart — aimed at a different problem.</p>
       </div>
       <div class="patent-grid">
-        <a class="patent-card" href="https://patents.google.com/patent/US10985632B2/en" target="_blank" rel="noopener">
+        <a class="patent-card reveal" href="https://patents.google.com/patent/US10985632B2/en" target="_blank" rel="noopener">
           <span class="patent-no">US 10,985,632 B2</span>
           <span class="patent-label">Electrical Power System</span>
           <span class="patent-year">Granted 2021 · the parent patent</span>
+          <span class="patent-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="patent-card" href="https://patents.google.com/patent/US11646636B2/en" target="_blank" rel="noopener">
+        <a class="patent-card reveal" href="https://patents.google.com/patent/US11646636B2/en" target="_blank" rel="noopener">
           <span class="patent-no">US 11,646,636 B2</span>
           <span class="patent-label">Electrical Power System</span>
           <span class="patent-year">Granted 2023 · continuation</span>
+          <span class="patent-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="patent-card" href="https://patents.google.com/patent/US12489340B2/en" target="_blank" rel="noopener">
+        <a class="patent-card reveal" href="https://patents.google.com/patent/US12489340B2/en" target="_blank" rel="noopener">
           <span class="patent-no">US 12,489,340 B2</span>
           <span class="patent-label">Electrical Power System</span>
           <span class="patent-year">Granted 2025 · continuation</span>
+          <span class="patent-arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -193,10 +247,12 @@
 
   <!-- ================= CONTACT / FOOTER ================= -->
   <footer class="footer" id="contact">
+    <div class="footer-glow" aria-hidden="true"></div>
     <div class="container">
-      <h2>Get in Touch</h2>
-      <p>Questions about the project? Reach out.</p>
-      <a class="btn light" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
+      <p class="kicker reveal">06 — Contact</p>
+      <h2 class="reveal">Get in Touch</h2>
+      <p class="reveal">Questions about the project? Reach out.</p>
+      <a class="btn reveal" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
       <p class="copyright">&copy; <span id="year"></span> KMJ Dynamics. All rights reserved.</p>
       <p class="owner-panel">
         <a href="http://beachcart:8080" target="_blank" rel="noopener"
@@ -208,6 +264,34 @@
   <script>
     // Auto-update the year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Sticky nav: add glass background once the page is scrolled
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Scroll-reveal: fade/slide sections in as they enter the viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
