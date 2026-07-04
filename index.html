@@ -18,6 +18,15 @@
   <meta property="og:url" content="https://kmjdynamics.com/" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
 
+  <!-- Twitter/X large-image link preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KMJ Dynamics — The Beach Cart That Follows You" />
+  <meta name="twitter:description" content="The story, photos, and technology behind the autonomous beach cart." />
+  <meta name="twitter:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
+
+  <!-- Inline SVG favicon in brand orange (no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23ff8c26'/><text x='32' y='34' font-family='Space Grotesk,Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -34,6 +43,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#story">The Story</a>
       <a href="#tech">How It Works</a>
+      <a href="#engineering">Engineering</a>
       <a href="#approach">Approach</a>
       <a href="#patents">Patents</a>
       <a href="#gallery">Gallery</a>
@@ -56,9 +66,10 @@
           <a class="btn ghost" href="#tech">How it works</a>
         </div>
         <ul class="hero-stats">
-          <li><strong>500<span class="unit">+ lbs</span></strong><span>payload over sand</span></li>
+          <li><strong>3</strong><span>granted U.S. patents</span></li>
+          <li><strong>500<span class="unit">+ lbs</span></strong><span>hauled over soft sand</span></li>
           <li><strong>360<span class="unit">°</span></strong><span>obstacle scanning</span></li>
-          <li><strong>0</strong><span>hands required</span></li>
+          <li><strong>100<span class="unit">%</span></strong><span>self-taught &amp; custom-built</span></li>
         </ul>
       </div>
       <div class="hero-photo">
@@ -163,10 +174,41 @@
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section class="section" id="gallery">
+  <!-- ================= UNDER THE HOOD ================= -->
+  <section class="section" id="engineering">
     <div class="container">
-      <p class="kicker reveal">03 — Gallery</p>
+      <p class="kicker reveal">03 — Engineering</p>
+      <h2 class="reveal">Under the Hood</h2>
+      <p class="section-lead reveal">The parts you never see — where most of the real engineering actually lives. Every one of these was designed, built, and debugged from scratch.</p>
+      <div class="deep-grid">
+        <div class="deep-card reveal">
+          <span class="deep-tag">Power Electronics</span>
+          <h3>Built to survive its own motors</h3>
+          <p>Early on, a single voltage spike wiped out the main computer. So I re-engineered the entire power system: distributed, individually-regulated supplies and dedicated surge protection that keep delicate control electronics rock-steady sitting inches from high-current motors. Failure became the spec.</p>
+        </div>
+        <div class="deep-card reveal">
+          <span class="deep-tag">Real-Time Control</span>
+          <h3>Smooth, not lurching</h3>
+          <p>Drive and steering run on the Raspberry&nbsp;Pi&nbsp;5's dedicated hardware timers — not jittery software signals — with slew-rate limiting and closed-loop PID speed control. The result is silky, predictable motion that eases in and out of power instead of jerking, even under a full load of gear.</p>
+        </div>
+        <div class="deep-card reveal">
+          <span class="deep-tag">Autonomy</span>
+          <h3>Map-free navigation</h3>
+          <p>A wearable radio beacon fixes exactly where you are while a spinning 360° laser scanner and a "follow-the-gap" algorithm let the cart flow around people and obstacles and then resume its line to you. No pre-built maps and no GPS — it simply senses and reacts, in real time.</p>
+        </div>
+        <div class="deep-card reveal">
+          <span class="deep-tag">Telemetry</span>
+          <h3>Watch it from anywhere</h3>
+          <p>Battery voltage, current and state-of-charge are read straight off the motor controllers over an industrial CAN&nbsp;bus, then streamed — alongside a live obstacle radar — to a phone dashboard over a private, encrypted network. Check on the cart from across the beach or across the country.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="section alt" id="gallery">
+    <div class="container">
+      <p class="kicker reveal">04 — Gallery</p>
       <h2 class="reveal">From the Build &amp; the Beach</h2>
       <p class="section-lead reveal">Photos from the workshop and the shoreline — real hardware, real sand.</p>
       <div class="gallery">
@@ -183,9 +225,9 @@
   </section>
 
   <!-- ================= APPROACH / COMPANY ================= -->
-  <section class="section alt" id="approach">
+  <section class="section" id="approach">
     <div class="container">
-      <p class="kicker reveal">04 — The Shop</p>
+      <p class="kicker reveal">05 — The Shop</p>
       <h2 class="reveal">The KMJ Dynamics Way</h2>
       <p class="section-lead reveal">Every discipline under one roof — mechanical, electrical, and software — learned by doing and proven by building.</p>
       <div class="patent-intro reveal">
@@ -213,9 +255,9 @@
   </section>
 
   <!-- ================= PATENTS ================= -->
-  <section class="section" id="patents">
+  <section class="section alt" id="patents">
     <div class="container">
-      <p class="kicker reveal">05 — Patents</p>
+      <p class="kicker reveal">06 — Patents</p>
       <h2 class="reveal">Patented Engineering</h2>
       <p class="section-lead reveal">KMJ Dynamics is more than the beach cart. Its founder, John&nbsp;Maslowski, is the sole inventor on a family of granted U.S. patents for a novel electrical power system.</p>
       <div class="patent-intro reveal">
@@ -249,7 +291,7 @@
   <footer class="footer" id="contact">
     <div class="footer-glow" aria-hidden="true"></div>
     <div class="container">
-      <p class="kicker reveal">06 — Contact</p>
+      <p class="kicker reveal">07 — Contact</p>
       <h2 class="reveal">Get in Touch</h2>
       <p class="reveal">Questions about the project? Reach out.</p>
       <a class="btn reveal" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
