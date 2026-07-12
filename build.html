@@ -245,7 +245,7 @@
 <li>Signal to <strong>GPIO13</strong> (RP1 hardware PWM chan1). Do NOT run a servo ground jumper to the Pi header — grounds meet once at the buck (star ground, see §4).
 </li>
 </ol>
-<p><strong>Working tune (config.py):</strong> slew limiter 1500us/s, center deadband 0.10, travel <code>SERVO_RANGE_US=540</code> (60% throw — 50% was too little, raised 6/28, user-confirmed "much better").</p>
+<p><strong>Working tune (config.py):</strong> slew limiter 1500us/s, center deadband 0.10, travel <code>SERVO_RANGE_US=540</code> (60% throw — 50% was too little; raised 6/28 and it drives much better).</p>
 <div class="note"><strong>Field lesson (7/8):</strong> the servo popped out of its socket under hill load once — check the linkage seating when steering goes soft.</div>
 <h2 id="3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</h2>
 <div class="plain">Each rear wheel works like a bicycle running in reverse: the motor spins a small sprocket, a bike chain carries that to a big sprocket bolted to the wheel. The big sprocket has five times the teeth of the small one, so the wheel turns five times slower than the motor — but with five times the twisting force. That trade is the "5:1 reduction," and it's what lets a fist-sized motor shove a loaded cart through soft sand. There are two motors, one per wheel, with no axle connecting them — each side drives independently. The scary-looking orange warning below is the single most important step in this section: the tires will spin uselessly on their metal hubs unless you glue them first.</div>
@@ -268,7 +268,7 @@
 <p><strong>What the drivetrain can and can't do (measured 7/8–7/10 with tests/hill_power_log.py):</strong></p>
 <ul>
 <li>Flat + moderate hills: fine. Small steep hill: climbs (654W peak, 26.8A pack, FETs ≤61°C).</li>
-<li>The BIG hill stalls with BOTH motors pinned at 60A (the DUET XS60 per-side hardware ceiling) while battery current sat at only 23A of 30A available → the cart is <strong>TORQUE-limited, not power-limited</strong>. More battery will NOT move that stall point; only gearing would (60T wheel sprocket = 6:1, +20% torque — real 410-chain 60T is a custom part, ESP SPR-41060G1 ~$82; decision deferred). ⚠ Cheap "60 tooth" listings are #40/41/420 pitch — 410 bike chain will NOT seat on them. John's current verdict: the mechanical rating of the printed spacers/chain is the torque spec; the big hill is an accepted boundary.</li>
+<li>The BIG hill stalls with BOTH motors pinned at 60A (the DUET XS60 per-side hardware ceiling) while battery current sat at only 23A of 30A available → the cart is <strong>TORQUE-limited, not power-limited</strong>. More battery will NOT move that stall point; only gearing would (60T wheel sprocket = 6:1, +20% torque — real 410-chain 60T is a custom part, ESP SPR-41060G1 ~$82; decision deferred). ⚠ Cheap "60 tooth" listings are #40/41/420 pitch — 410 bike chain will NOT seat on them. My current verdict: the mechanical rating of the printed spacers/chain is the torque spec; the big hill is an accepted boundary.</li>
 <li>One motor spins "backwards" because the motors face opposite directions — fixed in software (Invert Motor Direction on that half), NEVER by swapping phase wires.</li>
 </ul>
 <h2 id="4-power-system-distribution">4.  Power system &amp; distribution</h2>
@@ -294,7 +294,7 @@
 <div class="plain">The Raspberry Pi is the cart's brain — a $80 credit-card-sized computer running Linux. Every sensor reading, steering decision, and safety check in the rest of this guide is a program running on it. Two things matter most at this stage: powering it properly (it gets clean 5V from Buck #1, never straight battery voltage) and keeping it cool (a hot Pi slows itself down, and a throttled brain makes a sluggish cart). The "hardware PWM" business below just means two of the Pi's pins can generate perfectly steady timing pulses in dedicated silicon — the steering and throttle signals use those two pins because software-generated pulses jitter, and jittery pulses made the motors twitch.</div>
 <p>Raspberry Pi 5 8GB in an Argon NEO 5 aluminum case, powered via USB-C bare-wire lead from Buck #1 (5V 5A).</p>
 <ol>
-<li>Flash Raspberry Pi OS 64-bit (labwc/Wayland desktop). Hostname <code>Beachcart</code>, user <code>jmas1120</code>, SSH on.
+<li>Flash Raspberry Pi OS 64-bit (labwc/Wayland desktop). Hostname <code>Beachcart</code>, SSH on.
 </li>
 <li>In <code>/boot/firmware/config.txt</code>: <code>usb_max_current_enable=1</code> (raises USB-A budget 600mA → 1.6A — required for camera + RPLIDAR; verify with <code>vcgencmd get_config usb_max_current_enable</code> = 1).
 </li>
@@ -338,7 +338,7 @@
 <ul>
 <li><strong>STOP the cart software before any VESC Tool config write</strong> (<code>systemctl --user stop beachcart.service</code>) — battery.py's polling corrupts writes ("config reverts every power-cycle").</li>
 <li>After ANY wizard: re-scan the bus for moved CAN IDs.</li>
-<li>After any CAN-tool config write, <strong>tell John to re-sync the phone VESC app</strong> (↓M read BOTH halves → save backup) — else its stale one-button "apply" stomps the change later.</li>
+<li>After any CAN-tool config write, <strong>re-sync the phone VESC app</strong> (↓M read BOTH halves → save backup) — else its stale one-button "apply" stomps the change later.</li>
 <li>External CAN tools poll with sender id <strong>0x2B</strong> (safe alongside the service): <code>tests/vesc_absmax.py</code> (read/patch Abs Max), <code>tests/vesc_battmax.py</code> (battery amps), <code>tests/hill_power_log.py</code> (live power CSV logger).</li>
 <li><strong>Never sender-check DUET replies:</strong> the second drive answers at base+1 (0x14) but stamps its replies with the BASE id (0x13). A sender==target check makes half the ESC look dead (7/10 bug).</li>
 </ul>
@@ -479,7 +479,7 @@
 <li><code>FOLLOW_STEER_MAX_FOLLOW=0.60</code> caps normal-following throw; full 1.00 lock is reserved for the planned phone U-turn button.</li>
 <li>Trace logger: /var/tmp/follow_trace.csv (all tuning from data now — the first road test left zero data).</li>
 </ul>
-<p><strong>Throttle:</strong> from solver range — stop inside 250cm (<code>FOLLOW_SETPOINT_CM</code>; sized so the user's legs sit ~3ft OUTSIDE the prox-gate caution edge — at 150 the gate flickered and stalled the cart), full cap at 450cm, <code>FOLLOW_THROTTLE_CAP=0.60</code> (~2.7mph) until braking is fully trusted.</p>
+<p><strong>Throttle:</strong> from solver range — stop inside 250cm (<code>FOLLOW_SETPOINT_CM</code>; sized so your legs sit ~3ft OUTSIDE the prox-gate caution edge — at 150 the gate flickered and stalled the cart), full cap at 450cm, <code>FOLLOW_THROTTLE_CAP=0.60</code> (~2.7mph) until braking is fully trusted.</p>
 <p><strong>Safety behaviors (all live):</strong></p>
 <ul>
 <li><strong>Boot-disarm:</strong> boots DISARMED; arms only when the tag goes absent→present (cycle the tag OFF→ON). Power-on-with-tag-nearby can never drive away. (The gate is seeded correctly so the anchor-wake window can't falsely clear it — that was a real bug, fixed 7/5.)</li>
@@ -512,7 +512,7 @@
 </ul>
 <p><strong>WiFi autoconnect ladder</strong> (one radio, NetworkManager picks highest in range): home WiFi = 100 → Moxee cellular hotspot = 50 (power it ON when out — it gives the cart real internet at the beach so Tailscale works) → rental WiFi = 50 → BeachCart own-AP = −50 (last resort; phone can join it, panel at 10.42.0.1; no internet in that mode). <strong>AP-trap fix (7/8):</strong> if the boot scan misses everything, NM used to wedge in the BeachCart AP forever (it never tears down an active AP to rescan). <code>tools/wifi_rescue.sh</code> + user <code>wifi-rescue.timer</code> (2 min) auto-escapes unless a phone is actually connected — live-tested, trap→home WiFi in 24s.</p>
 <p><strong>Web panel</strong> (<code>modules/webpanel.py</code>, port <strong>8080</strong>, phone control panel): live camera, Pi temp (°F, yellow 158/red 176), Drive card (mph, motor A, FET °F, live + latched faults, Ah/Wh, trip miles), per-anchor UWB health card + tag-dead banner, motor-sync banner, prox gate reason + BYPASS button, E-STOP/resume, <strong>"ASK CLAUDE" box</strong> (dictate into the textarea → injects into the live Claude Code tmux pane — iOS dictation doesn't work in raw terminals).</p>
-<p><strong>Photo drop</strong> (<code>tools/photo_upload.py</code>, port <strong>8090</strong>): phone → Pi picture uploads → ~/beach_cart/uploads/ (how John shows Claude screenshots). nohup-run — restart it after a reboot.</p>
+<p><strong>Photo drop</strong> (<code>tools/photo_upload.py</code>, port <strong>8090</strong>): phone → Pi picture uploads → ~/beach_cart/uploads/ (how I get phone photos onto the Pi). nohup-run — restart it after a reboot.</p>
 <h2 id="15-software-running-autostart">15.  Software, running &amp; autostart</h2>
 <div class="plain">The cart's software starts itself: flip the power on, and about a minute later everything — drive, sensors, follow-me, the radar screen, the web panel — is running with no keyboard or monitor involved. That's done with "services" (Linux's way of saying "always run this program, restart it if it dies, run this cleanup if it crashes"). This section lists them all, plus how to run things by hand when developing, and the automatic backups that push every change to a private online copy twice an hour.</div>
 <ol>
@@ -526,7 +526,7 @@
 </li>
 <li><strong>Backup:</strong> auto-commit + push every 30 min to a private GitHub repo (<code>beachcart-autopush.timer</code>; push now: <code>systemctl --user start beachcart-autopush.service</code>). <code>system_config/collect.sh</code> snapshots everything outside the repo (systemd units, /boot, deps) so the repo is a full restore image — <code>RESTORE.md</code> is the new-Pi playbook.
 </li>
-<li><code>sudo -n</code> passwordless flip-flops by session — test, don't assume; the user runs sudo steps via <code>!</code> when needed. nmcli works without sudo (polkit grants the console user network control).
+<li><code>sudo -n</code> passwordless flip-flops by session — test, don't assume. nmcli works without sudo (polkit grants the console user network control).
 </li>
 </ol>
 <h2 id="16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</h2>
@@ -592,7 +592,7 @@
 <h2 id="compute-cooling">Compute &amp; Cooling</h2>
 <div class="table-wrap"><table>
 <tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Single-board computer</td><td>Raspberry Pi 5, 8GB</td><td>1</td><td>BUILD</td><td>hostname <code>Beachcart</code>, user <code>jmas1120</code>. (Pi #1 was killed by a charger transient — see Surge Protection.)</td></tr>
+<tr><td>Single-board computer</td><td>Raspberry Pi 5, 8GB</td><td>1</td><td>BUILD</td><td>hostname <code>Beachcart</code>. (Pi #1 was killed by a charger transient — see Surge Protection.)</td></tr>
 <tr><td>Pi case + cooling</td><td>Argon NEO 5 Aluminum, dual passive/active</td><td>1</td><td>BUILD</td><td>Onboard base fan died (same transient era).</td></tr>
 <tr><td>Cooling fan (replacement)</td><td>30mm 5V blower, Pi 5 fan-header plug</td><td>1</td><td>BUILD</td><td><strong>INSTALLED 7/3</strong> (the HAT-removal header disaster session). Runs full-on via GPIO45 (pwm overlay kills the firmware curve; no tach). ⚠ OPEN: the SoC <strong>thermal pad shifted during the 7/3 surgery</strong> — Pi idles ~65°C, soft-throttled 79.6°C on 7/10. Re-seat the pad.</td></tr>
 <tr><td>SD card reader</td><td>acer USB-C dual-slot</td><td>1</td><td>BUILD</td><td></td></tr>
@@ -610,7 +610,7 @@
 <div class="table-wrap"><table>
 <tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
 <tr><td>Motor battery (upgrade)</td><td><strong>Power Queen 24V 50Ah Bluetooth LiFePO4</strong> (10.24 x 6.61 x 8.27 in, 1280Wh, ~23lb)</td><td>1</td><td>PLANNED</td><td>Verified spec: <strong>50A continuous / 60A 30-min peak BMS</strong> — beats the 20Ah pair's 40A series ceiling, 2.5x capacity, native 24V (no series wiring, ONE BMS, existing BROODAY charger + VESC 8S cutoffs work as-is). On arrival: VESCs to <strong>18A batt / −15A regen per side</strong> (~900W), coulomb counter <code>BATT_CAPACITY_AH</code> → ~50, re-measure. Won't fix the big hill — that stall is TORQUE-limited (motors pinned at 60A hw cap), not power-limited. Checklist: memory/beachcart-vesc-tuning.md.</td></tr>
-<tr><td>Battery box (50Ah)</td><td>3D-printed two-piece frame-rail box (battery_box_50_gen.py, PETG)</td><td>1</td><td>BUILD</td><td>Printed 7/9–7/10: 18mm shiplap joint (each half &gt; P1S bed alone), each half rail-mounts independently. John moves the waterproof case ~1" for the 10.24" length.</td></tr>
+<tr><td>Battery box (50Ah)</td><td>3D-printed two-piece frame-rail box (battery_box_50_gen.py, PETG)</td><td>1</td><td>BUILD</td><td>Printed 7/9–7/10: 18mm shiplap joint (each half &gt; P1S bed alone), each half rail-mounts independently. I'm shifting the waterproof case ~1" to clear the 10.24" length.</td></tr>
 </table></div>
 <h2 id="power-distribution-protection">Power Distribution &amp; Protection</h2>
 <div class="table-wrap"><table>
