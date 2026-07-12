@@ -92,10 +92,22 @@ h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
   padding: 18px 28px;
   transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
 }
-.nav.scrolled {
+/* Glass layer lives on a pseudo-element: backdrop-filter on .nav itself
+   would make it the containing block for the fixed mobile menu overlay,
+   shrinking the overlay to the nav bar's box once scrolled. */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(253, 250, 244, .8);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.nav.scrolled::before { opacity: 1; }
+.nav.scrolled {
   box-shadow: 0 1px 0 var(--line), 0 8px 30px rgba(13, 43, 64, .06);
   padding: 12px 28px;
 }
