@@ -52,6 +52,23 @@
       background: rgba(255, 140, 38, .07);
       border-radius: 0 10px 10px 0;
     }
+    .doc .plain {
+      margin: 1em 0;
+      padding: 14px 18px;
+      border-left: 4px solid var(--ocean);
+      background: rgba(11, 127, 196, .06);
+      border-radius: 0 10px 10px 0;
+    }
+    .doc .plain::before {
+      content: "IN PLAIN ENGLISH";
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: var(--ocean-d);
+      margin-bottom: 4px;
+    }
     .doc .table-wrap { overflow-x: auto; margin: 1em 0 1.4em; border: 1px solid var(--line); border-radius: 12px; }
     .doc table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: .92rem; background: var(--panel); }
     .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
@@ -97,12 +114,53 @@
       this page updates as the build evolves. (Network credentials and private addresses are omitted from this
       public copy.) The full <a class="part-jump" href="#parts" style="margin:0;display:inline">parts list with
       costs is at the bottom</a>.</p>
-      <div class="toc"><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/11</a></div>
+      <p class="doc-meta"><strong>New to this stuff?</strong> You're covered: every section opens with a blue
+      <em>"In plain English"</em> box that explains what you're building and why before the technical steps begin,
+      and there's a <a href="#glossary" style="color:var(--ocean-d)">plain-English glossary of every major part</a>
+      right below. Read those and the rest of the page will make sense.</p>
+      <div class="toc"><a href="#how-to-read">How to read this guide</a><a href="#glossary">Meet the parts — what everything does</a><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#1b-wiring-the-frame">1b.  Running wires through the tubing</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/11</a></div>
     </div>
   </header>
 
   <main class="doc">
+<h2 id="how-to-read">How to read this guide</h2>
+<p>This guide assumes you've never built a robot before. Here's the system:</p>
+<ul>
+<li><strong>Blue "In plain English" boxes</strong> open each section and tell you what the thing is, what job it does on the cart, and why it's built the way it is — no jargon. If a section ever stops making sense, go back and re-read its blue box.</li>
+<li><strong>Orange "NOTE" boxes</strong> are warnings and hard-won lessons. Every one of them exists because something broke, burned, or drove off wrong. Read them <em>before</em> doing the steps they sit next to, not after.</li>
+<li><strong>Numbered steps</strong> are in the order you should actually do them. The section order (frame → power → brain → sensors → autonomy) is also the build order — each layer is tested working before the next goes on top.</li>
+<li><code>Text that looks like this</code> is a literal filename, setting name, or command — type it exactly.</li>
+<li>Words you don't recognize are probably in the <a href="#glossary">glossary right below</a>. Skim it once now; you don't need to memorize it.</li>
+</ul>
+<p>One mindset tip before you start: nothing here requires genius, but almost everything requires <em>patience and order</em>. Measure before cutting, label before hiding a wire, test each system alone before connecting it to the next. Every disaster documented on this page came from skipping one of those.</p>
+<h2 id="glossary">Meet the parts — what everything does</h2>
+<p>The cart is really just a dozen kinds of parts working together. Here's each one in plain words. Think of the cart as a body: it has a skeleton, muscles, a heart, a brain, nerves, and senses.</p>
+<div class="table-wrap"><table>
+<tr><th>Part</th><th>What it is</th><th>What it does on the cart</th></tr>
+<tr><td><strong>Frame</strong></td><td>1.5" square aluminum tubes welded into a rectangle</td><td>The skeleton. Every other part bolts to it, and the hollow tubes double as protective channels for the wiring.</td></tr>
+<tr><td><strong>Drive motors (BLDC)</strong></td><td>"Brushless DC" electric motors — the type used in e-skateboards</td><td>The muscles. There are two, one per rear wheel, each turning its wheel through a bike chain.</td></tr>
+<tr><td><strong>Motor controller (ESC / VESC)</strong></td><td>An "electronic speed controller" — a small dedicated computer that feeds the motors precisely timed bursts of battery power</td><td>The translator between "go 2 mph" and the thousands of electrical pulses per second that actually make a brushless motor spin. Ours is one box (Flipsky DUET XS60) containing two independent 60-amp controllers, one per motor. "VESC" is the open-source flavor of ESC this project uses.</td></tr>
+<tr><td><strong>Battery (LiFePO4)</strong></td><td>Lithium iron phosphate battery — a safe, long-life lithium chemistry</td><td>The fuel tank. Two 12.8-volt batteries are wired end-to-end ("in series"), so their voltages add: 25.6V. That "24-volt-ish" bus powers everything.</td></tr>
+<tr><td><strong>BMS</strong></td><td>Battery management system — a protection circuit built inside each battery</td><td>The babysitter. It cuts the battery off if you pull too much current or drain it too low. You can't remove it, and you must respect its limits (we found one the hard way).</td></tr>
+<tr><td><strong>Buck converter</strong></td><td>A voltage step-down device</td><td>Turns 24V battery power into the clean 5V the computer and sensors drink — a phone charger for the robot brain. The cart has two, so a fault on one can't take out the other's loads.</td></tr>
+<tr><td><strong>Raspberry Pi 5</strong></td><td>A credit-card-sized Linux computer</td><td>The brain. Runs every line of the cart's software: reading sensors, steering, throttle, the follow-me logic, the web dashboard.</td></tr>
+<tr><td><strong>Steering servo</strong></td><td>A motor with position control built in: tell it an angle, it goes there and holds</td><td>The steering muscle. It pushes the front axle left and right through a tie rod. Ours is a 24V industrial unit, much stronger than a hobby servo.</td></tr>
+<tr><td><strong>RC transmitter + receiver</strong></td><td>A hobby radio remote (pistol-grip controller + matchbox receiver)</td><td>Manual control. One switch on the remote instantly overrides the self-driving and hands you the wheel.</td></tr>
+<tr><td><strong>TFmini lidar</strong></td><td>A thumb-sized laser tape measure</td><td>Close-range eyes. Six of them ring the cart, each firing an invisible laser and timing the reflection to measure distance dozens of times a second. They spot obstacles, curbs, and drop-offs.</td></tr>
+<tr><td><strong>RPLIDAR S3</strong></td><td>A spinning laser scanner</td><td>The 360° eyes. It sweeps a laser in a full circle ten times a second, producing a floor-plan-style map of everything around the cart — this drives the radar screen and part of the safety braking.</td></tr>
+<tr><td><strong>UWB anchors + tag</strong></td><td>Ultra-wideband radios — think "indoor GPS"</td><td>How the cart knows where <em>you</em> are. Four "anchor" radios on the cart's corners each time a radio ping to the "tag" you carry (radio travels about a foot per nanosecond). Four distances pin down your exact position; the cart steers toward it.</td></tr>
+<tr><td><strong>Camera</strong></td><td>A 12MP USB camera</td><td>Streams live video to your phone so you can see what the cart sees.</td></tr>
+<tr><td><strong>CAN bus</strong></td><td>A rugged two-wire network borrowed from the automotive world</td><td>How the Pi and the motor controllers talk: battery voltage, motor current, temperatures, fault codes all flow over these two wires.</td></tr>
+<tr><td><strong>PWM</strong></td><td>"Pulse-width modulation" — sending a number by varying how long an electrical pulse lasts</td><td>The language of throttle and steering. A 1.5-millisecond pulse means "center/stop"; longer means more forward/right, shorter means more reverse/left. The RC receiver, the servo, and the motor controller all speak it.</td></tr>
+<tr><td><strong>GPIO</strong></td><td>"General-purpose input/output" — the 40 metal pins on the Pi</td><td>Where every signal wire lands. Pins are referred to by number (e.g. GPIO13 = steering signal).</td></tr>
+<tr><td><strong>Level shifter</strong></td><td>A voltage translator on a fingernail-sized board</td><td>The RC receiver shouts at 5 volts; the Pi's pins only tolerate 3.3. This little board converts between them so nothing fries and nothing garbles.</td></tr>
+<tr><td><strong>I2C and UART</strong></td><td>Two simple "wire languages" chips use to talk to each other</td><td>I2C is a two-wire party line where devices take turns (the six lidars share one). UART is a private two-wire conversation between exactly two devices (each UWB radio gets one).</td></tr>
+<tr><td><strong>Fuse</strong></td><td>A strip of metal that melts if too much current flows</td><td>The fire-safety valve on the battery. A short circuit blows the fuse instead of igniting the wiring.</td></tr>
+<tr><td><strong>TVS diode</strong></td><td>A surge-protector component the size of a grain of rice</td><td>Clamps sudden voltage spikes before they reach the electronics. A spike from the battery charger killed our first Pi; this part is why it can't happen again.</td></tr>
+<tr><td><strong>Star ground</strong></td><td>A wiring rule, not a part</td><td>Every circuit's ground (return) wire routes back to ONE common point. This stops the motors' electrical noise from sneaking into the sensitive sensor and radio signals. It's non-negotiable on this cart.</td></tr>
+</table></div>
 <h2 id="0-overview-build-order">0.  Overview &amp; build order</h2>
+<div class="plain">The order below is deliberate: you build a "dumb wagon" first — a frame that rolls, steers, and drives by remote — and prove it works before any self-driving hardware goes on. Each layer is tested on its own before the next one stacks on top, so when something misbehaves you always know which layer to blame. Resist the urge to jump ahead to the fun autonomous parts; every hour spent making a layer solid saves five hours of confusion later.</div>
 <p>Build the mechanical cart first (frame, steering, drivetrain), then power, then the computer and motor controller, then RC control, then sensors and displays, then the autonomy hardware (UWB) and the follow-me software, and finally the safety systems that wrap all of it.</p>
 <ul>
 <li>1. Frame / chassis — 1.5" square aluminum, TIG welded</li>
@@ -125,19 +183,57 @@
 <li>18. Open items as of 7/11</li>
 </ul>
 <h2 id="1-frame-chassis">1.  Frame &amp; chassis</h2>
+<div class="plain">The frame is a flat rectangle of hollow square aluminum tube — picture a bed frame — 32 inches wide and 4 feet long, with extra tubes running across it wherever something heavy will sit (motors, axle, battery). Aluminum because it's light and doesn't rust at the beach; welded because bolted joints work loose in sand and vibration. Everything else in this guide bolts to this rectangle, so the single most important thing about it is that it's <em>square and flat</em> — a crooked frame means crooked wheels and a chain that throws itself off forever.</div>
 <p>Material: 1.5-inch square aluminum tubing. Deck footprint: 32 inches wide x 4 ft deep. Raw stock ~$800 from a local metal supplier; joints TIG welded with ER309L 3/32" stainless filler; 4"x4"x1/4" 6063 angle for brackets/gussets.</p>
 <ol>
-<li>Cut the 1.5" square tube for the perimeter rectangle: two 32" cross members + two side rails at the 4 ft depth. Deburr.
+<li><strong>Plan and mark before cutting.</strong> Draw the frame on paper with every dimension: the perimeter rectangle (two 32" cross members + two 4-ft side rails) plus a cross member wherever load lands — the motor mounts, the rear axle bearings, and the battery box. Mark cuts on the tube with a square and a fine marker. Measure twice; aluminum stock is too expensive to scrap.
 </li>
-<li>Tack-weld square (equal diagonals), add cross members where motors, bearings and battery mount, then TIG weld all joints. Add the 6063 angle as gussets/feet at load points (axle bearings, steering, motors).
+<li><strong>Cut the tube.</strong> A miter/chop saw with a non-ferrous (aluminum-rated) blade gives clean square cuts; a metal bandsaw or even a hacksaw with a miter box works if you're patient. Deburr every cut edge with a file — fresh-cut aluminum is razor sharp and burrs keep joints from seating flush.
 </li>
-<li>Set threaded rivet-nuts (SAE rivet-nut kit) in the tube walls wherever accessories bolt on later — far stronger than self-tappers in thin aluminum.
+<li><strong>Dry-fit and square it up.</strong> Lay the perimeter out on a known-flat surface, clamp the corners, then measure the two diagonals corner-to-corner. When both diagonals are exactly equal, the rectangle is square — this is the whole trick. Nudge and re-measure until they match.
 </li>
-<li>Cap open tube ends (3/4" ribbed caps); rubber grommets in every wire pass-through.
+<li><strong>Tack-weld, re-check, then fully weld.</strong> Tack-weld the corners (small temporary welds), re-check the diagonals — welding pulls metal as it cools — then add the interior cross members and TIG weld all joints with the ER309L filler. <em>Can't weld? That's fine:</em> do all the cutting, fitting, and clamping yourself, then take the clamped assembly to a local welding shop — an hour of a pro's TIG time is cheap compared to the tools, and the fit-up is the real labor anyway.
+</li>
+<li><strong>Add gussets at the load points.</strong> Weld pieces of the 4"x4"x1/4" 6063 angle as corner braces and mounting feet wherever the frame takes real force: axle bearings, the steering bracket, and the motor plates. A gusset turns a joint that can flex into one that can't.
+</li>
+<li><strong>Set rivet nuts for everything that bolts on later.</strong> A rivet nut is a threaded metal insert: drill a hole in the tube wall, squeeze the insert in with the rivet-nut tool, and you've got a strong machine-screw thread in metal that's otherwise too thin to tap. Use them (SAE rivet-nut kit) everywhere accessories mount — far stronger than self-tapping screws in thin aluminum, and you can unbolt things forever without wrecking the frame.
+</li>
+<li><strong>Finish the tube work.</strong> Cap the open tube ends (3/4" ribbed push-in caps) so they don't collect sand and water, and fit a rubber grommet in every hole where wire will pass through (much more on this in §1b).
 </li>
 </ol>
 <div class="note"><strong>NOTE:</strong> The frame is the datum for everything else. Wheel bearing alignment and chain alignment both depend on it being square and flat.</div>
+<h3 id="1b-wiring-the-frame">1b.  Running wires through the tubing — step by step</h3>
+<div class="plain">The frame's hollow tubes are free built-in conduit: wires routed inside them are protected from sun, salt spray, snags, and dropped cargo, and the cart looks clean instead of like a hairball. You won't pull every wire on day one — wiring happens gradually as each system goes on — but the holes, grommets, and pull strings should be set up <em>now</em>, while the frame is bare and easy to work on. The rules below are the difference between wiring you never think about again and wiring that produces a mystery short in month two.</div>
+<ol>
+<li><strong>Plan every run on paper first.</strong> List each wire: what it connects (both endpoints), roughly how long, and which of the two families it belongs to — <strong>POWER</strong> (thick, electrically noisy: battery leads, motor phase wires, servo power) or <strong>SIGNAL</strong> (thin, sensitive: sensor wires, RC channels, UART, CAN, camera USB).
+</li>
+<li><strong>Keep the two families apart.</strong> Power and signal ideally run in <em>different tubes</em>, or at minimum enter/exit far from each other. The three fat phase wires between each motor controller and motor are the worst offenders — they radiate switching noise — so they never share a tube with signal wires. This isn't perfectionism: motor noise coupling into the RC and UART lines was a real, observed failure on this cart (it's why the star-ground rule in §4 exists).
+</li>
+<li><strong>Drill entry and exit holes</strong> a size up from the bundle that will pass through, on the underside or inward-facing tube faces so rain can't run in. Drill only where the tube isn't structural at a weld or load point.
+</li>
+<li><strong>Deburr every hole</strong> — a countersink bit spun by hand, or sandpaper rolled on a dowel. A raw drilled hole in aluminum has an edge that will saw through insulation as the cart vibrates.
+</li>
+<li><strong>Grommet every hole. No exceptions.</strong> Push a rubber grommet (the Vrupin kit) into each hole before any wire goes through. Vibration + bare aluminum edge = a chafed-through wire and a dead short weeks later, at the beach, where you can't find it.
+</li>
+<li><strong>Get a string through the tube first.</strong> Three ways, easiest first: (a) tilt the tube and drop a small nut tied to light string through; (b) hold a shop-vac at the far hole and let it suck a string tied to a scrap of plastic bag through; (c) push an electrician's fish tape or a straightened coat hanger through and tie the string to it.
+</li>
+<li><strong>Pull the wires with the string.</strong> Tie the string to the wire bundle and wrap the joint in tape so it forms a smooth bullet shape with no snagging edges. Pull gently and steadily — if it fights, back up and re-tape rather than yanking. <strong>Connectors never go through the tube:</strong> pull bare wire ends and crimp the connectors on afterward (the pre-crimped Dupont/JST kit for signal wires; proper crimp lugs plus adhesive-lined heat shrink for power).
+</li>
+<li><strong>Pull extra, always.</strong> Leave 6–12" of slack at each end — a service loop — so connectors can be re-made and boxes can be opened without the wire going drum-tight. Wire is cheap; a too-short run through a sealed tube is a do-over.
+</li>
+<li><strong>Leave a pull string behind in every tube.</strong> When you pull a bundle through, tie a spare length of string to it and pull that through too, then leave it in place. Future-you <em>will</em> add a sensor next month, and the string turns a 30-minute fishing job into a 30-second pull. Re-leave a new string every time you use one.
+</li>
+<li><strong>Label both ends of every wire BEFORE it disappears into a tube.</strong> Masking-tape flags and a fine marker are fine ("CH3 RC → GPIO24", "ANCH2 5V"). Once a wire is inside the frame you cannot trace it by looking; ten unlabeled white wires emerging from a hole are a puzzle you gave yourself.
+</li>
+<li><strong>Dress the runs outside the tubes.</strong> Where wires travel in the open: braided PET loom over the bundle, adhesive zip-tie mounts every 6" or so, and a <em>drip loop</em> (the wire dips below the entry point, so water drips off the bottom of the loop instead of following the wire in) before every enclosure. Wires enter waterproof boxes through cable glands (the PG7–PG19 kit), never through a bare hole.
+</li>
+<li><strong>Grounds follow the star-ground rule.</strong> Every ground wire routes back to the single star point at the buck converters (§4) — resist every temptation to grab a "convenient" nearby ground. This is a wiring-time decision, so make it while pulling wire, not after.
+</li>
+<li><strong>Test before you connect.</strong> With everything still unpowered, use a multimeter's continuity beeper on each labeled run end-to-end, and check that adjacent wires <em>don't</em> beep to each other (no shorts from a nicked jacket during the pull). Two minutes per wire now versus hours of live debugging later.
+</li>
+</ol>
 <h2 id="2-steering">2.  Steering</h2>
+<div class="plain">The front wheels pivot on a single swiveling beam, exactly like a toy wagon — in fact it <em>is</em> one: the pivot assembly was salvaged from a kid's wagon, which solved the hardest mechanical problem for free. Instead of a kid pulling a handle, a powerful servo motor swings the beam left and right through a "tie rod" (a threaded rod with a ball joint at each end, same idea as in your car). The Pi steers by sending the servo a timed electrical pulse; the servo moves to that angle and holds it. The one thing to internalize here: this servo runs on 24 volts and only its thin <em>signal</em> wire goes anywhere near the Pi.</div>
 <p>Built around a steering bracket / pivot assembly salvaged from a kid's WAGON (the front pivoting axle beam) — ready-made center pivot + stub axles — with powered steering added via tie rods and a 24V industrial servo.</p>
 <ol>
 <li>Mount the wagon bracket to the front cross member; fit the front wheels to its stub axles.
@@ -152,6 +248,7 @@
 <p><strong>Working tune (config.py):</strong> slew limiter 1500us/s, center deadband 0.10, travel <code>SERVO_RANGE_US=540</code> (60% throw — 50% was too little, raised 6/28, user-confirmed "much better").</p>
 <div class="note"><strong>Field lesson (7/8):</strong> the servo popped out of its socket under hill load once — check the linkage seating when steering goes soft.</div>
 <h2 id="3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</h2>
+<div class="plain">Each rear wheel works like a bicycle running in reverse: the motor spins a small sprocket, a bike chain carries that to a big sprocket bolted to the wheel. The big sprocket has five times the teeth of the small one, so the wheel turns five times slower than the motor — but with five times the twisting force. That trade is the "5:1 reduction," and it's what lets a fist-sized motor shove a loaded cart through soft sand. There are two motors, one per wheel, with no axle connecting them — each side drives independently. The scary-looking orange warning below is the single most important step in this section: the tires will spin uselessly on their metal hubs unless you glue them first.</div>
 <p>Two-wheel rear drive: two Flipsky 7070 110KV sensored BLDC outrunners (14 poles / 7 pole pairs), each driving a rear wheel through a 5:1 single-speed bike-chain reduction. Wheels: 16.5" (42cm) PU, 3/4" bearings. ~733 ERPM per mph on this drivetrain.</p>
 <div class="note"><strong>⚠ CRITICAL — BOND THE TIRE TO THE HUB FIRST.</strong> The tubular PU tire spins freely on the metal hub under drive torque — the sprocket turns the hub, the tire doesn't follow. Before anything else on the wheels: split the hub → scuff tube AND hub mating surfaces with 80-grit → plastic epoxy → re-bolt halves → FULL cure → only then mount spacers + sprocket. Skip this and the cart will not move — guaranteed.</div>
 <ol>
@@ -175,6 +272,7 @@
 <li>One motor spins "backwards" because the motors face opposite directions — fixed in software (Invert Motor Direction on that half), NEVER by swapping phase wires.</li>
 </ul>
 <h2 id="4-power-system-distribution">4.  Power system &amp; distribution</h2>
+<div class="plain">Everything runs off one battery bank: two 12.8-volt batteries connected end-to-end — like stacking two AAs in a flashlight — so their voltages add up to 25.6V. The big muscles (motors, steering servo) drink that "24V bus" directly; the delicate electronics get 5V made by buck converters. Three safety devices guard the bus: a <strong>fuse</strong> (melts and disconnects if a short circuit tries to draw huge current — prevents fires), a <strong>TVS diode</strong> (a surge protector that clamps voltage spikes — one such spike killed this project's first Raspberry Pi), and a <strong>bulk capacitor</strong> (a small energy sponge that smooths out jolts). The "star ground" rule at the end of this section is invisible but critical: every ground wire meets at exactly one point, which keeps the motors' electrical noise out of the sensors' faint signals.</div>
 <p><strong>Battery (current, installed 7/10): 2x SEFEPODER SP1220M 12.8V 20Ah LiFePO4 in SERIES = 8S, 25.6V nominal / ~26.3V rested-full.</strong> Pack spec: 40A BMS trip / 20A continuous / 3C pulse / 10A charge. This replaced the original 2x 15Ah pair (whose 16–20A BMS was the proven power ceiling — 19.4A measured draw pinned it). A Power Queen 24V 50Ah (50A BMS) is expected later; the 20Ah pair is the interim motor pack. Charger: BROODAY 24V 10A LiFePO4 (29.2V).</p>
 <ol>
 <li>Build the 24V bus with 8AWG/12AWG silicone wire + the Recoil bus bar. <strong>Bus order: battery (+) → main fuse → bulk caps → TVS → loads.</strong>
@@ -193,6 +291,7 @@
 <div class="note"><strong>CHARGING DISCIPLINE: never run the electronics while the pack is on the charger</strong> — the surge that killed Pi #1 came in through the charge path. Electronics OFF (remote relay) while charging. (The battery gauge now survives charged-while-off correctly — see §9b.)</div>
 <p>Split-bus plan (motor packs separate from a 15Ah electronics battery, XT60 charge ports keyed by voltage, 14.6V 5A charger for the 15Ah): designed 7/9, frame-rail battery boxes printed (§16) — finish per the checklist in memory/beachcart-vesc-tuning.md.</p>
 <h2 id="5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</h2>
+<div class="plain">The Raspberry Pi is the cart's brain — a $80 credit-card-sized computer running Linux. Every sensor reading, steering decision, and safety check in the rest of this guide is a program running on it. Two things matter most at this stage: powering it properly (it gets clean 5V from Buck #1, never straight battery voltage) and keeping it cool (a hot Pi slows itself down, and a throttled brain makes a sluggish cart). The "hardware PWM" business below just means two of the Pi's pins can generate perfectly steady timing pulses in dedicated silicon — the steering and throttle signals use those two pins because software-generated pulses jitter, and jittery pulses made the motors twitch.</div>
 <p>Raspberry Pi 5 8GB in an Argon NEO 5 aluminum case, powered via USB-C bare-wire lead from Buck #1 (5V 5A).</p>
 <ol>
 <li>Flash Raspberry Pi OS 64-bit (labwc/Wayland desktop). Hostname <code>Beachcart</code>, user <code>jmas1120</code>, SSH on.
@@ -211,6 +310,7 @@
 <li>After ANY header/HAT surgery, rebuild wiring from <strong>PINOUT.md</strong> — it exists precisely because the 7/3 rebuild had to reverse-engineer four files. Reconnect order + per-wire tables are there.</li>
 </ul>
 <h2 id="6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</h2>
+<div class="plain">A brushless motor can't just be connected to a battery — something has to energize its three wire coils in exactly the right rhythm, thousands of times a second, or it just twitches. That something is the ESC (electronic speed controller). A "VESC" is the open-source breed of ESC: same job, but you can see and tune everything it does from a free laptop app called <strong>VESC Tool</strong>. This section is almost entirely <em>configuration</em> — teaching the controller what motor it's spinning, how fast it's allowed to go, how much current it may pull, and how to brake. Every number below was learned by something misbehaving, so copy them exactly. The recurring theme to watch for: our unit is really <em>two</em> controllers in one box, and every setting must be written to <em>both halves</em> — forgetting the second half is this section's classic mistake.</div>
 <p>One <strong>Flipsky DUET XS60</strong> — a DUAL ESC: two independent 60A drive halves in one box, one half per motor, internally CAN-linked. Treat the halves as two separate VESCs for configuration (every setting must be written to BOTH). The Pi sends a single PPM throttle on GPIO18 to the master; CAN forwards it to the other half.</p>
 <p><strong>⚠ CAN IDs are currently 0x13 + 0x14 — but EVERY VESC Tool wizard/session can silently renumber one.</strong> It has happened at least three times (0x10→0x12, then →0x11/0x12, then →0x13/0x14). If a "VESC vanishes," re-scan the bus and update <code>BATT_CONTROLLERS</code> in config.py before suspecting hardware.</p>
 <p>Wiring: each motor's 3 phase wires + hall sensor cable to its half; 24V from the bus; CAN-H/CAN-L to the Pi's CAN HAT (§9b) with shared ground.</p>
@@ -243,6 +343,7 @@
 <li><strong>Never sender-check DUET replies:</strong> the second drive answers at base+1 (0x14) but stamps its replies with the BASE id (0x13). A sender==target check makes half the ESC look dead (7/10 bug).</li>
 </ul>
 <h2 id="7-rc-control">7.  RC control</h2>
+<div class="plain">This is an ordinary hobby-store radio set: a pistol-grip transmitter in your hand and a matchbox-sized receiver on the cart. The receiver outputs three "channels" — steering wheel position, trigger position, and a switch — each as a timed pulse the Pi reads on its pins. The cart is self-driving by default; flipping the channel-3 switch instantly hands control to the human. The one non-obvious step: the receiver speaks in 5-volt pulses and the Pi's pins are 3.3-volt only, so every signal passes through a small "level shifter" board that translates — skip it and the Pi reads garbage (and may be damaged).</div>
 <p>Manual driving: Flysky FS-GT3C 3-channel transmitter + GR3E receiver. <strong>RC CH3 = the manual-override / safety switch</strong> (autonomy is the default mode; CH3 high = instant manual).</p>
 <ol>
 <li>Bind the GR3E; it outputs 5V PWM on 3 channels.
@@ -256,6 +357,7 @@
 </ol>
 <div class="note"><strong>Gotchas:</strong> a transmitter that is OFF still reads a steady ~1515us on the Pi (looks centered-but-live) — confirm the TX is actually on. Manual RC drive is NEVER gated by the proximity system (hard design rule); only autonomous follow is.</div>
 <h2 id="8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</h2>
+<div class="plain">These two programs are the cart's reflexes: they take whatever is commanding the cart right now — your remote, or the follow-me brain — and turn "40% throttle, slight left" into the actual timed pulses the servo and motor controller expect. On the way through, they enforce the manners: speed changes ramp up smoothly instead of lurching ("slew limiting"), tiny stick wiggles near center are ignored ("deadband"), and a stack of automatic protections kicks in whenever anything goes quiet — stop if the brain stops talking, park-brake after two seconds of standing still, and clamp everything safe even if the whole program crashes.</div>
 <ul>
 <li>Throttle in: (ch2−1500)/500, inverted, deadband 0.18. VESC pulse = 1500us ± 400 (<code>DRIVE_RANGE_US</code>), clamp 1100–1900us, 50Hz.</li>
 <li>Pi-side throttle slew: up 0.7/s, down 2.5/s (down stays fast for braking). ⚠ Open item: this stacks with the VESC's 1.0s PPM ramp — pick ONE ramp source eventually.</li>
@@ -265,7 +367,9 @@
 <li><strong>Crash-runaway protection:</strong> <code>park_neutral.sh</code> runs as <code>ExecStopPost=</code> in beachcart.service — on ANY main.py death (crash/OOM/SIGKILL) it forces the servo to neutral and the VESC channel to duty 0 (= parked, not freewheeling) straight from sysfs. RP1 hardware PWM keeps emitting the last pulse after a process dies; this is what handles that.</li>
 </ul>
 <h2 id="9-sensors-telemetry">9.  Sensors &amp; telemetry</h2>
+<div class="plain">Sensors are the cart's senses, and this section wires up three of them: six little laser rangefinders that watch for obstacles, a battery gauge that works like a smart fuel gauge, and a spinning laser that maps everything around the cart. Each subsection's blue box explains its own sensor.</div>
 <h3 id="9a-obstacle-lidar-ring-6x-tfmini-plus">9a.  Obstacle LiDAR ring — 6x TFmini Plus</h3>
+<div class="plain">Each TFmini is a laser tape measure the size of your thumb: it fires an invisible laser and times the reflection, reporting a distance many times a second. Six of them ring the cart — some aimed straight out to spot obstacles, some angled down at the ground ahead. The angled ones are clever: at boot they memorize how far away the ground normally is, then an object <em>closer</em> than that means "obstacle" and a reading <em>farther</em> than that means the ground fell away — a curb edge or washout, so STOP. All six share one pair of wires to the Pi through a "multiplexer," a switchboard chip that lets the Pi talk to them one at a time.</div>
 <ol>
 <li>Six TFmini Plus (IP65) on printed brackets: ch0 Front Straight, ch1 Front Down (curb), ch2 Front Right + ch3 Front Left (compound 28° down + 28° out corners), ch4 Back Left, ch5 Back Right. Verify the map with <code>tests/lidar_identify.py</code> (stop the service first; run <code>-u</code> unbuffered).
 </li>
@@ -281,6 +385,7 @@
 </li>
 </ol>
 <h3 id="9b-battery-gauge-coulomb-counter-over-can">9b.  Battery gauge + coulomb counter over CAN</h3>
+<div class="plain">The Pi asks the motor controllers "what voltage do you see, and how much current is flowing?" over the CAN network, and turns the answers into a percent-full gauge. The wrinkle is that LiFePO4 batteries hold almost exactly the same voltage from 90% full down to 60% — so voltage alone can't tell you what's left. The fix is "coulomb counting": the software literally counts every amp-hour flowing out of (and back into) the battery, like a checkbook, and uses voltage only at the extremes where it's trustworthy. The rest of this section is hard-won plumbing to make those CAN readings reliable while two controllers talk over each other on the same two wires.</div>
 <ol>
 <li>Waveshare 2-Ch Isolated CAN HAT (MCP2515, 16MHz), CAN0 interrupt GPIO23. VESC CAN-H/L to CAN_0 with shared ground. <code>config.txt</code>: <code>dtparam=spi=on</code> + <code>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=23</code>.
 </li>
@@ -295,6 +400,7 @@
 </li>
 </ol>
 <h3 id="9c-360-lidar-rplidar-s3">9c.  360° LiDAR — RPLIDAR S3</h3>
+<div class="plain">This is the spinning puck you see on self-driving cars, in miniature: a laser rangefinder rotating ten times a second, producing a 360° floor-plan of everything around the cart out to 40 meters. It plugs into the Pi over USB. Its map drives the radar display on the cart's screen, and since 7/10 it's also a safety sensor — it watches a corridor ahead of the cart and slows or stops for anything walking into the path, catching what the narrow-beam TFminis can miss (like a person's legs slightly off-center).</div>
 <ol>
 <li>CP2102N USB-UART adapter — use the /dev/serial/by-id symlink, <strong>1 Mbaud</strong>, standard SCAN (0x20), raw SLAMTEC protocol (<code>modules/lidar360.py</code>), ~10Hz sweeps into shared state.
 </li>
@@ -308,6 +414,7 @@
 </li>
 </ol>
 <h2 id="10-displays-camera-5-screen">10.  Displays (camera + 5" screen)</h2>
+<div class="plain">The cart has two "faces": your phone, which gets the live camera feed plus every control and gauge through a web page (§14), and a small 5-inch screen on the cart itself, which shows a radar-style sweep of what the 360° lidar sees. The radar is drawn mirror-style on purpose — forward points down — because during follow-me you're standing in <em>front</em> of the cart looking back at the screen, and this way left is left and right is right from where you stand.</div>
 <p>Layout since 7/5 (wheels-down): <strong>the camera streams to the PHONE web panel; the 5" screen is a fullscreen radar scope + info strip.</strong></p>
 <ol>
 <li>Camera: Arducam 12MP autofocus USB (UVC → /dev/video0; rpicam/libcamera saying "no cameras" is normal for USB). <code>WEBPANEL_CAMERA=True</code> makes the webpanel the sole camera owner (ends the old ffplay/panel hand-off bug). <code>CAMERA_ROT180=True</code> — the cart flip put it upside down; rotation is done in the phone browser CSS (zero CPU; a raw /snapshot.jpg is still unrotated).
@@ -320,6 +427,7 @@
 </li>
 </ol>
 <h2 id="11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</h2>
+<div class="plain">This is how the cart knows where you are, and it's the heart of follow-me. UWB (ultra-wideband) is best understood as indoor GPS: four radio "anchors" on the cart's corners each ping a small "tag" you carry, and time how long the radio wave takes to come back — radio travels about one foot per nanosecond, so the round-trip time <em>is</em> the distance. Four distances from four known corners pin down exactly where the tag is, the same way GPS satellites pin down your phone. This section has the strictest rules in the whole guide, because these little radio modules are the most fragile thing on the cart: they run on exactly 3.3 volts, they die instantly at 5, and they even kill <em>themselves</em> if powered without two tiny "decoupling" capacitors that steady their power during a transmission burst. Roughly half the modules this project ever bought died teaching us the rules below — follow them exactly and yours won't.</div>
 <p>4x REYAX RYUW122_Lite anchors on the cart corners + 1 wearable tag. Anchor spacing (measured): 34" left↔right x 45" front↔rear (<code>FOLLOW_ANCHOR_W_CM=86.36</code>, <code>L_CM=114.3</code>). ANCH1=front-left, ANCH2=front-right, <strong>ANCH4=rear-LEFT, ANCH3=rear-RIGHT (verified by tag-held-left test — the first guess was swapped and steered the cart the wrong way).</strong></p>
 <h3 id="power-the-part-that-killed-a-dozen-modules-follow-exactly">Power (the part that killed a dozen modules — follow exactly)</h3>
 <ol>
@@ -361,6 +469,7 @@
 <h3 id="the-wearable-tag">The wearable tag</h3>
 <p>A single LiPo crosses 3.3V as it drains, so the tag uses a <strong>TPS63020 buck-boost</strong> (a plain buck "works then quits" — that mystery cost a module). Chain: 803040 LiPo → TP4056 USB-C charger (B+/B−, always-on so it charges switched-off) → slide switch → TPS63020 (set 3.3V by shorting the 3V3 pad ONLY) → 10uF+0.1uF → RYUW122. Printed case (§16), antenna end away from the body/metal. <strong>A dead tag battery looks like "all anchors +OK but 0 hits"</strong> — the panel now shows that exact diagnosis automatically. Wall-charge the tag.</p>
 <h2 id="12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</h2>
+<div class="plain">This is the program that does the actual following. Every third of a second it takes the four anchor distances, computes where you are (a little geometry called "trilateration" — finding the one point consistent with all four measured distances), and converts that into two numbers: which way to steer (toward your bearing) and how fast to go (based on how far away you are — it slows as it approaches and stops about 8 feet away, so it never crowds you). Layered on top are the manners that make it trustworthy: it wakes up disarmed and won't move until you deliberately cycle the tag off and on, it refuses to drive at you if you're behind it, and it never, ever reverses on its own in sand — a stuck cart must stay light enough to push out by hand.</div>
 <p><strong>Control model:</strong> AUTONOMOUS is the default and runs with the RC off. Grab the RC + CH3 high = instant manual override. Failsafe (RC lost) blocks manual only, never autonomy.</p>
 <p><strong>Position solver (7/3):</strong> age-weighted least-squares trilateration over every fresh anchor distance → true tag (x,y) → range + bearing. Any ≥2 anchors keep a fix; degrades gracefully. Fronts range every loop, rears round-robin (<code>FOLLOW_REAR_EVERY=2</code>); ranging port timeout 0.1s (this was the speed fix) → <strong>3.3Hz with all 4 anchors at 20/20</strong>. Freshness window 0.9s.</p>
 <p><strong>Steering = bearing PD law</strong> (the original cm-diff law was distance-blind and pulsed):</p>
@@ -380,6 +489,7 @@
 </ul>
 <p><strong>Next layer (designed, not built):</strong> goal-biased follow-the-gap — steer to the clear lidar gap nearest the tag bearing. One code change in recommend_heading() when it's time.</p>
 <h2 id="13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</h2>
+<div class="plain">Safety here is an onion, not a single switch: nine independent layers, each able to stop the cart on its own, ordered from "sees a problem coming" (the proximity gate) down to "everything crashed" (a script that parks the wheels even if the whole program dies). The design principle behind all of them: any single failure should make the cart <em>stop</em>, never make it run away. The table reads top to bottom in the order things would fire. Note the honest gap list at the bottom — knowing what is <em>not</em> yet protected is part of the safety system too.</div>
 <div class="table-wrap"><table>
 <tr><th>Layer</th><th>What it does</th></tr>
 <tr><td>Prox gate (proximity.py)</td><td>Fuses forward TFminis + S3 corridor into a throttle scale: 1.0 clear / 0.5 slow / 0.0 STOP (obstacle, curb, drop-off, corridor hit). Follow-only; manual RC never gated. Master switch <code>PROX_GATE_ENABLED=True</code>.</td></tr>
@@ -394,6 +504,7 @@
 </table></div>
 <p><strong>Known gaps (decided-but-not-built or open):</strong> the gate fails OPEN on dead I2C / dead lidar thread / optical no-return; no low-battery action (pack just bogs and dies); webpanel /api/resume is unauthenticated on :8080; rain no-return false cliffs.</p>
 <h2 id="14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</h2>
+<div class="plain">Tailscale is a free app that puts your devices on their own private, encrypted mini-internet — the cart keeps one permanent private address no matter whose WiFi it's on, so your phone and laptop can always reach it, even at the beach (where a pocket cellular hotspot gives the cart its internet). On top of that sits the web panel: a webpage served by the cart itself that works like a car dashboard on your phone — live camera, speed, battery, sensor health, an E-STOP button. The "autoconnect ladder" below just means the cart tries its list of known WiFi networks in priority order at boot and falls back gracefully.</div>
 <p><strong>Tailscale is the backbone: the cart is one stable private address from anywhere.</strong></p>
 <ul>
 <li><strong>ALWAYS ssh user@&lt;the cart's Tailscale address&gt; + <code>tmux attach</code></strong> (never the LAN IP) — works from any WiFi, survives network flips. PuTTY saved session "beachcart" (keepalive 30s); phone = Termius.</li>
@@ -403,6 +514,7 @@
 <p><strong>Web panel</strong> (<code>modules/webpanel.py</code>, port <strong>8080</strong>, phone control panel): live camera, Pi temp (°F, yellow 158/red 176), Drive card (mph, motor A, FET °F, live + latched faults, Ah/Wh, trip miles), per-anchor UWB health card + tag-dead banner, motor-sync banner, prox gate reason + BYPASS button, E-STOP/resume, <strong>"ASK CLAUDE" box</strong> (dictate into the textarea → injects into the live Claude Code tmux pane — iOS dictation doesn't work in raw terminals).</p>
 <p><strong>Photo drop</strong> (<code>tools/photo_upload.py</code>, port <strong>8090</strong>): phone → Pi picture uploads → ~/beach_cart/uploads/ (how John shows Claude screenshots). nohup-run — restart it after a reboot.</p>
 <h2 id="15-software-running-autostart">15.  Software, running &amp; autostart</h2>
+<div class="plain">The cart's software starts itself: flip the power on, and about a minute later everything — drive, sensors, follow-me, the radar screen, the web panel — is running with no keyboard or monitor involved. That's done with "services" (Linux's way of saying "always run this program, restart it if it dies, run this cleanup if it crashes"). This section lists them all, plus how to run things by hand when developing, and the automatic backups that push every change to a private online copy twice an hour.</div>
 <ol>
 <li>Manual run: <code>cd ~/beach_cart &amp;&amp; PYTHONPATH=~/beach_cart python3 main.py</code>. <code>~/start_cart.sh</code> = manual foreground run. To drive manually: flip RC CH3.
 </li>
@@ -418,6 +530,7 @@
 </li>
 </ol>
 <h2 id="16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</h2>
+<div class="plain">Every custom bracket, spacer, and case on the cart is 3D-printed in PETG — a plastic that shrugs off sun and moisture better than the usual PLA. The unusual bit: instead of drawing these parts in a CAD program, each one is generated by a small Python script, so a dimension tweak is a one-line edit and a re-run. If you don't own a printer, every part here is simple enough for a local print shop or library makerspace to run from the STL files.</div>
 <p>The .py voxel/marching-cubes generator is the source of truth; the STL is its output (stl/ is gitignored — regenerate, or serve with a temp <code>http.server 8091</code> over Tailscale for the PC).</p>
 <ul>
 <li>TFmini flat bracket (tfmini_mc.py) — 55x21x6mm.</li>
@@ -431,6 +544,7 @@
 </ul>
 <p><strong>P1S print notes:</strong> PETG 245/255°C, bed 70°C, 0.25mm first layer, LOW part-cooling fan (40–50% — high fan warps corners), brim on small parts. First-layer lifting = wash the plate with warm water + DISH SOAP (not just IPA).</p>
 <h2 id="17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</h2>
+<div class="plain">The one-page cheat sheet: which wire lands on which Pi pin, and the key electrical numbers. When rebuilding or debugging, check against this list first.</div>
 <ul>
 <li>GPIO library lgpio, gpiochip 0. Star ground — VESC/servo grounds NEVER on the Pi header.</li>
 <li>Steering servo: GPIO13 (RP1 hw PWM chan1), signal only. VESC PPM: GPIO18 (chan2), signal only.</li>
@@ -444,6 +558,7 @@
 <li>Key addresses: cart Tailscale &lt;the cart's Tailscale address&gt; — webpanel :8080, photo drop :8090, VNC :5900 (Tailscale-bound). Own-AP mode: 10.42.0.1.</li>
 </ul>
 <h2 id="18-open-items-as-of-711">18.  Open items as of 7/11</h2>
+<div class="plain">The honest to-do list. A real build always has one — publishing it keeps us from pretending the cart is more finished than it is.</div>
 <ol>
 <li><strong>Re-seat the Pi's thermal pad</strong> (idles 65°C; throttled at 79.6°C on 7/10) — before the trip.
 </li>
