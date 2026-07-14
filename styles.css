@@ -461,50 +461,10 @@ h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
 .deep-card h3 { color: var(--deep); margin-bottom: 8px; font-size: 1.15rem; }
 .deep-card p { color: var(--muted); font-size: .97rem; }
 
-/* ---------- Patents ---------- */
-.patent-intro { max-width: 760px; margin-bottom: 44px; }
-.patent-intro p { font-size: 1.03rem; margin-bottom: 14px; color: #33505f; }
-.patent-intro strong { color: var(--ink); }
-.patent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.patent-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px 26px;
-  text-decoration: none;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(13, 43, 64, .06);
-  transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
-}
-.patent-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--orange), var(--ocean));
-}
-.patent-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 140, 38, .5);
-  box-shadow: 0 18px 44px rgba(13, 43, 64, .14);
-}
-.patent-no { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--deep); font-size: 1.15rem; }
-.patent-label { color: var(--ocean); font-weight: 500; }
-.patent-year { color: var(--muted); font-size: .9rem; }
-.patent-arrow {
-  position: absolute;
-  right: 22px; bottom: 18px;
-  color: var(--orange);
-  font-size: 1.1rem;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity .2s ease, transform .2s ease;
-}
-.patent-card:hover .patent-arrow { opacity: 1; transform: none; }
+/* ---------- Intro paragraph block (Approach + Engineering sections) ---------- */
+.intro-block { max-width: 760px; margin-bottom: 44px; }
+.intro-block p { font-size: 1.03rem; margin-bottom: 14px; color: #33505f; }
+.intro-block strong { color: var(--ink); }
 
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -579,10 +539,9 @@ h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
   .story-grid { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .deep-grid { grid-template-columns: 1fr; }
-  .patent-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
 
-  /* Mobile menu */
+  /* Mobile menu — deep navy overlay so it clearly stands apart from the page */
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed;
@@ -591,15 +550,17 @@ h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
     justify-content: center;
     align-items: center;
     gap: 8px;
-    background: rgba(253, 250, 244, .97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(13, 43, 64, .98);
     opacity: 0;
     pointer-events: none;
     transition: opacity .25s ease;
   }
   .nav-links.open { opacity: 1; pointer-events: auto; }
-  .nav-links a { margin: 10px 0; font-size: 1.3rem; }
+  .nav-links a { margin: 10px 0; font-size: 1.3rem; color: var(--white); }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-links .nav-cta { border-color: rgba(255, 255, 255, .45); }
+  /* Hamburger turns into a white X so it stays visible on the dark overlay */
+  .nav-toggle.open span { background: var(--white); }
 }
 @media (max-width: 520px) {
   .feature-grid, .gallery { grid-template-columns: 1fr; }
