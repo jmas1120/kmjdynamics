@@ -110,7 +110,7 @@
       <h1>How It's Built</h1>
       <p class="doc-meta">This is the cart's real working build manual — the same document the project runs on,
       published here so anyone curious can see exactly how it's done, step by step, with the values and hard-won
-      lessons that actually work. Current as of <strong>July 11, 2026</strong>; the cart is a living project, so
+      lessons that actually work. Current as of <strong>July 14, 2026</strong>; the cart is a living project, so
       this page updates as the build evolves. (Network credentials and private addresses are omitted from this
       public copy.) The full <a class="part-jump" href="#parts" style="margin:0;display:inline">parts list with
       costs is at the bottom</a>.</p>
@@ -118,7 +118,7 @@
       <em>"In plain English"</em> box that explains what you're building and why before the technical steps begin,
       and there's a <a href="#glossary" style="color:var(--ocean-d)">plain-English glossary of every major part</a>
       right below. Read those and the rest of the page will make sense.</p>
-      <div class="toc"><a href="#how-to-read">How to read this guide</a><a href="#glossary">Meet the parts — what everything does</a><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#1b-wiring-the-frame">1b.  Running wires through the tubing</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/11</a></div>
+      <div class="toc"><a href="#how-to-read">How to read this guide</a><a href="#glossary">Meet the parts — what everything does</a><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#1b-wiring-the-frame">1b.  Running wires through the tubing</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/14</a></div>
     </div>
   </header>
 
@@ -180,7 +180,7 @@
 <li>15. Software, autostart &amp; backup</li>
 <li>16. 3D-printed parts</li>
 <li>17. Pin &amp; config reference</li>
-<li>18. Open items as of 7/11</li>
+<li>18. Open items as of 7/14</li>
 </ul>
 <h2 id="1-frame-chassis">1.  Frame &amp; chassis</h2>
 <div class="plain">The frame is a flat rectangle of hollow square aluminum tube — picture a bed frame — 32 inches wide and 4 feet long, with extra tubes across it wherever something heavy sits (motors, axle, battery). I went with aluminum because it's light and won't rust at the beach, and welded because bolted joints shake loose in sand and vibration. Everything else in this guide bolts to this rectangle, so take your time getting it <em>square and flat</em>. A crooked frame means crooked wheels and a chain that keeps jumping off.</div>
@@ -569,7 +569,7 @@
 <li>UWB: NETWORKID=BEACHCAR, anchors ANCH1(FL)/ANCH2(FR)/ANCH3(RR)/ANCH4(RL), tag TAG1. Anchor spacing 86.36 x 114.3 cm.</li>
 <li>Key addresses: cart Tailscale &lt;the cart's Tailscale address&gt; — webpanel :8080, photo drop :8090, VNC :5900 (Tailscale-bound). Own-AP mode: 10.42.0.1.</li>
 </ul>
-<h2 id="18-open-items-as-of-711">18.  Open items as of 7/11</h2>
+<h2 id="18-open-items-as-of-711">18.  Open items as of 7/14</h2>
 <div class="plain">The honest to-do list. Every real build has one — putting it out here keeps me from pretending the cart is more finished than it is.</div>
 <ol>
 <li><strong>Re-seat the Pi's thermal pad</strong> (idles 65°C; throttled at 79.6°C on 7/10) — before the trip.
@@ -593,6 +593,10 @@
 <li>Webpanel /api/resume is unauthenticated on :8080.
 </li>
 <li>Park-brake debug leads if symptoms return: timeout_brake=15A verified on one half only; battery.py polling may reset the VESC timeout; safe_start release lag.
+</li>
+<li><em>New 7/14:</em> re-verify steering center + travel limits after the front-end rebuild (trims were tuned to the old servo mount), and hand-sweep full lock for brace clearance before the next drive.
+</li>
+<li><em>New 7/14:</em> the carbon-fiber hub project (§16b) — PLA shape check, then 4 halves at 50h each, bond, and swap wheels before the end of the month.
 </li>
 </ol>
 <p>--- End of guide. Chronological history: README.md. Bill of materials: STOCK_LIST.md. Wiring: PINOUT.md. Restore: RESTORE.md. ---</p>
