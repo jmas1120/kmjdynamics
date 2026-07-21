@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening Cart Dashboard… — KMJ Dynamics</title>
+
+  <!-- Keep this private page out of search results -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0d2b40" />
+
+  <!-- Instant redirect to the cart dashboard over Tailscale.
+       MagicDNS hostname first; raw Tailscale IP is offered as a fallback below. -->
+  <meta http-equiv="refresh" content="0; url=http://beachcart:8080" />
+
+  <!-- Brand favicon (same orange K as the main site) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23ff8c26'/><text x='32' y='34' font-family='Space Grotesk,Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Palette pulled straight from the main site (styles.css) */
+    :root {
+      --bg:      #0d2b40;   /* deep ocean navy */
+      --panel:   #12324a;
+      --line:    rgba(191, 228, 248, .16);
+      --orange:  #ff8c26;
+      --orange-d:#e97612;
+      --ocean:   #0b7fc4;
+      --sky:     #bfe4f8;
+      --ink:     #eaf4fb;
+      --muted:   #9db6c7;
+      --white:   #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(11,127,196,.25), transparent 60%), var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 40px 34px;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: .06em;
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .brand span { color: var(--orange); }
+
+    /* Spinner shown while the redirect is being attempted */
+    .spinner {
+      width: 46px;
+      height: 46px;
+      margin: 26px auto 22px;
+      border: 3px solid var(--line);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      margin: 0 0 8px;
+      color: var(--white);
+    }
+    p { color: var(--muted); line-height: 1.55; margin: 0 0 6px; font-size: 15px; }
+
+    /* The fallback block only appears if the redirect hasn't taken over */
+    .fallback { margin-top: 26px; }
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 12px;
+      transition: transform .15s ease, background .2s ease;
+    }
+    .btn:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .alt {
+      display: block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .alt a { color: var(--sky); }
+    .note {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .8;
+    }
+    code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      background: rgba(191,228,248,.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: var(--sky);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">KMJ<span>DYNAMICS</span></div>
+    <div class="spinner" aria-hidden="true"></div>
+    <h1>Opening the cart dashboard…</h1>
+    <p>Connecting to <code>beachcart:8080</code> over Tailscale.</p>
+
+    <div class="fallback">
+      <a class="btn" href="http://beachcart:8080">Open dashboard now</a>
+      <span class="alt">
+        Not connecting? Try the direct address:<br />
+        <a href="http://100.94.101.2:8080">http://100.94.101.2:8080</a>
+      </span>
+      <p class="note">This screen only reaches the cart when this device is on your Tailscale network.</p>
+    </div>
+  </main>
+
+  <script>
+    // Belt-and-suspenders: fire the redirect from JS too, in case the
+    // <meta refresh> is delayed. The visible fallback stays put so there's
+    // always a working link if the dashboard host can't be reached.
+    location.replace('http://beachcart:8080');
+  </script>
+</body>
+</html>
