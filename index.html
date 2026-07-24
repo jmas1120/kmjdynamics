@@ -59,6 +59,7 @@
       <a href="#tech">How It Works</a>
       <a href="#engineering">Engineering</a>
       <a href="#printing">3D Printing</a>
+      <a href="#model">3D Model</a>
       <a href="#approach">Approach</a>
       <a href="#gallery">Gallery</a>
       <a href="build.html">Build Guide</a>
@@ -263,10 +264,27 @@
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section class="section" id="gallery">
+  <!-- ================= INTERACTIVE 3D MODEL ================= -->
+  <section class="section" id="model">
     <div class="container">
-      <p class="kicker reveal">05 — Gallery</p>
+      <p class="kicker reveal">05 — Interactive Model</p>
+      <h2 class="reveal">Explore the Cart in 3D</h2>
+      <p class="section-lead reveal">A full interactive model of the cart, built to the real dimensions — spin it yourself, or let the guided tour orbit through the frame, steering, drivetrain and electronics.</p>
+      <div class="model-frame reveal" id="modelFrame">
+        <button class="model-poster" id="modelPoster" aria-label="Load the interactive 3D model">
+          <span class="model-play">▶</span>
+          <span class="model-cta">Load the 3D model</span>
+          <span class="model-note">Runs right in your browser — tap X-Ray to see the wiring inside the frame</span>
+        </button>
+      </div>
+      <p class="model-links reveal"><a class="btn" href="cart3d.html" target="_blank" rel="noopener">Open Full Screen →</a></p>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="section alt" id="gallery">
+    <div class="container">
+      <p class="kicker reveal">06 — Gallery</p>
       <h2 class="reveal">From the Build</h2>
       <p class="section-lead reveal">Real photos of the real cart — from the workshop bench to fully loaded and ready to roll. Beach shots coming soon.</p>
       <div class="gallery">
@@ -283,9 +301,9 @@
   </section>
 
   <!-- ================= APPROACH / COMPANY ================= -->
-  <section class="section alt" id="approach">
+  <section class="section" id="approach">
     <div class="container">
-      <p class="kicker reveal">06 — The Shop</p>
+      <p class="kicker reveal">07 — The Shop</p>
       <h2 class="reveal">The KMJ Dynamics Way</h2>
       <p class="section-lead reveal">Every discipline under one roof — mechanical, electrical, and software — learned by doing and proven by building.</p>
       <div class="intro-block reveal">
@@ -316,7 +334,7 @@
   <footer class="footer" id="contact">
     <div class="footer-glow" aria-hidden="true"></div>
     <div class="container">
-      <p class="kicker reveal">07 — Contact</p>
+      <p class="kicker reveal">08 — Contact</p>
       <h2 class="reveal">Get in Touch</h2>
       <p class="reveal">Questions about the project? Reach out.</p>
       <a class="btn reveal" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
@@ -351,6 +369,17 @@
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     }));
+
+    // 3D model: load the viewer iframe only when the visitor asks for it
+    const poster = document.getElementById('modelPoster');
+    poster.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = 'cart3d.html';
+      f.title = 'Interactive 3D model of the beach cart';
+      f.allow = 'fullscreen';
+      document.getElementById('modelFrame').appendChild(f);
+      poster.remove();
+    });
 
     // Scroll-reveal: fade/slide sections in as they enter the viewport
     const io = new IntersectionObserver((entries) => {
