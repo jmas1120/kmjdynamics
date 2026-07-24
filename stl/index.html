@@ -1,32 +1,137 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KMJ Dynamics — Beach Cart 3D Print Files</title>
-<style>body{font-family:system-ui;margin:2rem auto;max-width:640px;padding:0 1rem}li{margin:.4rem 0}</style>
-<h1>Beach Cart — 3D Print Files (STL)</h1>
-<p>Each file is a zipped binary STL. Updated 2026-07-23.</p><ul>
-<li><a href="battery_box.stl.zip">battery_box.stl</a> (5.4M zipped)</li>
-<li><a href="battery_box_15_base.stl.zip">battery_box_15_base.stl</a> (4.8M zipped)</li>
-<li><a href="battery_box_15_lid.stl.zip">battery_box_15_lid.stl</a> (948K zipped)</li>
-<li><a href="battery_box_50_side_A.stl.zip">battery_box_50_side_A.stl</a> (6.2M zipped)</li>
-<li><a href="battery_box_50_side_B.stl.zip">battery_box_50_side_B.stl</a> (4.3M zipped)</li>
-<li><a href="battery_box_50_side_door.stl.zip">battery_box_50_side_door.stl</a> (2.2M zipped)</li>
-<li><a href="battery_box_50_side_hanger.stl.zip">battery_box_50_side_hanger.stl</a> (776K zipped)</li>
-<li><a href="battery_strap_50.stl.zip">battery_strap_50.stl</a> (3.0M zipped)</li>
-<li><a href="bezel_cover.stl.zip">bezel_cover.stl</a> (2.5M zipped)</li>
-<li><a href="hub_test_boss.stl.zip">hub_test_boss.stl</a> (2.6M zipped)</li>
-<li><a href="hub_test_joint.stl.zip">hub_test_joint.stl</a> (5.7M zipped)</li>
-<li><a href="s3_post_BOTTOM.stl.zip">s3_post_BOTTOM.stl</a> (13M zipped)</li>
-<li><a href="s3_post_TOP.stl.zip">s3_post_TOP.stl</a> (11M zipped)</li>
-<li><a href="s3_post_wire_cover.stl.zip">s3_post_wire_cover.stl</a> (396K zipped)</li>
-<li><a href="screen_case.stl.zip">screen_case.stl</a> (6.4M zipped)</li>
-<li><a href="sprocket_60t_410.stl.zip">sprocket_60t_410.stl</a> (7.7M zipped)</li>
-<li><a href="tfmini_angled_down.stl.zip">tfmini_angled_down.stl</a> (1.3M zipped)</li>
-<li><a href="tfmini_corner_left.stl.zip">tfmini_corner_left.stl</a> (2.2M zipped)</li>
-<li><a href="tfmini_corner_pair.stl.zip">tfmini_corner_pair.stl</a> (4.3M zipped)</li>
-<li><a href="tfmini_corner_right.stl.zip">tfmini_corner_right.stl</a> (2.2M zipped)</li>
-<li><a href="uwb_tag_case.stl.zip">uwb_tag_case.stl</a> (748K zipped)</li>
-<li><a href="wheel_hub_completion_H3.stl.zip">wheel_hub_completion_H3.stl</a> (5.1M zipped)</li>
-<li><a href="wheel_hub_core_half.stl.zip">wheel_hub_core_half.stl</a> (22M zipped)</li>
-<li><a href="wheel_spacer_INNER.stl.zip">wheel_spacer_INNER.stl</a> (2.7M zipped)</li>
-<li><a href="wheel_spacer_OUTER.stl.zip">wheel_spacer_OUTER.stl</a> (3.2M zipped)</li>
-<li><a href="wheel_spacer_OUTER_solid_mod.stl.zip">wheel_spacer_OUTER_solid_mod.stl</a> (1.8M zipped)</li>
-</ul><p><a href="/">← kmjdynamics.com</a></p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3D Print Files — KMJ Dynamics</title>
+<meta name="description" content="Downloadable STL files for every 3D-printed part on the KMJ Dynamics autonomous beach cart." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+<link rel="stylesheet" href="../_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); text-wrap: pretty; font-family: var(--font-body); color: var(--color-text); }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-800); }
+  .doc { max-width: 900px; margin: 0 auto; padding: 48px 24px 90px; }
+  .kicker { display: block; font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
+  .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
+  h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 6vw, 72px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
+  h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 32px; letter-spacing: 0.02em; text-transform: uppercase; margin: 2.4em 0 .6em; scroll-margin-top: 90px; }
+  .meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; line-height: 24px; max-width: 66ch; }
+  .files { border: 1px solid var(--color-divider); position: relative; margin-top: 16px; }
+  .files table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .files th { text-align: left; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent); padding: 12px 16px; border-bottom: 1px solid var(--color-divider); }
+  .files td { padding: 10px 16px; border-bottom: 1px solid var(--color-divider); vertical-align: middle; }
+  .files tr:last-child td { border-bottom: none; }
+  .files td.size { white-space: nowrap; color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 13px; font-feature-settings: "tnum" 1; }
+  .files td.dl { text-align: right; white-space: nowrap; }
+  .files a.file { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; text-decoration: none; word-break: break-all; }
+  .files a.file:hover { text-decoration: underline; }
+  .dl .btn { padding-block: 4px; }
+.nav { position: relative; }
+  .nav-desktop { display: contents; }
+  .nav-menu-btn { display: none; }
+  @media (max-width: 760px) {
+    .nav-desktop { display: none; }
+    .nav-menu-btn { display: inline-flex; }
+  }
+  .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
+  footer { border-top: 1px solid var(--color-divider); }
+  footer .inner { max-width: 900px; margin: 0 auto; padding: 40px 24px 56px; font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+  @media (max-width: 560px) { .files td.size { display: none; } }
+</style>
+</head>
+<body>
+<nav class="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+  <a class="nav-brand" href="../index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
+  <span class="nav-desktop">
+    <a href="../index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
+    <a href="../build.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
+    <a href="../index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
+  </span>
+  <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="../index.html">Home</a>
+    <a href="../build.html">Build Guide</a>
+    <a href="../index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <span class="kicker">The Print Files</span>
+  <hr class="kicker-rule" />
+  <h1>3D Print Files</h1>
+  <p class="meta">Every 3D-printed part on the cart, as zipped binary STLs — click to download, unzip, slice, print. PETG unless a part's build-guide entry says otherwise; print settings and orientation notes are in <a href="../build.html#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">§16 of the build guide</a>. Updated 2026-07-23; files are regenerated from the Python part generators whenever a part is revised.</p>
+
+  <h2 id="wheels">Wheels &amp; drivetrain</h2>
+  <div class="files"><table>
+    <tr><th>File</th><th>Zipped</th><th></th></tr>
+    <tr><td><a class="file" href="wheel_hub_core_half.stl.zip">wheel_hub_core_half.stl</a></td><td class="size">22 MB</td><td class="dl"><a href="wheel_hub_core_half.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="wheel_hub_completion_H3.stl.zip">wheel_hub_completion_H3.stl</a></td><td class="size">5.1 MB</td><td class="dl"><a href="wheel_hub_completion_H3.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="hub_test_boss.stl.zip">hub_test_boss.stl</a></td><td class="size">2.6 MB</td><td class="dl"><a href="hub_test_boss.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="hub_test_joint.stl.zip">hub_test_joint.stl</a></td><td class="size">5.7 MB</td><td class="dl"><a href="hub_test_joint.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="wheel_spacer_INNER.stl.zip">wheel_spacer_INNER.stl</a></td><td class="size">2.7 MB</td><td class="dl"><a href="wheel_spacer_INNER.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="wheel_spacer_OUTER.stl.zip">wheel_spacer_OUTER.stl</a></td><td class="size">3.2 MB</td><td class="dl"><a href="wheel_spacer_OUTER.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="wheel_spacer_OUTER_solid_mod.stl.zip">wheel_spacer_OUTER_solid_mod.stl</a></td><td class="size">1.8 MB</td><td class="dl"><a href="wheel_spacer_OUTER_solid_mod.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="sprocket_60t_410.stl.zip">sprocket_60t_410.stl</a></td><td class="size">7.7 MB</td><td class="dl"><a href="sprocket_60t_410.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+  </table></div>
+
+  <h2 id="battery">Battery &amp; power</h2>
+  <div class="files"><table>
+    <tr><th>File</th><th>Zipped</th><th></th></tr>
+    <tr><td><a class="file" href="battery_box.stl.zip">battery_box.stl</a></td><td class="size">5.4 MB</td><td class="dl"><a href="battery_box.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_15_base.stl.zip">battery_box_15_base.stl</a></td><td class="size">4.8 MB</td><td class="dl"><a href="battery_box_15_base.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_15_lid.stl.zip">battery_box_15_lid.stl</a></td><td class="size">948 KB</td><td class="dl"><a href="battery_box_15_lid.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_50_side_A.stl.zip">battery_box_50_side_A.stl</a></td><td class="size">6.2 MB</td><td class="dl"><a href="battery_box_50_side_A.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_50_side_B.stl.zip">battery_box_50_side_B.stl</a></td><td class="size">4.3 MB</td><td class="dl"><a href="battery_box_50_side_B.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_50_side_door.stl.zip">battery_box_50_side_door.stl</a></td><td class="size">2.2 MB</td><td class="dl"><a href="battery_box_50_side_door.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_box_50_side_hanger.stl.zip">battery_box_50_side_hanger.stl</a></td><td class="size">776 KB</td><td class="dl"><a href="battery_box_50_side_hanger.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="battery_strap_50.stl.zip">battery_strap_50.stl</a></td><td class="size">3.0 MB</td><td class="dl"><a href="battery_strap_50.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+  </table></div>
+
+  <h2 id="sensors">Sensor &amp; radio mounts</h2>
+  <div class="files"><table>
+    <tr><th>File</th><th>Zipped</th><th></th></tr>
+    <tr><td><a class="file" href="tfmini_angled_down.stl.zip">tfmini_angled_down.stl</a></td><td class="size">1.3 MB</td><td class="dl"><a href="tfmini_angled_down.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="tfmini_corner_left.stl.zip">tfmini_corner_left.stl</a></td><td class="size">2.2 MB</td><td class="dl"><a href="tfmini_corner_left.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="tfmini_corner_right.stl.zip">tfmini_corner_right.stl</a></td><td class="size">2.2 MB</td><td class="dl"><a href="tfmini_corner_right.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="tfmini_corner_pair.stl.zip">tfmini_corner_pair.stl</a></td><td class="size">4.3 MB</td><td class="dl"><a href="tfmini_corner_pair.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="s3_post_TOP.stl.zip">s3_post_TOP.stl</a></td><td class="size">11 MB</td><td class="dl"><a href="s3_post_TOP.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="s3_post_BOTTOM.stl.zip">s3_post_BOTTOM.stl</a></td><td class="size">13 MB</td><td class="dl"><a href="s3_post_BOTTOM.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="s3_post_wire_cover.stl.zip">s3_post_wire_cover.stl</a></td><td class="size">396 KB</td><td class="dl"><a href="s3_post_wire_cover.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="uwb_tag_case.stl.zip">uwb_tag_case.stl</a></td><td class="size">748 KB</td><td class="dl"><a href="uwb_tag_case.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+  </table></div>
+
+  <h2 id="enclosures">Enclosures &amp; display</h2>
+  <div class="files"><table>
+    <tr><th>File</th><th>Zipped</th><th></th></tr>
+    <tr><td><a class="file" href="screen_case.stl.zip">screen_case.stl</a></td><td class="size">6.4 MB</td><td class="dl"><a href="screen_case.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+    <tr><td><a class="file" href="bezel_cover.stl.zip">bezel_cover.stl</a></td><td class="size">2.5 MB</td><td class="dl"><a href="bezel_cover.stl.zip"><button type="button" class="btn btn-ghost">Download</button></a></td></tr>
+  </table></div>
+</main>
+
+<footer>
+  <div class="inner">
+    <p style="margin:0;">Questions about a part? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
+    <p style="margin:8px 0 0;">© <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="../index.html" style="color:inherit;">kmjdynamics.com</a></p>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  (function(){
+    var btn = document.getElementById('navMenuBtn'), panel = document.getElementById('navMobile');
+    btn.addEventListener('click', function(){
+      var open = panel.classList.toggle('open');
+      btn.textContent = open ? 'Close' : 'Menu';
+      btn.setAttribute('aria-expanded', open);
+    });
+    panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){
+      panel.classList.remove('open'); btn.textContent = 'Menu'; btn.setAttribute('aria-expanded','false');
+    }); });
+  })();
+</script>
+<script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

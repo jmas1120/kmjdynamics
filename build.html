@@ -6,7 +6,7 @@
   <title>How It's Built — KMJ Dynamics Beach Cart Build Guide</title>
   <meta name="description" content="The complete, real build manual for the KMJ Dynamics autonomous beach cart — frame, drivetrain, power, motor control, sensors, UWB follow-me, safety systems, and the full parts list." />
   <meta name="author" content="KMJ Dynamics" />
-  <meta name="theme-color" content="#fdfaf4" />
+  <meta name="theme-color" content="#f2f2f3" />
   <link rel="canonical" href="https://kmjdynamics.com/build.html" />
   <meta property="og:title" content="How It's Built — the Beach Cart Build Guide" />
   <meta property="og:description" content="The complete working build manual and parts list for the autonomous beach cart." />
@@ -14,127 +14,104 @@
   <meta property="og:url" content="https://kmjdynamics.com/build.html" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23ff8c26'/><text x='32' y='34' font-family='Space Grotesk,Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+  <link rel="stylesheet" href="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
   <style>
-    .doc-hero { padding: 130px 0 30px; }
-    .doc { max-width: 900px; margin: 0 auto; padding: 0 24px 90px; }
-    .doc h2 {
-      font-size: clamp(1.35rem, 2.6vw, 1.8rem);
-      margin: 2.6em 0 .6em;
-      padding-top: .6em;
-      border-top: 1px solid var(--line);
-      color: var(--ink);
-      scroll-margin-top: 90px;
-    }
-    .doc h3 { margin: 1.6em 0 .45em; font-size: 1.12rem; scroll-margin-top: 90px; }
-    .doc h4 { margin: 1.3em 0 .4em; font-size: 1rem; }
+    :root { --leading: 24px; --half: 12px; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--color-bg); text-wrap: pretty; }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent-800); }
+    .doc-hero { padding: 48px 0 8px; }
+    .doc { max-width: 900px; margin: 0 auto; padding: 0 24px 90px; font-family: var(--font-body); font-size: 16px; line-height: var(--leading); color: var(--color-text); }
+    .doc h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 6vw, 72px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
+    .doc h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 32px; letter-spacing: 0.02em; text-transform: uppercase; margin: 2.6em 0 .6em; padding-top: 24px; border-top: 1px solid var(--color-divider); scroll-margin-top: 90px; }
+    .doc h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; line-height: 24px; letter-spacing: 0.02em; text-transform: uppercase; margin: 1.8em 0 .5em; scroll-margin-top: 90px; }
+    .doc h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.02em; text-transform: uppercase; margin: 1.4em 0 .4em; }
     .doc p { margin: .7em 0; }
-    .doc ul, .doc ol { margin: .7em 0 .9em 1.35em; }
-    .doc li { margin: .35em 0; }
+    .doc ul, .doc ol { margin: .7em 0 .9em 1.35em; padding: 0; }
+    .doc li { margin: .4em 0; }
     .doc li ul { margin: .3em 0 .3em 1.2em; }
-    .doc code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: .88em;
-      background: rgba(11, 127, 196, .08);
-      border: 1px solid rgba(11, 127, 196, .14);
-      border-radius: 5px;
-      padding: .08em .35em;
-      word-break: break-word;
-    }
-    .doc .note {
-      margin: 1em 0;
-      padding: 14px 18px;
-      border-left: 4px solid var(--orange);
-      background: rgba(255, 140, 38, .07);
-      border-radius: 0 10px 10px 0;
-    }
-    .doc .plain {
-      margin: 1em 0;
-      padding: 14px 18px;
-      border-left: 4px solid var(--ocean);
-      background: rgba(11, 127, 196, .06);
-      border-radius: 0 10px 10px 0;
-    }
-    .doc .plain::before {
-      content: "IN PLAIN ENGLISH";
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      color: var(--ocean-d);
-      margin-bottom: 4px;
-    }
-    .doc .table-wrap { overflow-x: auto; margin: 1em 0 1.4em; border: 1px solid var(--line); border-radius: 12px; }
-    .doc table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: .92rem; background: var(--panel); }
-    .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
-    .doc th { background: var(--bg-2); font-family: 'Space Grotesk', sans-serif; white-space: nowrap; }
+    .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--color-accent-100); border: 1px solid var(--color-accent-200); padding: .08em .35em; word-break: break-word; color: var(--color-accent-900); }
+    .doc .note { margin: 1.2em 0; padding: 14px 18px; border: 1px solid var(--color-accent-300); border-left: 3px solid var(--color-accent-700); background: var(--color-accent-100); }
+    .doc .note::before { content: "Field note"; display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent-800); margin-bottom: 4px; }
+    .doc .plain { margin: 1.2em 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-left: 3px solid var(--color-accent); background: color-mix(in srgb, var(--color-accent) 4%, var(--color-bg)); }
+    .doc .plain::before { content: "Overview"; display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 4px; }
+    .doc .table-wrap { overflow-x: auto; margin: 1em 0 1.4em; border: 1px solid var(--color-divider); }
+    .doc table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; }
+    .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--color-divider); }
+    .doc th { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent); white-space: nowrap; }
     .doc tr:last-child td { border-bottom: none; }
-    .toc {
-      margin: 1.6em 0 0;
-      padding: 18px 20px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 6px 18px;
-    }
-    .toc a { color: var(--ocean-d); text-decoration: none; font-size: .93rem; }
-    .toc a:hover { color: var(--orange-d); text-decoration: underline; }
-    .doc-meta { color: var(--muted); font-size: .92rem; }
-    .part-jump { margin-top: 14px; display: inline-block; }
+    .kicker { display: block; font-family: var(--font-body); font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
+    .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
+    .toc { position: relative; margin: 2em 0 0; padding: 20px 24px; border: 1px solid var(--color-divider); display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px 20px; }
+    .toc a { text-decoration: none; font-size: 14px; line-height: 22px; }
+    .toc a:hover { text-decoration: underline; }
+    .doc-meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; }
+    .doc-footer { border-top: 1px solid var(--color-divider); }
+    .nav { position: relative; }
+  .nav-desktop { display: contents; }
+  .nav-menu-btn { display: none; }
+  @media (max-width: 760px) {
+    .nav-desktop { display: none; }
+    .nav-menu-btn { display: inline-flex; }
+  }
+  .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
+    .doc-footer .inner { max-width: 900px; margin: 0 auto; padding: 40px 24px 56px; font-family: var(--font-body); font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
   </style>
 </head>
 <body>
-  <nav class="nav" id="nav">
-    <a class="brand" href="index.html">KMJ<span class="brand-accent">DYNAMICS</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
+  <nav class="nav" id="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+    <a class="nav-brand" href="index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
+    <span class="nav-desktop">
+      <a href="index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
+      <a href="#guide" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
+      <a href="#parts" style="text-decoration:none; font-size:14px; white-space:nowrap;">Parts List</a>
+      <a href="stl/index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
+      <a href="index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
+    </span>
+    <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
+    <div class="nav-mobile" id="navMobile">
       <a href="index.html">Home</a>
       <a href="#guide">Build Guide</a>
       <a href="#parts">Parts List</a>
-      <a class="nav-cta" href="index.html#contact">Contact</a>
+      <a href="stl/index.html">Print Files</a>
+      <a href="index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
     </div>
   </nav>
 
   <header class="doc-hero" id="guide">
     <div class="doc">
-      <p class="kicker">The Manual</p>
+      <span class="kicker">The Manual</span>
+      <hr class="kicker-rule" />
       <h1>How It's Built</h1>
       <p class="doc-meta">This is the cart's real working build manual — the same document the project runs on,
       published here so anyone curious can see exactly how it's done, step by step, with the values and hard-won
       lessons that actually work. Current as of <strong>July 14, 2026</strong>; the cart is a living project, so
       this page updates as the build evolves. (Network credentials and private addresses are omitted from this
-      public copy.) The full <a class="part-jump" href="#parts" style="margin:0;display:inline">parts list with
-      costs is at the bottom</a>.</p>
-      <p class="doc-meta"><strong>New to this stuff?</strong> You're covered: every section opens with a blue
-      <em>"In plain English"</em> box that explains what you're building and why before the technical steps begin,
-      and there's a <a href="#glossary" style="color:var(--ocean-d)">plain-English glossary of every major part</a>
-      right below. Read those and the rest of the page will make sense.</p>
+      public copy.) The full <a class="part-jump" href="#parts" style="margin:0;display:inline">parts list is at the bottom</a>.</p>
+      <p class="doc-meta">Every section opens with an <em>Overview</em> box that covers what you're building and why
+      before the technical steps begin, and a <a href="#glossary">glossary of every major part</a>
+      is right below. Together they carry the whole page.</p>
       <div class="toc"><a href="#how-to-read">How to read this guide</a><a href="#glossary">Meet the parts — what everything does</a><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#1b-wiring-the-frame">1b.  Running wires through the tubing</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/14</a></div>
     </div>
   </header>
 
   <main class="doc">
 <h2 id="how-to-read">How to read this guide</h2>
-<p>This guide assumes you've never built a robot before. Here's the system:</p>
+<p>Here's the system this guide uses:</p>
 <ul>
-<li><strong>Blue "In plain English" boxes</strong> open each section and tell you what the thing is, what job it does on the cart, and why it's built the way it is — no jargon. If a section ever stops making sense, go back and re-read its blue box.</li>
-<li><strong>Orange "NOTE" boxes</strong> are warnings and hard-won lessons. Every one of them exists because something broke, burned, or drove off wrong. Read them <em>before</em> doing the steps they sit next to, not after.</li>
+<li><strong>Overview boxes</strong> open each section and tell you what the thing is, what job it does on the cart, and why it's built the way it is. If a section ever stops making sense, go back and re-read its Overview box.</li>
+<li><strong>"Field note" boxes</strong> are warnings and hard-won lessons. Every one of them exists because something broke, burned, or drove off wrong. Read them <em>before</em> doing the steps they sit next to, not after.</li>
 <li><strong>Numbered steps</strong> are in the order you should actually do them. The section order (frame → power → brain → sensors → autonomy) is also the build order — each layer is tested working before the next goes on top.</li>
 <li><code>Text that looks like this</code> is a literal filename, setting name, or command — type it exactly.</li>
 <li>Words you don't recognize are probably in the <a href="#glossary">glossary right below</a>. Skim it once now; you don't need to memorize it.</li>
 </ul>
-<p>One tip before you start: none of this takes genius — I'm proof. It just takes <em>patience and order</em>. Measure before cutting, label before hiding a wire, test each system alone before connecting it to the next. Every disaster on this page happened because I skipped one of those.</p>
+<p>One tip before you start: the whole build comes down to <em>patience and order</em>. Measure before cutting, label before hiding a wire, test each system alone before connecting it to the next. Every disaster on this page happened because I skipped one of those.</p>
 <h2 id="glossary">Meet the parts — what everything does</h2>
-<p>The cart is really just a dozen kinds of parts working together. Here's each one in plain words. Think of the cart as a body: it has a skeleton, muscles, a heart, a brain, nerves, and senses.</p>
+<p>The cart is really just a dozen kinds of parts working together. Here's what each one does. Think of the cart as a body: it has a skeleton, muscles, a heart, a brain, nerves, and senses.</p>
 <div class="table-wrap"><table>
 <tr><th>Part</th><th>What it is</th><th>What it does on the cart</th></tr>
 <tr><td><strong>Frame</strong></td><td>1.5" square aluminum tubes welded into a rectangle</td><td>The skeleton. Every other part bolts to it, and the hollow tubes double as protective channels for the wiring.</td></tr>
@@ -368,7 +345,7 @@
 <li><strong>Crash-runaway protection:</strong> <code>park_neutral.sh</code> runs as <code>ExecStopPost=</code> in beachcart.service — on ANY main.py death (crash/OOM/SIGKILL) it forces the servo to neutral and the VESC channel to duty 0 (= parked, not freewheeling) straight from sysfs. RP1 hardware PWM keeps emitting the last pulse after a process dies; this is what handles that.</li>
 </ul>
 <h2 id="9-sensors-telemetry">9.  Sensors &amp; telemetry</h2>
-<div class="plain">Sensors are the cart's senses. This section wires up three of them: six little laser rangefinders that watch for obstacles, a battery gauge that works like a smart fuel gauge, and a spinning laser that maps everything around the cart. Each subsection's blue box explains its own sensor.</div>
+<div class="plain">Sensors are the cart's senses. This section wires up three of them: six little laser rangefinders that watch for obstacles, a battery gauge that works like a smart fuel gauge, and a spinning laser that maps everything around the cart. Each subsection's Overview box explains its own sensor.</div>
 <h3 id="9a-obstacle-lidar-ring-6x-tfmini-plus">9a.  Obstacle LiDAR ring — 6x TFmini Plus</h3>
 <div class="plain">Each TFmini is a laser tape measure the size of your thumb: it fires an invisible laser and times the reflection, reporting a distance many times a second. Six of them ring the cart — some aimed straight out to spot obstacles, some angled down at the ground ahead. The angled ones are the neat trick: at boot they memorize how far away the ground normally is. Something <em>closer</em> than that means "obstacle." Something <em>farther</em> means the ground fell away — a curb edge or washout, so STOP. All six share one pair of wires to the Pi through a "multiplexer," a switchboard chip that lets the Pi talk to them one at a time.</div>
 <ol>
@@ -740,43 +717,31 @@
 <tr><td>Solder</td><td>MAIYUM 63-37 rosin core 0.8mm 100g</td><td>TOOL</td></tr>
 <tr><td>3D printer</td><td>Bambu Lab P1S</td><td>TOOL</td></tr>
 </table></div>
-<h2 id="cost-summary">Cost Summary</h2>
-<div class="table-wrap"><table>
-<tr><th>Group</th><th>Value</th></tr>
-<tr><td>Base cart (frame/material, pre-autonomous)</td><td>~$1,200</td></tr>
-<tr><td>Autonomous build materials (June confirmed)</td><td>~$3,400</td></tr>
-<tr><td>July additions (20Ah pack pair, replacement fan/board/modules)</td><td>not yet itemized</td></tr>
-<tr><td><strong>Combined materials value</strong></td><td><strong>~$4,600+</strong></td></tr>
-</table></div>
-<p>*Replacement/rebuild value — not resale. Excludes labor, tools, spare alternates, and the planned Power Queen 24V 50Ah upgrade. Several multi-item orders not fully itemized; true autonomous figure likely ~$3,800–4,200+.*</p>
-  </main>
+</main>
 
-  <footer class="footer" id="contact">
-    <div class="container">
-      <p class="reveal visible">Questions about the build? <a href="mailto:hello@kmjdynamics.com" style="color:var(--orange)">hello@kmjdynamics.com</a></p>
-      <p class="copyright">&copy; <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="index.html" style="color:inherit">kmjdynamics.com</a></p>
+  <footer class="doc-footer" id="contact">
+    <div class="inner">
+      <p style="margin:0;">Questions about the build? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
+      <p style="margin:8px 0 0;">© <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="index.html" style="color:inherit;">kmjdynamics.com</a></p>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
   </script>
+  <script>
+  (function(){
+    var btn = document.getElementById('navMenuBtn'), panel = document.getElementById('navMobile');
+    btn.addEventListener('click', function(){
+      var open = panel.classList.toggle('open');
+      btn.textContent = open ? 'Close' : 'Menu';
+      btn.setAttribute('aria-expanded', open);
+    });
+    panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){
+      panel.classList.remove('open'); btn.textContent = 'Menu'; btn.setAttribute('aria-expanded','false');
+    }); });
+  })();
+</script>
   <script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

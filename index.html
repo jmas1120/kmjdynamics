@@ -1,394 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ===== Basic SEO so Google can find the site ===== -->
-  <title>KMJ Dynamics — Autonomous Robotics &amp; Engineering</title>
-  <meta name="description" content="KMJ Dynamics is an independent robotics and engineering company building autonomous outdoor vehicles. Our flagship project: a self-driving follow-me beach cart with UWB navigation, 360° obstacle sensing, and fully custom power engineering." />
-  <meta name="author" content="KMJ Dynamics" />
-  <meta name="theme-color" content="#fdfaf4" />
-  <link rel="canonical" href="https://kmjdynamics.com/" />
-
-  <!-- Tells Google this is a company (feeds the "organization" style search result) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "KMJ Dynamics",
-    "url": "https://kmjdynamics.com/",
-    "email": "hello@kmjdynamics.com",
-    "description": "An independent robotics and engineering company building autonomous outdoor vehicles.",
-    "logo": "https://kmjdynamics.com/images/cart-hero.jpg",
-    "sameAs": []
-  }
-  </script>
-
-  <!-- Nice preview when the link is shared on text/social -->
-  <meta property="og:title" content="KMJ Dynamics — Autonomous Robotics &amp; Engineering" />
-  <meta property="og:description" content="An independent robotics and engineering company building autonomous outdoor vehicles." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kmjdynamics.com/" />
-  <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
-
-  <!-- Twitter/X large-image link preview -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KMJ Dynamics — Autonomous Robotics &amp; Engineering" />
-  <meta name="twitter:description" content="An independent robotics and engineering company building autonomous outdoor vehicles." />
-  <meta name="twitter:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
-
-  <!-- Inline SVG favicon in brand orange (no extra file needed) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23ff8c26'/><text x='32' y='34' font-family='Space Grotesk,Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KMJ Dynamics — Autonomous Robotics & Engineering</title>
+<meta name="description" content="KMJ Dynamics is an independent engineering shop. Flagship project: a fully autonomous follow-me beach cart — welded aluminum frame, custom power electronics, and map-free navigation.">
+<meta name="author" content="KMJ Dynamics">
+<meta name="theme-color" content="#f2f2f3">
+<link rel="canonical" href="https://kmjdynamics.com/">
+<meta property="og:title" content="KMJ Dynamics — Autonomous Robotics & Engineering">
+<meta property="og:description" content="An independent engineering shop. Flagship project: a fully autonomous follow-me beach cart.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kmjdynamics.com/">
+<meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"KMJ Dynamics","url":"https://kmjdynamics.com/","email":"hello@kmjdynamics.com","description":"An independent engineering shop building autonomous outdoor vehicles.","logo":"https://kmjdynamics.com/images/cart-hero.jpg"}
+</script>
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css">
+  <script src="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--color-bg); text-wrap: pretty; }
+    section[id], footer[id] { scroll-margin-top: 76px; }
+    .nav-desktop { display: contents; }
+    .nav-menu-btn { display: none !important; }
+    @media (max-width: 920px) {
+      .nav-desktop { display: none; }
+      .nav-menu-btn { display: inline-flex !important; }
+    }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent-800); }
+  </style>
+</helmet>
 
-  <!-- ================= NAV (sticky, goes glassy on scroll) ================= -->
-  <nav class="nav" id="nav">
-    <a class="brand" href="#top">KMJ<span class="brand-accent">DYNAMICS</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#story">The Story</a>
-      <a href="#tech">How It Works</a>
-      <a href="#engineering">Engineering</a>
-      <a href="#printing">3D Printing</a>
-      <a href="#model">3D Model</a>
-      <a href="#approach">Approach</a>
-      <a href="#gallery">Gallery</a>
-      <a href="build.html">Build Guide</a>
-      <a class="nav-cta" href="#contact">Contact</a>
+<nav class="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+  <span class="nav-brand">KMJ Dynamics</span>
+  <span class="nav-desktop">
+    <a href="#project" style="text-decoration:none; font-size:14px; white-space:nowrap;">The Project</a>
+    <a href="#how" style="text-decoration:none; font-size:14px; white-space:nowrap;">How It Works</a>
+    <a href="#engineering" style="text-decoration:none; font-size:14px; white-space:nowrap;">Engineering</a>
+    <a href="#printing" style="text-decoration:none; font-size:14px; white-space:nowrap;">Manufacturing</a>
+    <a href="#gallery" style="text-decoration:none; font-size:14px; white-space:nowrap;">Gallery</a>
+    <a href="build.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
+    <a href="stl/index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
+    <a href="#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
+  </span>
+  <button type="button" class="btn btn-ghost nav-menu-btn" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" style="white-space:nowrap;">{{ menuLabel }}</button>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute; top:100%; left:0; right:0; background:var(--color-bg); border-bottom:1px solid var(--color-divider); box-shadow:var(--shadow-md); display:flex; flex-direction:column;">
+      <a href="#project" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">The Project</a>
+      <a href="#how" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">How It Works</a>
+      <a href="#engineering" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Engineering</a>
+      <a href="#printing" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Manufacturing</a>
+      <a href="#gallery" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Gallery</a>
+      <a href="build.html" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Build Guide</a>
+      <a href="stl/index.html" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Print Files</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; font-weight:600; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-accent-700);">Contact</a>
     </div>
-  </nav>
+  </sc-if>
+</nav>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero" id="top">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-grid-bg" aria-hidden="true"></div>
-
-    <div class="hero-inner">
-      <div class="hero-text">
-        <span class="badge"><span class="badge-dot"></span>Fully autonomous · Follow-me mode</span>
-        <h1>The beach cart that <span class="grad-text">follows you.</span></h1>
-        <p class="tagline">No handle. No hauling. Load it up and it tracks you across the sand on its own — or grab the remote and drive. Cooler, chairs, umbrella and all.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#story">See how it came about</a>
-          <a class="btn ghost" href="#tech">How it works</a>
+<header>
+  <x-import component="HeroSlider" from="./hero-slider.jsx" hero-height="{{ heroHeightNum }}" wash="{{ steelWash }}" hint-size="100%,640px"></x-import>
+  <div style="border-bottom:1px solid var(--color-divider);">
+    <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+        <div style="padding:32px clamp(24px,4vw,48px); border-right:1px solid var(--color-divider);">
+          <div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:1; color:var(--color-text); font-feature-settings:'tnum' 1;">{{ s.value }}</div>
+          <div style="font-family:var(--font-body); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin-top:8px;">{{ s.label }}</div>
         </div>
-        <ul class="hero-stats">
-          <li><strong>500<span class="unit">+ lbs</span></strong><span>hauled over soft sand</span></li>
-          <li><strong>360<span class="unit">°</span></strong><span>obstacle scanning</span></li>
-          <li><strong>100<span class="unit">%</span></strong><span>self-taught &amp; custom-built</span></li>
-        </ul>
-      </div>
-      <div class="hero-photo">
-        <div class="photo-ring" aria-hidden="true"></div>
-        <img src="images/cart-hero.jpg?v=2" alt="Low-angle side view of the KMJ Dynamics beach cart on balloon tires, loaded with a cooler and beach chairs" />
-      </div>
-    </div>
-
-    <a class="scroll-cue" href="#story" aria-label="Scroll down">
-      <span class="scroll-cue-line"></span>
-    </a>
-  </header>
-
-  <!-- ================= TICKER STRIP ================= -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>UWB precision tracking</span><i>◆</i>
-      <span>360° LiDAR scanning</span><i>◆</i>
-      <span>Dual electric drive</span><i>◆</i>
-      <span>Hand-welded aluminum frame</span><i>◆</i>
-      <span>Raspberry Pi brain</span><i>◆</i>
-      <span>Balloon tires — floats over sand</span><i>◆</i>
-      <span>UWB precision tracking</span><i>◆</i>
-      <span>360° LiDAR scanning</span><i>◆</i>
-      <span>Dual electric drive</span><i>◆</i>
-      <span>Hand-welded aluminum frame</span><i>◆</i>
-      <span>Raspberry Pi brain</span><i>◆</i>
-      <span>Balloon tires — floats over sand</span><i>◆</i>
+      </sc-for>
     </div>
   </div>
+</header>
 
-  <!-- ================= STORY ================= -->
-  <section class="section" id="story">
-    <div class="container">
-      <p class="kicker reveal">01 — The Story</p>
-      <h2 class="reveal">How It Came About</h2>
-      <div class="story-grid">
-        <div class="story-text reveal">
-          <p>It started the way every beach day did: a mountain of gear — cooler, chairs, umbrella, toys, boogie boards — and a long, sweaty drag across soft sand that swallowed every wheel I threw at it. There had to be a better way, so I set out to build one.</p>
-          <p>What began as "just haul the stuff" became a real engineering project — one built for the real world, not a workbench. The frame is hand-welded inch-and-a-half square aluminum, sized to haul roughly 500–600&nbsp;lbs of gear across the sand without blinking. Big balloon tires float over loose sand instead of plowing into it. Two electric motors and a closed-loop speed controller deliver smooth, steady power up the dunes, and a Raspberry&nbsp;Pi serves as the brain that ties it all together.</p>
-          <p>The fun was in the problem-solving. Nearly every part of this cart is something I designed, printed, wired, or wrote from scratch — and almost every step meant hitting a wall and engineering my way through it: dialing in the drivetrain so it eases in smoothly instead of lurching, building custom power systems so sensitive electronics stay rock-solid right next to high-current motors, 3D-modeling brackets and enclosures tough enough to survive sand and sun, and tuning it all one prototype at a time until it simply worked.</p>
-          <p>Then it got ambitious. I added a small wearable tag and four sensors on the cart's corners so it can pinpoint exactly where I am and drive itself right to me — completely hands-free — while a spinning 360° scanner and a ring of sensors steer it around people and stop it cold at curbs and drop-offs. Feel like driving instead? Flip a switch on the remote and take over in an instant.</p>
-          <p>That's KMJ&nbsp;Dynamics: top-notch engineering aimed squarely at a real-world need — a cart tough enough for the job, smart enough to carry its own weight, and built to make beach days effortless.</p>
+<main style="max-width:1200px; margin:0 auto; padding:0 clamp(24px,5vw,72px);">
+
+  <section id="capabilities" data-screen-label="Capabilities" style="padding:88px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">01 · Capabilities</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 40px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px;">
+      <sc-for list="{{ capabilities }}" as="c" hint-placeholder-count="3">
+        <div class="blueprint" style="border:1px solid var(--color-divider); padding:24px; position:relative;">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:22px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">{{ c.title }}</h2>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:12px 0 0;">{{ c.body }}</p>
         </div>
-        <div class="story-highlights">
-          <div class="highlight reveal">
-            <span class="num">01</span>
-            <h3>The Problem</h3>
-            <p>Hauling a mountain of gear across soft sand — every single beach day.</p>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="project" data-screen-label="The Project" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">02 · The Project</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:48px 64px; align-items:start;">
+      <div>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">A cart that follows you</h2>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:24px 0 0;">It began with a familiar problem: a mountain of beach gear and soft sand that swallowed every wheel thrown at it. The answer became a full engineering project — a hand-welded aluminum cart on balloon tires, sized to haul 400+ lb of gear without complaint.</p>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:16px 0 0;">Nearly every part is designed, printed, wired, or written in-house: a drivetrain tuned to ease in smoothly under load, distributed power systems that keep sensitive electronics stable beside high-current motors, and enclosures built to survive sand and sun.</p>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:16px 0 0;">Then it got ambitious. A wearable UWB tag and four corner receivers fix the operator's position so the cart drives itself — hands-free — while a spinning 360° scanner steers it around people and stops it at curbs. Prefer to drive? A switch on the remote hands over full manual control.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="3">
+          <div class="blueprint" style="border:1px solid var(--color-divider); padding:24px; position:relative;">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <span style="font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); font-feature-settings:'tnum' 1;">{{ m.num }}</span>
+            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:8px 0 0;">{{ m.title }}</h3>
+            <p style="font-family:var(--font-body); font-size:14px; line-height:22px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:8px 0 0;">{{ m.body }}</p>
           </div>
-          <div class="highlight reveal">
-            <span class="num">02</span>
-            <h3>The Build</h3>
-            <p>A hand-welded aluminum cart on balloon tires, electric drive, and a Raspberry Pi brain.</p>
-          </div>
-          <div class="highlight reveal">
-            <span class="num">03</span>
-            <h3>The Result</h3>
-            <p>A cart that follows you on its own — or drives by remote — with everything loaded.</p>
-          </div>
-        </div>
+        </sc-for>
       </div>
     </div>
   </section>
 
-  <!-- ================= TECH ================= -->
-  <section class="section alt" id="tech">
-    <div class="container">
-      <p class="kicker reveal">02 — The Technology</p>
-      <h2 class="reveal">How It Works</h2>
-      <p class="section-lead reveal">A quick look at what makes the cart tick.</p>
-      <div class="feature-grid">
-        <div class="feature reveal">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
-          </div>
-          <h3>Follow-Me Mode</h3>
-          <p>Wear the little tag and the cart figures out exactly where you are — then drives itself right to you, hands-free.</p>
+  <section id="how" data-screen-label="How It Works" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">03 · How It Works</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 40px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px;">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+        <div>
+          <span style="font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); font-feature-settings:'tnum' 1;">{{ f.num }}</span>
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:8px 0 0;">{{ f.title }}</h3>
+          <p style="font-family:var(--font-body); font-size:14px; line-height:22px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:8px 0 0;">{{ f.body }}</p>
         </div>
-        <div class="feature reveal">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4.5"/><path d="M7.5 11v3M6 12.5h3"/><circle cx="16" cy="11.5" r="1" fill="currentColor"/><circle cx="18.2" cy="13.5" r="1" fill="currentColor"/></svg>
-          </div>
-          <h3>Manual RC Control</h3>
-          <p>Rather drive? Flip the safety switch on the remote and take over instantly — full manual control on demand.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 12 4.5"/><path d="M12 12l5.5 3.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
-          </div>
-          <h3>Sees &amp; Avoids</h3>
-          <p>A 360° scanner and obstacle sensors let it steer around people and stop itself at curbs and drop-offs.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3M6 6l2.1 2.1M15.9 15.9 18 18M18 6l-2.1 2.1M8.1 15.9 6 18"/></svg>
-          </div>
-          <h3>Rolls Over Sand</h3>
-          <p>Big soft balloon tires and a welded aluminum frame float over loose sand instead of digging in.</p>
-        </div>
-      </div>
+      </sc-for>
     </div>
   </section>
 
-  <!-- ================= UNDER THE HOOD ================= -->
-  <section class="section" id="engineering">
-    <div class="container">
-      <p class="kicker reveal">03 — Engineering</p>
-      <h2 class="reveal">Under the Hood</h2>
-      <p class="section-lead reveal">The parts you never see — where most of the real engineering actually lives. Every one of these was designed, built, and debugged from scratch.</p>
-      <div class="deep-grid">
-        <div class="deep-card reveal">
-          <span class="deep-tag">Power Electronics</span>
-          <h3>Built to survive its own motors</h3>
-          <p>Early on, a single voltage spike wiped out the main computer. So I re-engineered the entire power system: distributed, individually-regulated supplies and dedicated surge protection that keep delicate control electronics rock-steady sitting inches from high-current motors. Failure became the spec.</p>
+  <section id="engineering" data-screen-label="Under the Hood" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">04 · Engineering</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Under the hood</h2>
+    <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:16px 0 40px; max-width:60ch;">The parts you never see — where most of the real engineering lives. Every one was designed, built, and debugged from scratch.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:40px;">
+      <sc-for list="{{ deepCards }}" as="d" hint-placeholder-count="4">
+        <div class="blueprint" style="border:1px solid var(--color-divider); padding:24px; position:relative;">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="tag tag-accent">{{ d.tag }}</span>
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:22px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:16px 0 0;">{{ d.title }}</h3>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:12px 0 0;">{{ d.body }}</p>
         </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Real-Time Control</span>
-          <h3>Smooth, not lurching</h3>
-          <p>Drive and steering run on the Raspberry&nbsp;Pi&nbsp;5's dedicated hardware timers — not jittery software signals — with slew-rate limiting and closed-loop PID speed control. The result is silky, predictable motion that eases in and out of power instead of jerking, even under a full load of gear.</p>
+      </sc-for>
+    </div>
+    <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:40px 0 0;">Want it bolt by bolt? The complete working build manual — every step, every setting, every part — is published on this site. <a href="build.html" style="font-weight:600;">Read the full build guide →</a></p>
+  </section>
+
+  <section id="printing" data-screen-label="Additive Manufacturing" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">05 · Additive Manufacturing</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Wheel hubs in carbon fiber</h2>
+    <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:24px 0 0; max-width:70ch;">The stock hubs developed play under full motor torque — and when the wheels came apart, the PETG spacers had cracked clean through. The fix discards the factory hub entirely: each hub prints as two identical halves in carbon-fiber-reinforced nylon that lock into one solid body — mounting bell, tire barrel, and bearing boss in a single piece.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:40px; margin-top:40px;">
+      <sc-for list="{{ printCards }}" as="p" hint-placeholder-count="4">
+        <div class="blueprint" style="border:1px solid var(--color-divider); padding:24px; position:relative;">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="tag tag-accent">{{ p.tag }}</span>
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:22px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:16px 0 0;">{{ p.title }}</h3>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:12px 0 0;">{{ p.body }}</p>
         </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Autonomy</span>
-          <h3>Map-free navigation</h3>
-          <p>A wearable radio beacon fixes exactly where you are while a spinning 360° laser scanner and a "follow-the-gap" algorithm let the cart flow around people and obstacles and then resume its line to you. No pre-built maps and no GPS — it simply senses and reacts, in real time.</p>
-        </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Telemetry</span>
-          <h3>Watch it from anywhere</h3>
-          <p>Battery voltage, current and state-of-charge are read straight off the motor controllers over an industrial CAN&nbsp;bus, then streamed — alongside a live obstacle radar — to a phone dashboard over a private, encrypted network. Check on the cart from across the beach or across the country.</p>
-        </div>
-      </div>
-      <div class="intro-block reveal" style="text-align:center; margin-top:40px">
-        <p>Want it bolt by bolt? The cart's complete working build manual — every step, every setting, every part and what it cost — is published right here on the site.</p>
-        <p style="margin-top:18px"><a class="btn" href="build.html">Read the Full Build Guide →</a></p>
-      </div>
+      </sc-for>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:40px; margin-top:48px;">
+      <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/hub-web-face.png" alt="Face view of the printed hub: open web with six swirled vanes around a four-bolt center boss" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <figcaption style="font-family:var(--font-body); font-size:13px; line-height:20px; letter-spacing:0.04em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 70%, transparent); padding:12px 16px; border-top:1px solid var(--color-divider); background:var(--color-bg);">Fig. 1 — Hub face, six-vane web</figcaption>
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/hub-cross-section.png" alt="Cross-section drawing of the two-piece hub with grooved tire barrel and castellated center lock" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <figcaption style="font-family:var(--font-body); font-size:13px; line-height:20px; letter-spacing:0.04em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 70%, transparent); padding:12px 16px; border-top:1px solid var(--color-divider); background:var(--color-bg);">Fig. 2 — Assembled cross-section</figcaption>
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/spacer-cracked.jpg" alt="The old PETG wheel spacer cracked clean through by drive torque" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <figcaption style="font-family:var(--font-body); font-size:13px; line-height:20px; letter-spacing:0.04em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 70%, transparent); padding:12px 16px; border-top:1px solid var(--color-divider); background:var(--color-bg);">Fig. 3 — The failure: cracked PETG spacer</figcaption>
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/wheel-new-hub.jpg" alt="Finished wheel: carbon-fiber nylon hub bonded into the balloon tire" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <figcaption style="font-family:var(--font-body); font-size:13px; line-height:20px; letter-spacing:0.04em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 70%, transparent); padding:12px 16px; border-top:1px solid var(--color-divider); background:var(--color-bg);">Fig. 4 — Finished wheel, new hub</figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- ================= ADDITIVE MANUFACTURING / HUB PROJECT ================= -->
-  <section class="section alt" id="printing">
-    <div class="container">
-      <p class="kicker reveal">04 — Additive Manufacturing</p>
-      <h2 class="reveal">Printing Wheels in Carbon Fiber</h2>
-      <p class="section-lead reveal">On the bench right now: the cart's wheel hubs, re-engineered from scratch and printed in carbon-fiber-reinforced nylon.</p>
-      <div class="intro-block reveal">
-        <p>The stock balloon-tire hubs ran through a stack of printed spacers pulled together by threaded rods — and under full motor torque, the stack developed play. When the wheels finally came apart, the truth was worse than play: the old PETG spacers had cracked clean through (third photo below) — a wheel-loss failure quietly in progress. The fix throws out the factory hub entirely: each wheel's hub is now printed as two identical halves that assemble into one solid body — mounting bell, tire barrel, and bearing boss in a single piece. Hidden castellated fingers at the mid-plane lock the halves against twist. Print the same file twice, rotate one 90&deg;, and they mate.</p>
-      </div>
-      <div class="deep-grid">
-        <div class="deep-card reveal">
-          <span class="deep-tag">Designed in Code</span>
-          <h3>No CAD package — geometry as a program</h3>
-          <p>Every printed part on the cart is generated by a Python script that builds the shape voxel by voxel and writes the printable file. Each dimension is a named constant, so when a test print says a bore runs two-tenths of a millimeter tight, the fix is a one-line edit and a regenerate. A full-size draft in cheap PLA proves the shape before a gram of carbon is committed.</p>
-        </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Material Science</span>
-          <h3>Carbon-fiber nylon, tamed</h3>
-          <p>PA6-CF is stiff, tough, and shrugs off salt and sun — but it fights back. Carbon fibers chew through standard printer hardware, so the machine runs a hardened-steel nozzle and hardened drive gears. Nylon also drinks moisture straight out of the air: every spool is oven-dried for 12 hours and printed from a sealed dry-box. And the parts are deliberately <em>not</em> oven-annealed afterward — ambient humidity conditions nylon to peak toughness on its own, while a bake risks warping precision bearing seats.</p>
-        </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Print Strategy</span>
-          <h3>50 hours and 1.3&nbsp;kg per half</h3>
-          <p>Each half prints solid through the entire load path — axle bore, bearing pocket, bolt circle, and the locking joint — with an engineered internal lattice through the bell where solid plastic would add weight without strength. The face is an open web of six swirled vanes: turbine looks, less material, and it prints cleanly with almost no support scaffolding.</p>
-        </div>
-        <div class="deep-card reveal">
-          <span class="deep-tag">Built to Bond</span>
-          <h3>Engineered for the glue line</h3>
-          <p>A balloon tire will spin uselessly on a smooth hub, so the barrel is printed with 32 axial grooves that key into the adhesive. Assembly uses a marine-grade two-part urethane structural adhesive — chosen because both the tire's polyurethane and the nylon hub reject ordinary epoxy.</p>
+  <section id="model" data-screen-label="3D Model" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">06 · Interactive Model</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:48px 64px; align-items:center;">
+      <div>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Explore the cart in 3D</h2>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:16px 0 0; max-width:48ch;">A full interactive model built to real dimensions — spin it yourself, or let the guided tour orbit the frame, steering, drivetrain, and electronics. X-ray mode shows the wiring inside the frame.</p>
+        <div style="margin-top:32px;">
+          <a href="cart3d.html" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Open the 3D model</button></a>
         </div>
       </div>
-      <div class="gallery" style="grid-template-columns: repeat(2, 1fr); margin-top: 40px">
-        <figure class="shot reveal"><img src="images/hub-web-face.png" alt="Face view of the printed hub design: open web with six swirled vanes around a solid four-bolt center boss" /></figure>
-        <figure class="shot reveal"><img src="images/hub-cross-section.png" alt="Assembled cross-section drawing of the two-piece hub: mirrored halves, grooved tire barrel, bearing pockets and castellated center lock" /></figure>
-        <figure class="shot reveal"><img src="images/spacer-cracked.jpg" alt="The old PETG wheel spacer, cracked clean through from the outer rim to the center bore by drive torque — the failure that justified the new hubs" /></figure>
-        <figure class="shot reveal"><img src="images/wheel-new-hub.jpg" alt="Finished wheel: the carbon-fiber nylon hub with its six swirled vanes bonded into the Wheeleez balloon tire, rods and nuts installed" /></figure>
-      </div>
+      <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <img src="images/gallery-side-low.jpg" alt="Low-angle side view of the cart — the subject of the interactive 3D model" style="width:100%; aspect-ratio:16/10; object-fit:cover; display:block;">
+      </figure>
     </div>
   </section>
 
-  <!-- ================= INTERACTIVE 3D MODEL ================= -->
-  <section class="section" id="model">
-    <div class="container">
-      <p class="kicker reveal">05 — Interactive Model</p>
-      <h2 class="reveal">Explore the Cart in 3D</h2>
-      <p class="section-lead reveal">A full interactive model of the cart, built to the real dimensions — spin it yourself, or let the guided tour orbit through the frame, steering, drivetrain and electronics.</p>
-      <div class="model-frame reveal" id="modelFrame">
-        <button class="model-poster" id="modelPoster" aria-label="Load the interactive 3D model">
-          <span class="model-play">▶</span>
-          <span class="model-cta">Load the 3D model</span>
-          <span class="model-note">Runs right in your browser — tap X-Ray to see the wiring inside the frame</span>
-        </button>
-      </div>
-      <p class="model-links reveal"><a class="btn" href="cart3d.html" target="_blank" rel="noopener">Open Full Screen →</a></p>
+  <section id="gallery" data-screen-label="Gallery" style="padding:96px 0 0;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">07 · Gallery</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 40px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px;">
+      <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-side-low.jpg" alt="Low-angle side view of the cart with cooler and chairs aboard" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-front-loaded.jpg" alt="Front three-quarter view of the cart fully loaded" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-rear.jpg" alt="Rear view of the loaded cart with the remote on the cooler lid" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-side-high.jpg" alt="Side view of the cart parked with chairs and cooler loaded" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-chassis.jpg" alt="Chassis from above with the electronics enclosure open" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
+        <figure class="{{ galleryFrameClass }}" style="margin:0; position:relative; border:1px solid var(--color-divider);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <img src="images/gallery-display.jpg" alt="Onboard display showing live obstacle radar and drive telemetry" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+        </figure>
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section class="section alt" id="gallery">
-    <div class="container">
-      <p class="kicker reveal">06 — Gallery</p>
-      <h2 class="reveal">From the Build</h2>
-      <p class="section-lead reveal">Real photos of the real cart — from the workshop bench to fully loaded and ready to roll. Beach shots coming soon.</p>
-      <div class="gallery">
-        <!-- To use a real photo: replace a .photo block with:
-             <figure class="shot reveal"><img src="images/your-photo.jpg" alt="Describe the photo" /></figure> -->
-        <figure class="shot reveal"><img src="images/gallery-side-low.jpg" alt="Low-angle side view of the cart with cooler and chairs aboard, wood-slat rails and balloon tires" /></figure>
-        <figure class="shot reveal"><img src="images/gallery-front-loaded.jpg" alt="Front three-quarter view of the cart fully loaded with beach chairs and a cooler" /></figure>
-        <figure class="shot reveal"><img src="images/gallery-rear.jpg" alt="Rear view of the loaded cart with the remote resting on the cooler lid" /></figure>
-        <figure class="shot reveal"><img src="images/gallery-side-high.jpg" alt="Side view of the cart parked on the lawn with chairs and cooler loaded" /></figure>
-        <figure class="shot reveal"><img src="images/gallery-chassis.jpg" alt="Chassis from above with the electronics enclosure open — Raspberry Pi, motor controllers and wiring" /></figure>
-        <figure class="shot reveal"><img src="images/gallery-display.jpg" alt="Onboard 5-inch display showing the live obstacle radar, battery and drive telemetry" /></figure>
-      </div>
+  <section id="approach" data-screen-label="Approach" style="padding:96px 0 96px;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">08 · The Shop</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">The KMJ Dynamics way</h2>
+    <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:24px 0 40px; max-width:70ch;">An independent shop with no blueprint handed down. Welded frames, custom power electronics, and autonomy code all come off the same bench — driven by one habit: keep building until the idea works in the real world.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px;">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+        <div>
+          <span style="font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); font-feature-settings:'tnum' 1;">{{ p.num }}</span>
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:24px; letter-spacing:0.02em; text-transform:uppercase; margin:8px 0 0;">{{ p.title }}</h3>
+          <p style="font-family:var(--font-body); font-size:14px; line-height:22px; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:8px 0 0;">{{ p.body }}</p>
+        </div>
+      </sc-for>
     </div>
   </section>
+</main>
 
-  <!-- ================= APPROACH / COMPANY ================= -->
-  <section class="section" id="approach">
-    <div class="container">
-      <p class="kicker reveal">07 — The Shop</p>
-      <h2 class="reveal">The KMJ Dynamics Way</h2>
-      <p class="section-lead reveal">Every discipline under one roof — mechanical, electrical, and software — learned by doing and proven by building.</p>
-      <div class="intro-block reveal">
-        <p>KMJ Dynamics is an independent engineering shop with no blueprint handed down and no department to defer to. Hard, cross-disciplinary problems get tackled from the ground up — welded frames, custom power electronics, and autonomy code all come off the same bench, driven by one stubborn habit: keep building until the idea works in the real world.</p>
+<footer id="contact" data-screen-label="Contact" style="background:var(--color-accent-900);">
+  <div style="max-width:1200px; margin:0 auto; padding:80px clamp(24px,5vw,72px) 48px;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); margin-bottom:12px;">09 · Contact</span>
+    <hr style="height:1px; border:0; background:var(--color-accent-700); margin:0 0 32px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap;">
+      <div>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; color:var(--color-bg); margin:0;">Get in touch</h2>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; color:var(--color-accent-200); margin:16px 0 0;">Questions about the project? Reach out.</p>
+        <p style="margin:24px 0 0;"><a href="mailto:hello@kmjdynamics.com" style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:24px; letter-spacing:0.02em; text-transform:uppercase; color:var(--color-bg); text-decoration:none; border-bottom:1px solid var(--color-accent-500);">hello@kmjdynamics.com</a></p>
       </div>
-      <div class="feature-grid">
-        <div class="feature reveal">
-          <h3>Think Outside the Box</h3>
-          <p>Where others see "that's not how it's done," we see the opening. The best solutions rarely sit on the obvious path.</p>
+      <div style="text-align:right;">
+        <div style="display:flex; gap:24px; justify-content:flex-end; margin-bottom:16px;">
+          <a href="build.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; color:var(--color-accent-200); text-decoration:none;">Build Guide</a>
+          <a href="stl/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; color:var(--color-accent-200); text-decoration:none;">Print Files</a>
+          <a href="cart3d.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; color:var(--color-accent-200); text-decoration:none;">3D Model</a>
         </div>
-        <div class="feature reveal">
-          <h3>Self-Taught, Hands-On</h3>
-          <p>Every skill here — welding, power electronics, software, 3D design — is homegrown and learned by doing, with a self-driving cart to show for it.</p>
-        </div>
-        <div class="feature reveal">
-          <h3>Solve Real Problems</h3>
-          <p>Every project starts with a genuine need and ends with something that works in the real world — sand, sun, load and all.</p>
-        </div>
-        <div class="feature reveal">
-          <h3>Iterate Relentlessly</h3>
-          <p>One prototype at a time. Hit a wall, engineer through it, and refine until it simply works.</p>
-        </div>
+        <p style="font-family:var(--font-body); font-size:13px; line-height:20px; color:var(--color-accent-300); margin:0;">© 2026 KMJ Dynamics. All rights reserved.</p>
+        <p style="margin:8px 0 0;"><a href="http://beachcart:8080" style="font-family:var(--font-body); font-size:12px; color:var(--color-accent-600); text-decoration:none;">Cart control panel (private)</a></p>
       </div>
     </div>
-  </section>
-
-  <!-- ================= CONTACT / FOOTER ================= -->
-  <footer class="footer" id="contact">
-    <div class="footer-glow" aria-hidden="true"></div>
-    <div class="container">
-      <p class="kicker reveal">08 — Contact</p>
-      <h2 class="reveal">Get in Touch</h2>
-      <p class="reveal">Questions about the project? Reach out.</p>
-      <a class="btn reveal" href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>
-      <p class="copyright">&copy; <span id="year"></span> KMJ Dynamics. All rights reserved.</p>
-      <p class="owner-panel">
-        <a href="http://beachcart:8080" target="_blank" rel="noopener"
-           title="Private — requires Tailscale on this device. IP fallback: http://100.94.101.2:8080">🔒 Cart Control Panel</a>
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    // Auto-update the year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Sticky nav: add glass background once the page is scrolled
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Mobile menu toggle
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-
-    // 3D model: load the viewer iframe only when the visitor asks for it
-    const poster = document.getElementById('modelPoster');
-    poster.addEventListener('click', () => {
-      const f = document.createElement('iframe');
-      f.src = 'cart3d.html';
-      f.title = 'Interactive 3D model of the beach cart';
-      f.allow = 'fullscreen';
-      document.getElementById('modelFrame').appendChild(f);
-      poster.remove();
-    });
-
-    // Scroll-reveal: fade/slide sections in as they enter the viewport
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-  <script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;steelWashPhotos&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Imagery&quot;}, &quot;heroHeight&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 640, &quot;min&quot;: 460, &quot;max&quot;: 820, &quot;step&quot;: 20, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      heroHeightNum: this.props.heroHeight ?? 640,
+      steelWash: this.props.steelWashPhotos ?? false,
+      galleryFrameClass: 'blueprint' + ((this.props.steelWashPhotos ?? false) ? ' duotone' : ''),
+      stats: [
+        { value: '400+ lb', label: 'Payload over soft sand' },
+        { value: '360°', label: 'LiDAR obstacle sensing' },
+        { value: '3 disciplines', label: 'Mechanical · Electrical · Software' },
+      ],
+      capabilities: [
+        { title: 'Mechanical', body: 'The heart of the shop: a TIG-welded aluminum chassis built square and true, hand-fitted steering and drivetrain, and hubs re-engineered in carbon-fiber nylon — one-off craftsmanship made to carry real load.' },
+        { title: 'Electrical', body: 'A ground-up 24V power system — fused, surge-protected, and star-grounded — engineered so sensitive electronics run reliably inches from high-current motors.' },
+        { title: 'Software', body: 'Self-written autonomy on an onboard Raspberry Pi: UWB position fixing, real-time obstacle avoidance, closed-loop speed control, and live telemetry.' },
+      ],
+      milestones: [
+        { num: '01', title: 'The problem', body: 'Hauling a mountain of gear across soft sand — every single beach day.' },
+        { num: '02', title: 'The build', body: 'A hand-welded aluminum cart on balloon tires, electric drive, and a Raspberry Pi brain.' },
+        { num: '03', title: 'The result', body: 'A cart that follows you on its own — or drives by remote — with everything loaded.' },
+      ],
+      features: [
+        { num: '01', title: 'Follow-me', body: 'A wearable UWB tag and four corner receivers fix your position; the cart drives itself to you, hands-free.' },
+        { num: '02', title: 'Sees & avoids', body: 'A 360° scanner and obstacle sensors steer it around people and stop it at curbs and drop-offs.' },
+        { num: '03', title: 'Manual RC', body: 'Flip the safety switch on the remote and take over instantly — full manual control on demand.' },
+        { num: '04', title: 'Built for sand', body: 'Balloon tires and a welded aluminum frame float over loose sand instead of digging in.' },
+      ],
+      deepCards: [
+        { tag: 'Power electronics', title: 'Built to survive its own motors', body: 'After a voltage spike destroyed the main computer, the power system was re-engineered: distributed, individually regulated supplies with dedicated surge protection. Failure became the spec.' },
+        { tag: 'Real-time control', title: 'Smooth, not lurching', body: 'Drive and steering run on hardware timers with slew-rate limiting and closed-loop PID speed control — predictable motion that eases in and out of power, even fully loaded.' },
+        { tag: 'Autonomy', title: 'Map-free navigation', body: 'A wearable beacon fixes the operator while a 360° laser scanner and a follow-the-gap algorithm flow the cart around obstacles. No pre-built maps, no GPS — it senses and reacts in real time.' },
+        { tag: 'Telemetry', title: 'Watch it from anywhere', body: 'Battery voltage, current, and charge state stream off the motor controllers over CAN bus to a phone dashboard on a private encrypted network — from across the beach or across the country.' },
+      ],
+      printCards: [
+        { tag: 'Designed in code', title: 'Geometry as a program', body: 'Every printed part is generated by a Python script — each dimension a named constant. When a test print runs two-tenths tight, the fix is a one-line edit and a regenerate.' },
+        { tag: 'Material science', title: 'Carbon-fiber nylon, tamed', body: 'PA6-CF chews through standard hardware, so the printer runs a hardened nozzle and drive gears. Every spool is oven-dried 12 hours and printed from a sealed dry-box.' },
+        { tag: 'Print strategy', title: '50 hours, 1.3 kg per half', body: 'Solid through the entire load path — bore, bearing pocket, bolt circle, locking joint — with an engineered internal lattice where solid plastic would add weight without strength.' },
+        { tag: 'Built to bond', title: 'Engineered for the glue line', body: 'The barrel prints with 32 axial grooves that key into a marine-grade two-part urethane adhesive — chosen because both the tire and the nylon hub reject ordinary epoxy.' },
+      ],
+      hubShots: [
+        { src: 'images/hub-web-face.png', alt: 'Face view of the printed hub: open web with six swirled vanes around a four-bolt center boss', caption: 'Fig. 1 — Hub face, six-vane web' },
+        { src: 'images/hub-cross-section.png', alt: 'Cross-section drawing of the two-piece hub with grooved tire barrel and castellated center lock', caption: 'Fig. 2 — Assembled cross-section' },
+        { src: 'images/spacer-cracked.jpg', alt: 'The old PETG wheel spacer cracked clean through by drive torque', caption: 'Fig. 3 — The failure: cracked PETG spacer' },
+        { src: 'images/wheel-new-hub.jpg', alt: 'Finished wheel: carbon-fiber nylon hub bonded into the balloon tire', caption: 'Fig. 4 — Finished wheel, new hub' },
+      ],
+      gallery: [
+        { src: 'images/gallery-side-low.jpg', alt: 'Low-angle side view of the cart with cooler and chairs aboard' },
+        { src: 'images/gallery-front-loaded.jpg', alt: 'Front three-quarter view of the cart fully loaded' },
+        { src: 'images/gallery-rear.jpg', alt: 'Rear view of the loaded cart with the remote on the cooler lid' },
+        { src: 'images/gallery-side-high.jpg', alt: 'Side view of the cart parked with chairs and cooler loaded' },
+        { src: 'images/gallery-chassis.jpg', alt: 'Chassis from above with the electronics enclosure open' },
+        { src: 'images/gallery-display.jpg', alt: 'Onboard display showing live obstacle radar and drive telemetry' },
+      ],
+      principles: [
+        { num: '01', title: 'Think outside the box', body: 'Where others see "that\u2019s not how it\u2019s done," we see the opening.' },
+        { num: '02', title: 'Self-taught, hands-on', body: 'Welding, power electronics, software, 3D design — homegrown, learned by doing.' },
+        { num: '03', title: 'Solve real problems', body: 'Every project starts with a genuine need and ends with something that works — sand, sun, load and all.' },
+        { num: '04', title: 'Iterate relentlessly', body: 'One prototype at a time. Hit a wall, engineer through it, refine until it works.' },
+      ],
+    };
+  }
+}
+</script>
+<script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
