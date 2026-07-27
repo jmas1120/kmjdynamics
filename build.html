@@ -117,8 +117,8 @@
 <tr><td><strong>Frame</strong></td><td>1.5" square aluminum tubes welded into a rectangle</td><td>The skeleton. Every other part bolts to it, and the hollow tubes double as protective channels for the wiring.</td></tr>
 <tr><td><strong>Drive motors (BLDC)</strong></td><td>"Brushless DC" electric motors — the type used in e-skateboards</td><td>The muscles. There are two, one per rear wheel, each turning its wheel through a bike chain.</td></tr>
 <tr><td><strong>Motor controller (ESC / VESC)</strong></td><td>An "electronic speed controller" — a small dedicated computer that feeds the motors precisely timed bursts of battery power</td><td>The translator between "go 2 mph" and the thousands of electrical pulses per second that actually make a brushless motor spin. Ours is one box (Flipsky DUET XS60) containing two independent 60-amp controllers, one per motor. "VESC" is the open-source flavor of ESC this project uses.</td></tr>
-<tr><td><strong>Battery (LiFePO4)</strong></td><td>Lithium iron phosphate battery — a safe, long-life lithium chemistry</td><td>The fuel tank. Two 12.8-volt batteries are wired end-to-end ("in series"), so their voltages add: 25.6V. That "24-volt-ish" bus powers everything.</td></tr>
-<tr><td><strong>BMS</strong></td><td>Battery management system — a protection circuit built inside each battery</td><td>The babysitter. It cuts the battery off if you pull too much current or drain it too low. You can't remove it, and you must respect its limits (we found one the hard way).</td></tr>
+<tr><td><strong>Battery (LiFePO4)</strong></td><td>Lithium iron phosphate battery — a safe, long-life lithium chemistry</td><td>The fuel tank. One native 24-volt 50Ah pack (25.6V nominal, ~1.3kWh) powers everything. Earlier builds made the same voltage from two 12.8-volt batteries wired end-to-end ("in series").</td></tr>
+<tr><td><strong>BMS</strong></td><td>Battery management system — a protection circuit built inside each battery</td><td>The babysitter. It cuts the battery off if you pull too much current or drain it too low. You can't remove it, and you must respect its limits (we found one the hard way). Ours also reports over Bluetooth, so the Pi reads exact state-of-charge straight from the pack.</td></tr>
 <tr><td><strong>Buck converter</strong></td><td>A voltage step-down device</td><td>Turns 24V battery power into the clean 5V the computer and sensors drink — a phone charger for the robot brain. The cart has two, so a fault on one can't take out the other's loads.</td></tr>
 <tr><td><strong>Raspberry Pi 5</strong></td><td>A credit-card-sized Linux computer</td><td>The brain. Runs every line of the cart's software: reading sensors, steering, throttle, the follow-me logic, the web dashboard.</td></tr>
 <tr><td><strong>Steering servo</strong></td><td>A motor with position control built in: tell it an angle, it goes there and holds</td><td>The steering muscle. It pushes the front axle left and right through a tie rod. Ours is a 24V industrial unit, much stronger than a hobby servo.</td></tr>
@@ -143,12 +143,12 @@
 <li>1. Frame / chassis — 1.5" square aluminum, TIG welded</li>
 <li>2. Steering — wagon steering bracket + tie rods + 24V servo</li>
 <li>3. Drivetrain — 2 BLDC motors, 5:1 chain, 16.5" wheels (BOND THE TIRES FIRST)</li>
-<li>4. Power system — 8S LiFePO4 (2x 20Ah in series), fuse, TVS, dual 5V bucks, star ground</li>
+<li>4. Power system — 8S LiFePO4 (24V 50Ah), fuse, TVS, dual 5V bucks, star ground</li>
 <li>5. Compute — Raspberry Pi 5 + Argon NEO 5 + OS + cooling</li>
 <li>6. Motor controller — Flipsky DUET XS60 dual VESC, configured over VESC Tool + CAN</li>
 <li>7. RC control — Flysky receiver, level shifter, GPIO wiring</li>
 <li>8. Drive &amp; steering software — hardware PWM, ramps, auto park-brake, deadman</li>
-<li>9. Sensors &amp; telemetry — 6x TFmini ring, RPLIDAR S3, CAN battery gauge w/ coulomb counter</li>
+<li>9. Sensors &amp; telemetry — 6x TFmini ring, RPLIDAR S3, CAN drive telemetry + Bluetooth BMS battery gauge</li>
 <li>10. Displays — camera to the phone, radar on the 5" screen</li>
 <li>11. UWB localization — 4 corner anchors + wearable tag (WORKING, 3.3Hz 4-anchor fix)</li>
 <li>12. Follow-me autonomy — 4-corner solver + bearing PD steering (road-tested)</li>
@@ -250,12 +250,12 @@
 <li>One motor spins "backwards" because the motors face opposite directions — fixed in software (Invert Motor Direction on that half), NEVER by swapping phase wires.</li>
 </ul>
 <h2 id="4-power-system-distribution">4.  Power system &amp; distribution</h2>
-<div class="plain">Everything runs off one battery bank: two 12.8-volt batteries wired end-to-end — like stacking two AAs in a flashlight — so the voltages add up to 25.6V. The big muscles (motors, steering servo) drink that "24V bus" straight; the delicate electronics get 5V from buck converters. Three things guard the bus: a <strong>fuse</strong> (melts and disconnects if a short tries to pull huge current — that's your fire protection), a <strong>TVS diode</strong> (a surge protector that clamps voltage spikes — I didn't know what a TVS diode was either, until a spike killed my first Raspberry Pi), and a <strong>bulk capacitor</strong> (a small energy sponge that smooths out jolts). And don't skip the "star ground" rule at the end: every ground wire meets at exactly one point. That keeps the motors' electrical noise out of the sensors' faint signals.</div>
-<p><strong>Battery (current, installed 7/10): 2x SEFEPODER SP1220M 12.8V 20Ah LiFePO4 in SERIES = 8S, 25.6V nominal / ~26.3V rested-full.</strong> Pack spec: 40A BMS trip / 20A continuous / 3C pulse / 10A charge. This replaced the original 2x 15Ah pair (whose 16–20A BMS was the proven power ceiling — 19.4A measured draw pinned it). A Power Queen 24V 50Ah (50A BMS) is expected later; the 20Ah pair is the interim motor pack. Charger: BROODAY 24V 10A LiFePO4 (29.2V).</p>
+<div class="plain">Everything runs off one battery: a native 24-volt (25.6V nominal) 50Ah lithium iron phosphate pack. The big muscles (motors, steering servo) drink that "24V bus" straight; the delicate electronics get 5V from buck converters. Three things guard the bus: a <strong>fuse</strong> (melts and disconnects if a short tries to pull huge current — that's your fire protection), a <strong>TVS diode</strong> (a surge protector that clamps voltage spikes — I didn't know what a TVS diode was either, until a spike killed my first Raspberry Pi), and a <strong>bulk capacitor</strong> (a small energy sponge that smooths out jolts). And don't skip the "star ground" rule at the end: every ground wire meets at exactly one point. That keeps the motors' electrical noise out of the sensors' faint signals.</div>
+<p><strong>Battery (current, installed 7/22): Power Queen 24V 50Ah Bluetooth LiFePO4 — 8S, 25.6V nominal, 1280Wh, ~23lb. BMS: 50A continuous / 60A 30-min peak; measured real capacity 52.5Ah at the first full charge.</strong> Native 24V means no series wiring and a single BMS — one the Pi reads directly over Bluetooth as the cart's fuel gauge (§9b). It rides in a 3D-printed under-frame side-loader box hung below the rails. This pack replaced the interim 2x SEFEPODER SP1220M 12.8V 20Ah series pair (7/10–7/22), which itself replaced the original 2x 15Ah pair (whose 16–20A BMS was the proven power ceiling — 19.4A measured draw pinned it). Charger: BROODAY 24V 10A LiFePO4 (29.2V) — unchanged, works on every 8S pack this cart has run.</p>
 <ol>
 <li>Build the 24V bus with 8AWG/12AWG silicone wire + the Recoil bus bar. <strong>Bus order: battery (+) → main fuse → bulk caps → TVS → loads.</strong>
 </li>
-<li><strong>MAIN PACK FUSE: 40A ANL</strong> (re-sized 7/10 for the 30A drive draw of the new pack; needs 10AWG+ on that leg; high interrupt rating — LiFePO4 dumps huge fault current). Confirm it is physically installed — it was still on the to-do list at last audit.
+<li><strong>MAIN PACK FUSE: 50A ANL</strong> (re-sized 7/22 for the 50Ah pack — 40A drive draw plus 40A regen braking, at the BMS's 50A continuous rating; needs 10AWG+ on that leg; high interrupt rating — LiFePO4 dumps huge fault current). Confirm it is physically installed — it was still on the to-do list at last audit.
 </li>
 <li><strong>TVS (installed 6/25): SMBJ30A across the 24V bus</strong> at the bus/charge entry — stripe/cathode → V+, anode → GND, SHORT FAT leads (polarized; backwards = dead short). This is the defense against the charger transient that killed Pi #1. 30V standoff vs 29.2V regen-full is tight but acceptable; if it ever nuisance-clamps near full charge, swap to SMBJ33A/36A.
 </li>
@@ -304,7 +304,7 @@
 </li>
 <li>Voltage cutoffs (8S LiFePO4): <strong>Start 22.4V / End 20.0V / regen 29.2V — type them manually.</strong> The Battery Cutoff Calculator is set for Li-ion and will stomp these if you press Apply.
 </li>
-<li>Current limits (live 7/10): <strong>Motor 60A / Brake −60A / Battery 15A per side (=30A pack) / regen −10A per side. Absolute Max 120A</strong> (a fault-trip threshold, NOT a power knob — it was left at the 83A default and stall-spikes in FOC tripped ABS_OVER_CURRENT on every drive-off, the 7/10 "hill cutout"; 120A = headroom restored, zero faults since). ⛔ Do not raise battery amps past the pack's BMS spec (the old 15Ah pack died at exactly this).
+<li>Current limits (live 7/26): <strong>Motor 60A / Brake −60A / Battery 20A per side (=40A pack) / regen −20A per side / Timeout Brake 40A. Absolute Max 120A</strong> (a fault-trip threshold, NOT a power knob — it was left at the 83A default and stall-spikes in FOC tripped ABS_OVER_CURRENT on every drive-off, the 7/10 "hill cutout"; 120A = headroom restored, zero faults since). ⛔ Do not raise battery amps past the pack's BMS spec (the old 15Ah pack died at exactly this).
 </li>
 <li><strong>App Cfg → PPM: Ramping 1.0s positive / 0.5s negative; Timeout Brake Current 15A</strong> (signal loss now brakes instead of coasting — the park brake and every safety path rely on it). Re-calibrate PPM with the Input Setup Wizard (full-rev / full-fwd / neutral, ~15% deadband) — an uncalibrated pulse range reads as "throttle is 0-to-full on/off."
 </li>
@@ -363,6 +363,7 @@
 </li>
 </ol>
 <h3 id="9b-battery-gauge-coulomb-counter-over-can">9b.  Battery gauge + coulomb counter over CAN</h3>
+<div class="note"><strong>UPDATE 7/26: the coulomb counter is retired.</strong> The Power Queen pack (installed 7/22) has a Bluetooth BMS the Pi now reads directly every 5 minutes — exact state-of-charge straight from the battery, so the software no longer has to estimate it (a voltage-table floor at the steep low-end knee remains as the only estimator, a safety net in case the Bluetooth link dies). The CAN plumbing below still carries voltage, current, and drive telemetry, and its reliability lessons stand — but if your battery's BMS speaks Bluetooth, read it; don't rebuild the checkbook.</div>
 <div class="plain">The Pi asks the motor controllers "what voltage do you see, and how much current is flowing?" over the CAN network, and turns the answers into a percent-full gauge. The catch: LiFePO4 batteries hold almost exactly the same voltage from 90% full down to 60%, so voltage alone can't tell you what's left. I learned that the hard way — my first gauge read way too full in the middle of the range. The fix is "coulomb counting": the software counts every amp-hour flowing out of (and back into) the battery, like balancing a checkbook, and only trusts voltage at the very top and bottom. The rest of this section is the plumbing it took to make those CAN readings reliable while two controllers talk over each other on the same two wires.</div>
 <ol>
 <li>Waveshare 2-Ch Isolated CAN HAT (MCP2515, 16MHz), CAN0 interrupt GPIO23. VESC CAN-H/L to CAN_0 with shared ground. <code>config.txt</code>: <code>dtparam=spi=on</code> + <code>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=23</code>.
@@ -517,7 +518,7 @@
 <li>Wheel/bearing spacers (wheel_spacer.py) — 90mm OD, 40mm bore, 47mm bearing pocket; INNER 25mm, OUTER 30mm w/ counterbores. High infill, pocket-face-up. Load-bearing.</li>
 <li>5" screen case — 45° tilt enclosure.</li>
 <li>UWB tag case (tag_case_gen.py) — 52x38x20mm, press-fit lid, USB-C cutout, switch slot, thinned RF wall at the antenna end, D-ring fob loop. <strong>Assembly: boards + wiring first, battery LAST</strong> (it blocks the ports otherwise).</li>
-<li>Battery boxes: battery_box_gen.py v5 (two-bay motor-pack box) + battery_box_50_gen.py (two-piece shiplap box for the future 50Ah; each half rail-mounts independently).</li>
+<li>Battery boxes: battery_box_50_side_gen.py (<strong>the installed one</strong> — PA6-CF under-frame side-loader for the 50Ah pack: hanging box + screw-on door + 2x slotted L-hangers, hung 7/22) + battery_box_gen.py v5 (two-bay motor-pack box) + battery_box_50_gen.py (two-piece shiplap between-rails box, superseded, kept as spare).</li>
 <li>sprocket_60t_gen.py — 60T 410-chain sprocket MOCK-UP (G1 bolt pattern, 250mm) — fit-check only, PETG teeth are NOT a drive part.</li>
 <li><strong>Solid 2-piece wheel hub (wheel_hub_core_gen.py) — PA6-CF, the big one.</strong> Replaces the factory hub + spacer stack (which develops play under torque): bell + grooved Ø121 tire barrel + bearing boss as one solid body per half; two identical halves lock with hidden castellated fingers — print the same STL twice, rotate one 90°. Battery strap (battery_strap_50_gen.py) — rim-mounted hold-down bar for the 50Ah box, print PETG on its side.</li>
 </ul>
@@ -541,8 +542,8 @@
 <li>CAN HAT: MCP2515 16MHz, interrupt GPIO23, can0 @ 500k. VESC halves at CAN 0x13 + 0x14 (volatile — re-scan after any VESC Tool session). External tools poll as 0x2B.</li>
 <li>I2C bus 1: TFmini mux 0x70 (sensors 0x10 behind it); SC16IS752 boards 0x48 (INT GPIO17/pin11) + 0x49 (INT GPIO12/pin32). ⛔ GPIO25/pin22 is dead — leave empty.</li>
 <li>UWB ground FET: GPIO16 (pin 36).</li>
-<li>Battery: 8S LiFePO4 (2x SP1220M 20Ah series), 26.3V rested-full, 29.2V charger. VESC cutoffs 22.4/20.0/regen 29.2. Motor 60A / Batt 15A/side / regen −10A / Abs Max 120A.</li>
-<li>Power protection: 40A ANL main fuse (10AWG leg), SMBJ30A TVS (installed), bulk cap. Electronics OFF while charging.</li>
+<li>Battery: Power Queen 24V 50Ah Bluetooth LiFePO4 (8S, 52.5Ah measured), 29.2V charger; SoC read from the pack's Bluetooth BMS. VESC cutoffs 22.4/20.0/regen 29.2. Motor 60A / Batt 20A/side / regen −20A / Timeout Brake 40A / Abs Max 120A.</li>
+<li>Power protection: 50A ANL main fuse (10AWG leg), SMBJ30A TVS (installed), bulk cap. Electronics OFF while charging.</li>
 <li>UWB: NETWORKID=BEACHCAR, anchors ANCH1(FL)/ANCH2(FR)/ANCH3(RR)/ANCH4(RL), tag TAG1. Anchor spacing 86.36 x 114.3 cm.</li>
 <li>Key addresses: cart Tailscale &lt;the cart's Tailscale address&gt; — webpanel :8080, photo drop :8090, VNC :5900 (Tailscale-bound). Own-AP mode: 10.42.0.1.</li>
 </ul>
@@ -557,9 +558,9 @@
 </li>
 <li>Inspect the front-right corner bracket/harness for 7/10 hill-slide damage beyond the module.
 </li>
-<li>Verify the 40A ANL main pack fuse is physically installed.
+<li>Install the 50A ANL main pack fuse (re-sized for the 50Ah pack; not yet in).
 </li>
-<li>Gearing decision (60T = 6:1) after the trip; Power Queen 50Ah arrival → batt 18A/side + the split-bus install checklist (memory/beachcart-vesc-tuning.md).
+<li>Gearing decision (60T = 6:1) after the trip. (Power Queen 50Ah: DONE — installed 7/22, VESCs at 20A/side.) Split-bus electronics battery still to finish.
 </li>
 <li>Ramp reconciliation: Pi-side 0.7/s vs VESC 1.0s PPM ramp still stack.
 </li>
@@ -578,7 +579,7 @@
 </ol>
 <p>--- End of guide. Chronological history: README.md. Bill of materials: STOCK_LIST.md. Wiring: PINOUT.md. Restore: RESTORE.md. ---</p>
     <h2 id="parts">Parts List (Bill of Materials)</h2>
-    <p class="doc-meta">Confirmed from purchase records June 2026; statuses updated July 11, 2026.
+    <p class="doc-meta">Confirmed from purchase records June 2026; statuses updated July 26, 2026.
     Status key: <strong>[BUILD]</strong> in the final cart · <strong>[SPARE]</strong> bought, not in the final build ·
     <strong>[RETIRED]</strong> was in the build, superseded · <strong>[DEAD]</strong> destroyed along the way ·
     <strong>[PLANNED]</strong> decided, not yet bought/arrived · <strong>[TOOL]</strong> reusable tool.</p>
@@ -590,20 +591,17 @@
 <tr><td>Cooling fan (replacement)</td><td>30mm 5V blower, Pi 5 fan-header plug</td><td>1</td><td>BUILD</td><td><strong>INSTALLED 7/3</strong> (the HAT-removal header disaster session). Runs full-on via GPIO45 (pwm overlay kills the firmware curve; no tach). ⚠ OPEN: the SoC <strong>thermal pad shifted during the 7/3 surgery</strong> — Pi idles ~65°C, soft-throttled 79.6°C on 7/10. Re-seat the pad.</td></tr>
 <tr><td>SD card reader</td><td>acer USB-C dual-slot</td><td>1</td><td>BUILD</td><td></td></tr>
 </table></div>
-<h2 id="batteries-installed-motor-pack-710">Batteries — INSTALLED (motor pack, 7/10)</h2>
+<h2 id="batteries-installed-motor-pack-710">Batteries — INSTALLED (motor pack: Power Queen 50Ah, 7/22)</h2>
 <div class="table-wrap"><table>
 <tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Motor battery pack</td><td><strong>2x SEFEPODER SP1220M 12.8V 20Ah LiFePO4, wired in SERIES = 8S / 25.6V nominal (~26.3V rested-full)</strong></td><td>2</td><td>BUILD</td><td>Installed 7/10. Spec: <strong>40A BMS trip / 20A continuous / 3C pulse / 10A charge</strong>. VESC battery amps set 15A/side = 30A total (~690W; 1.5C sustained — over continuous rating on long climbs, 25% under trip; wear tradeoff accepted). Hill re-test 7/10 night: zero faults, 654W peak, 26.8A, Vmin 24.1V. This pair is the <strong>interim</strong> motor pack until the Power Queen lands, then it may be returned/repurposed.</td></tr>
+<tr><td>Motor battery pack</td><td><strong>Power Queen 24V 50Ah Bluetooth LiFePO4</strong> (10.24 x 6.61 x 8.27 in, 1280Wh, ~23lb), 8S / 25.6V nominal</td><td>1</td><td>BUILD</td><td><strong>INSTALLED 7/22</strong> in the under-frame box. Spec: <strong>50A continuous / 60A 30-min peak BMS</strong>; native 24V = no series wiring, ONE BMS; existing BROODAY charger + VESC 8S cutoffs work as-is. First full charge recalibrated the BMS reference: <strong>real capacity 52.5Ah</strong> (ships underrated). VESC battery amps <strong>20A/side (=40A pack) / regen −20A/side</strong>. <strong>State-of-charge comes straight from the pack's Bluetooth BMS</strong>, read by the Pi every 5 minutes (the software coulomb counter is retired — see §9b). ⚠ One Bluetooth central at a time: close the vendor phone app fully or the Pi's reads fail. Won't fix the big hill — that stall is TORQUE-limited (motors pinned at 60A hw cap), not power-limited.</td></tr>
+<tr><td>Battery pack (interim, 7/10–7/22)</td><td>2x SEFEPODER SP1220M 12.8V 20Ah LiFePO4, wired in SERIES = 8S</td><td>2</td><td>RETIRED</td><td>The interim motor pack (installed 7/10, <strong>retired 7/22</strong> when the Power Queen went in; may be returned/repurposed). Spec: 40A BMS trip / 20A continuous / 3C pulse / 10A charge; ran at 15A/side = 30A. Hill re-test 7/10 night: zero faults, 654W peak, 26.8A, Vmin 24.1V.</td></tr>
 <tr><td>Battery pack (previous)</td><td>2x SEFEPOWER SP1215 12.8V 15Ah LiFePO4 (series)</td><td>2</td><td>RETIRED</td><td>Retired from motor duty 7/10 — its 16–20A BMS was the measured power ceiling (19.4A draw pinned it on the hill). Split-bus plan: one 15Ah becomes the <strong>electronics battery</strong> in the existing bracket (14.6V 5A charger picked for it). Measured 14.8Ah usable (7/4 bench discharge).</td></tr>
-<tr><td>Battery charger (24V)</td><td>BROODAY 24V 10A LiFePO4 (29.2V)</td><td>1</td><td>BUILD</td><td>Works as-is for every 8S pack incl. the Power Queen. ⚠ Never run electronics while charging.</td></tr>
+<tr><td>Battery charger (24V)</td><td>BROODAY 24V 10A LiFePO4 (29.2V)</td><td>1</td><td>BUILD</td><td>Works as-is for the Power Queen (8S). ⚠ Never run electronics while charging.</td></tr>
 <tr><td>Charger (12V, electronics batt)</td><td>14.6V 5A LiFePO4</td><td>1</td><td>PLANNED</td><td>Picked 7/9 for the 15Ah electronics battery (a 20A unit was rejected — over every pack's charge spec). XT60 charge-port scheme: different connector per voltage.</td></tr>
-<tr><td>Main pack fuse</td><td><strong>40A ANL</strong>, high interrupt rating, 10AWG+ leg</td><td>1</td><td>PLANNED</td><td>Re-sized 7/10 for the 30A drive draw (was spec'd 20A for the old pack). <strong>Verify physically installed</strong> — still unconfirmed at last audit.</td></tr>
-</table></div>
-<h2 id="battery-planned-upgrade">Battery — PLANNED UPGRADE</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Motor battery (upgrade)</td><td><strong>Power Queen 24V 50Ah Bluetooth LiFePO4</strong> (10.24 x 6.61 x 8.27 in, 1280Wh, ~23lb)</td><td>1</td><td>PLANNED</td><td>Verified spec: <strong>50A continuous / 60A 30-min peak BMS</strong> — beats the 20Ah pair's 40A series ceiling, 2.5x capacity, native 24V (no series wiring, ONE BMS, existing BROODAY charger + VESC 8S cutoffs work as-is). On arrival: VESCs to <strong>18A batt / −15A regen per side</strong> (~900W), coulomb counter <code>BATT_CAPACITY_AH</code> → ~50, re-measure. Won't fix the big hill — that stall is TORQUE-limited (motors pinned at 60A hw cap), not power-limited. Checklist: memory/beachcart-vesc-tuning.md.</td></tr>
-<tr><td>Battery box (50Ah)</td><td>3D-printed two-piece frame-rail box (battery_box_50_gen.py, PETG)</td><td>1</td><td>BUILD</td><td>Printed 7/9–7/10: 18mm shiplap joint (each half &gt; P1S bed alone), each half rail-mounts independently. I'm shifting the waterproof case ~1" to clear the 10.24" length.</td></tr>
+<tr><td>Main pack fuse</td><td><strong>50A ANL</strong>, high interrupt rating, 10AWG+ leg</td><td>1</td><td>PLANNED</td><td>Re-sized 7/22 for the 50Ah pack: 40A drive draw (20A/side) + 40A regen, at the pack's 50A-continuous BMS rating. <strong>Still to physically install.</strong></td></tr>
+<tr><td>Battery box (50Ah, under-frame side-loader)</td><td>3D-printed two-piece hanging box + door + 2x slotted L-hangers (battery_box_50_side_gen.py, <strong>PA6-CF</strong>, ~3 spools)</td><td>1</td><td>BUILD</td><td>Printed + <strong>hung under the frame 7/22</strong> — battery lies on its side and slides out through a screw-on door (battery out most of the way → bolt the lugs → slide home). Cover field-revised to a stepped profile. ⚠ Full steering lock now reaches the box → steering throw is software-clamped with ~1" verified clearance.</td></tr>
+<tr><td>Battery box (50Ah, between-rails — superseded)</td><td>3D-printed two-piece frame-rail box (battery_box_50_gen.py, PETG)</td><td>1</td><td>SPARE</td><td>Printed 7/9–7/10: 18mm shiplap joint (each half &gt; P1S bed alone), each half rail-mounts independently. Superseded by the under-frame side-loader (the battery wouldn't fit standing up); halves + strap design kept as spares.</td></tr>
 </table></div>
 <h2 id="power-distribution-protection">Power Distribution &amp; Protection</h2>
 <div class="table-wrap"><table>
