@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build Guide — On Hold — KMJ Dynamics</title>
-  <meta name="description" content="The beach cart build guide is temporarily offline." />
+  <title>Build Guide — Coming Back — KMJ Dynamics</title>
+  <meta name="description" content="The complete beach cart build guide is coming back as a full package — build manual, parts list, and all the print files. Join the waitlist." />
   <meta name="author" content="KMJ Dynamics" />
-  <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#f2f2f3" />
   <link rel="canonical" href="https://kmjdynamics.com/build.html" />
-  <meta property="og:title" content="Build Guide — On Hold" />
-  <meta property="og:description" content="The beach cart build guide is temporarily offline." />
+  <meta property="og:title" content="The Beach Cart Build Guide — Coming Back" />
+  <meta property="og:description" content="The complete build manual, parts list, and print files — coming back as a full package. Join the waitlist for launch pricing." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://kmjdynamics.com/build.html" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
   <link rel="stylesheet" href="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
   <style>
@@ -24,10 +24,15 @@
     .doc-hero { padding: 48px 0 8px; }
     .doc { max-width: 900px; margin: 0 auto; padding: 0 24px 90px; font-family: var(--font-body); font-size: 16px; line-height: var(--leading); color: var(--color-text); }
     .doc h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 6vw, 72px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
+    .doc h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 24px; line-height: 28px; letter-spacing: 0.02em; text-transform: uppercase; margin: 2em 0 .6em; }
     .doc p { margin: .7em 0; }
+    .doc ul { margin: .7em 0 .9em 1.35em; padding: 0; }
+    .doc li { margin: .4em 0; }
     .kicker { display: block; font-family: var(--font-body); font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
     .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
     .doc-meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; }
+    .cta-box { margin: 32px 0; padding: 24px; border: 1px solid var(--color-accent-300); border-left: 3px solid var(--color-accent-700); background: var(--color-accent-100); }
+    .cta-box p { margin: 0 0 16px; }
     .doc-footer { border-top: 1px solid var(--color-divider); }
     .nav { position: relative; }
     .nav-desktop { display: contents; }
@@ -47,11 +52,13 @@
     <a class="nav-brand" href="index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
     <span class="nav-desktop">
       <a href="index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
+      <a href="stl/index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
       <a href="index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
     </span>
     <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
     <div class="nav-mobile" id="navMobile">
       <a href="index.html">Home</a>
+      <a href="stl/index.html">Print Files</a>
       <a href="index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
     </div>
   </nav>
@@ -60,10 +67,24 @@
     <div class="doc">
       <span class="kicker">The Manual</span>
       <hr class="kicker-rule" />
-      <h1>On Hold for Now</h1>
-      <p>I've temporarily taken the full build guide, parts list, and 3D print files offline while I figure out the next steps for this project. Thanks for the incredible response — I didn't expect this many of you to show up.</p>
-      <p>The rest of the site is still here: the <a href="index.html">project story</a> and the <a href="cart3d.html">interactive 3D model</a>.</p>
-      <p class="doc-meta">Want to know when the guide comes back? Drop me a line at <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>.</p>
+      <h1>It's Coming Back</h1>
+      <p>When over a million of you showed up in a week, I realized the free guide I'd been keeping in my spare time wasn't good enough anymore. So I've pulled it down and I'm turning it into the real thing: the <strong>Complete Build Package</strong>.</p>
+      <ul>
+        <li><strong>The full build manual</strong> — every step, every setting, every mistake I already made so you don't have to. Frame, drivetrain, power system, motor control, sensors, and the follow-me system.</li>
+        <li><strong>The complete parts list</strong> — every component with real prices, so you know what you're signing up for before you cut metal.</li>
+        <li><strong>All 34 print files</strong> — the wheels, hubs, mounts, and cases, with print settings and material notes for each.</li>
+        <li><strong>Wiring and pinout references</strong> — the diagrams I actually use to work on the cart.</li>
+        <li><strong>Free updates</strong> — this cart is a living project. Buy once, get every revision.</li>
+      </ul>
+
+      <div class="cta-box">
+        <p><strong>Join the waitlist and get launch-day pricing.</strong> One email when it goes live, nothing else — no spam, no newsletter.</p>
+        <a href="mailto:hello@kmjdynamics.com?subject=Build%20Guide%20Waitlist&body=Put%20me%20on%20the%20waitlist!" style="text-decoration:none;"><button type="button" class="btn btn-primary">Join the Waitlist</button></a>
+        <p class="doc-meta" style="margin:12px 0 0;">Tap the button (it opens an email to hello@kmjdynamics.com) and just hit send.</p>
+      </div>
+
+      <h2>While You Wait</h2>
+      <p>The rest of the site is still free and always will be: the <a href="index.html">project story</a>, the engineering write-up, and the <a href="cart3d.html">interactive 3D model</a> you can spin around and x-ray.</p>
     </div>
   </header>
 
