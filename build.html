@@ -3,62 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How It's Built — KMJ Dynamics Beach Cart Build Guide</title>
-  <meta name="description" content="The complete, real build manual for the KMJ Dynamics autonomous beach cart — frame, drivetrain, power, motor control, sensors, UWB follow-me, safety systems, and the full parts list." />
+  <title>Build Guide — On Hold — KMJ Dynamics</title>
+  <meta name="description" content="The beach cart build guide is temporarily offline." />
   <meta name="author" content="KMJ Dynamics" />
+  <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#f2f2f3" />
   <link rel="canonical" href="https://kmjdynamics.com/build.html" />
-  <meta property="og:title" content="How It's Built — the Beach Cart Build Guide" />
-  <meta property="og:description" content="The complete working build manual and parts list for the autonomous beach cart." />
+  <meta property="og:title" content="Build Guide — On Hold" />
+  <meta property="og:description" content="The beach cart build guide is temporarily offline." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://kmjdynamics.com/build.html" />
   <meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
   <link rel="stylesheet" href="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
   <style>
-    :root { --leading: 24px; --half: 12px; }
-    html { scroll-behavior: smooth; }
+    :root { --leading: 24px; }
     body { margin: 0; background: var(--color-bg); text-wrap: pretty; }
     a { color: var(--color-accent-700); }
     a:hover { color: var(--color-accent-800); }
     .doc-hero { padding: 48px 0 8px; }
     .doc { max-width: 900px; margin: 0 auto; padding: 0 24px 90px; font-family: var(--font-body); font-size: 16px; line-height: var(--leading); color: var(--color-text); }
     .doc h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 6vw, 72px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
-    .doc h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 32px; letter-spacing: 0.02em; text-transform: uppercase; margin: 2.6em 0 .6em; padding-top: 24px; border-top: 1px solid var(--color-divider); scroll-margin-top: 90px; }
-    .doc h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; line-height: 24px; letter-spacing: 0.02em; text-transform: uppercase; margin: 1.8em 0 .5em; scroll-margin-top: 90px; }
-    .doc h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.02em; text-transform: uppercase; margin: 1.4em 0 .4em; }
     .doc p { margin: .7em 0; }
-    .doc ul, .doc ol { margin: .7em 0 .9em 1.35em; padding: 0; }
-    .doc li { margin: .4em 0; }
-    .doc li ul { margin: .3em 0 .3em 1.2em; }
-    .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--color-accent-100); border: 1px solid var(--color-accent-200); padding: .08em .35em; word-break: break-word; color: var(--color-accent-900); }
-    .doc .note { margin: 1.2em 0; padding: 14px 18px; border: 1px solid var(--color-accent-300); border-left: 3px solid var(--color-accent-700); background: var(--color-accent-100); }
-    .doc .note::before { content: "Field note"; display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent-800); margin-bottom: 4px; }
-    .doc .plain { margin: 1.2em 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-left: 3px solid var(--color-accent); background: color-mix(in srgb, var(--color-accent) 4%, var(--color-bg)); }
-    .doc .plain::before { content: "Overview"; display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 4px; }
-    .doc .table-wrap { overflow-x: auto; margin: 1em 0 1.4em; border: 1px solid var(--color-divider); }
-    .doc table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; }
-    .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--color-divider); }
-    .doc th { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent); white-space: nowrap; }
-    .doc tr:last-child td { border-bottom: none; }
     .kicker { display: block; font-family: var(--font-body); font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
     .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
-    .toc { position: relative; margin: 2em 0 0; padding: 20px 24px; border: 1px solid var(--color-divider); display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px 20px; }
-    .toc a { text-decoration: none; font-size: 14px; line-height: 22px; }
-    .toc a:hover { text-decoration: underline; }
     .doc-meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; }
     .doc-footer { border-top: 1px solid var(--color-divider); }
     .nav { position: relative; }
-  .nav-desktop { display: contents; }
-  .nav-menu-btn { display: none; }
-  @media (max-width: 760px) {
-    .nav-desktop { display: none; }
-    .nav-menu-btn { display: inline-flex; }
-  }
-  .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
-  .nav-mobile.open { display: flex; }
-  .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
+    .nav-desktop { display: contents; }
+    .nav-menu-btn { display: none; }
+    @media (max-width: 760px) {
+      .nav-desktop { display: none; }
+      .nav-menu-btn { display: inline-flex; }
+    }
+    .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
     .doc-footer .inner { max-width: 900px; margin: 0 auto; padding: 40px 24px 56px; font-family: var(--font-body); font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
   </style>
 </head>
@@ -67,659 +47,31 @@
     <a class="nav-brand" href="index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
     <span class="nav-desktop">
       <a href="index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
-      <a href="#guide" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
-      <a href="#parts" style="text-decoration:none; font-size:14px; white-space:nowrap;">Parts List</a>
       <a href="stl/index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
       <a href="index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
     </span>
     <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
     <div class="nav-mobile" id="navMobile">
       <a href="index.html">Home</a>
-      <a href="#guide">Build Guide</a>
-      <a href="#parts">Parts List</a>
       <a href="stl/index.html">Print Files</a>
       <a href="index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
     </div>
   </nav>
 
-  <header class="doc-hero" id="guide">
+  <header class="doc-hero">
     <div class="doc">
       <span class="kicker">The Manual</span>
       <hr class="kicker-rule" />
-      <h1>How It's Built</h1>
-      <p class="doc-meta">This is the cart's real working build manual — the same document the project runs on,
-      published here so anyone curious can see exactly how it's done, step by step, with the values and hard-won
-      lessons that actually work. Current as of <strong>July 14, 2026</strong>; the cart is a living project, so
-      this page updates as the build evolves. (Network credentials and private addresses are omitted from this
-      public copy.) The full <a class="part-jump" href="#parts" style="margin:0;display:inline">parts list is at the bottom</a>.</p>
-      <p class="doc-meta">Every section opens with an <em>Overview</em> box that covers what you're building and why
-      before the technical steps begin, and a <a href="#glossary">glossary of every major part</a>
-      is right below. Together they carry the whole page.</p>
-      <div class="toc"><a href="#how-to-read">How to read this guide</a><a href="#glossary">Meet the parts — what everything does</a><a href="#0-overview-build-order">0.  Overview &amp; build order</a><a href="#1-frame-chassis">1.  Frame &amp; chassis</a><a href="#1b-wiring-the-frame">1b.  Running wires through the tubing</a><a href="#2-steering">2.  Steering</a><a href="#3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</a><a href="#4-power-system-distribution">4.  Power system &amp; distribution</a><a href="#5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</a><a href="#6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</a><a href="#7-rc-control">7.  RC control</a><a href="#8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</a><a href="#9-sensors-telemetry">9.  Sensors &amp; telemetry</a><a href="#10-displays-camera-5-screen">10.  Displays (camera + 5&quot; screen)</a><a href="#11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</a><a href="#12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</a><a href="#13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</a><a href="#14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</a><a href="#15-software-running-autostart">15.  Software, running &amp; autostart</a><a href="#16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</a><a href="#17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</a><a href="#18-open-items-as-of-711">18.  Open items as of 7/14</a></div>
+      <h1>On Hold for Now</h1>
+      <p>I've temporarily taken the full build guide and parts list offline while I figure out the next steps for this project. Thanks for the incredible response — I didn't expect this many of you to show up.</p>
+      <p>The rest of the site is still here: the <a href="index.html">project story</a>, the <a href="cart3d.html">interactive 3D model</a>, and the <a href="stl/index.html">3D print files</a>.</p>
+      <p class="doc-meta">Want to know when the guide comes back? Drop me a line at <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>.</p>
     </div>
   </header>
 
-  <main class="doc">
-<h2 id="how-to-read">How to read this guide</h2>
-<p>Here's the system this guide uses:</p>
-<ul>
-<li><strong>Overview boxes</strong> open each section and tell you what the thing is, what job it does on the cart, and why it's built the way it is. If a section ever stops making sense, go back and re-read its Overview box.</li>
-<li><strong>"Field note" boxes</strong> are warnings and hard-won lessons. Every one of them exists because something broke, burned, or drove off wrong. Read them <em>before</em> doing the steps they sit next to, not after.</li>
-<li><strong>Numbered steps</strong> are in the order you should actually do them. The section order (frame → power → brain → sensors → autonomy) is also the build order — each layer is tested working before the next goes on top.</li>
-<li><code>Text that looks like this</code> is a literal filename, setting name, or command — type it exactly.</li>
-<li>Words you don't recognize are probably in the <a href="#glossary">glossary right below</a>. Skim it once now; you don't need to memorize it.</li>
-</ul>
-<p>One tip before you start: the whole build comes down to <em>patience and order</em>. Measure before cutting, label before hiding a wire, test each system alone before connecting it to the next. Every disaster on this page happened because I skipped one of those.</p>
-<h2 id="glossary">Meet the parts — what everything does</h2>
-<p>The cart is really just a dozen kinds of parts working together. Here's what each one does. Think of the cart as a body: it has a skeleton, muscles, a heart, a brain, nerves, and senses.</p>
-<div class="table-wrap"><table>
-<tr><th>Part</th><th>What it is</th><th>What it does on the cart</th></tr>
-<tr><td><strong>Frame</strong></td><td>1.5" square aluminum tubes welded into a rectangle</td><td>The skeleton. Every other part bolts to it, and the hollow tubes double as protective channels for the wiring.</td></tr>
-<tr><td><strong>Drive motors (BLDC)</strong></td><td>"Brushless DC" electric motors — the type used in e-skateboards</td><td>The muscles. There are two, one per rear wheel, each turning its wheel through a bike chain.</td></tr>
-<tr><td><strong>Motor controller (ESC / VESC)</strong></td><td>An "electronic speed controller" — a small dedicated computer that feeds the motors precisely timed bursts of battery power</td><td>The translator between "go 2 mph" and the thousands of electrical pulses per second that actually make a brushless motor spin. Ours is one box (Flipsky DUET XS60) containing two independent 60-amp controllers, one per motor. "VESC" is the open-source flavor of ESC this project uses.</td></tr>
-<tr><td><strong>Battery (LiFePO4)</strong></td><td>Lithium iron phosphate battery — a safe, long-life lithium chemistry</td><td>The fuel tank. One native 24-volt 50Ah pack (25.6V nominal, ~1.3kWh) powers everything. Earlier builds made the same voltage from two 12.8-volt batteries wired end-to-end ("in series").</td></tr>
-<tr><td><strong>BMS</strong></td><td>Battery management system — a protection circuit built inside each battery</td><td>The babysitter. It cuts the battery off if you pull too much current or drain it too low. You can't remove it, and you must respect its limits (we found one the hard way). Ours also reports over Bluetooth, so the Pi reads exact state-of-charge straight from the pack.</td></tr>
-<tr><td><strong>Buck converter</strong></td><td>A voltage step-down device</td><td>Turns 24V battery power into the clean 5V the computer and sensors drink — a phone charger for the robot brain. The cart has two, so a fault on one can't take out the other's loads.</td></tr>
-<tr><td><strong>Raspberry Pi 5</strong></td><td>A credit-card-sized Linux computer</td><td>The brain. Runs every line of the cart's software: reading sensors, steering, throttle, the follow-me logic, the web dashboard.</td></tr>
-<tr><td><strong>Steering servo</strong></td><td>A motor with position control built in: tell it an angle, it goes there and holds</td><td>The steering muscle. It pushes the front axle left and right through a tie rod. Ours is a 24V industrial unit, much stronger than a hobby servo.</td></tr>
-<tr><td><strong>RC transmitter + receiver</strong></td><td>A hobby radio remote (pistol-grip controller + matchbox receiver)</td><td>Manual control. One switch on the remote instantly overrides the self-driving and hands you the wheel.</td></tr>
-<tr><td><strong>TFmini lidar</strong></td><td>A thumb-sized laser tape measure</td><td>Close-range eyes. Six of them ring the cart, each firing an invisible laser and timing the reflection to measure distance dozens of times a second. They spot obstacles, curbs, and drop-offs.</td></tr>
-<tr><td><strong>RPLIDAR S3</strong></td><td>A spinning laser scanner</td><td>The 360° eyes. It sweeps a laser in a full circle ten times a second, producing a floor-plan-style map of everything around the cart — this drives the radar screen and part of the safety braking.</td></tr>
-<tr><td><strong>UWB anchors + tag</strong></td><td>Ultra-wideband radios — think "indoor GPS"</td><td>How the cart knows where <em>you</em> are. Four "anchor" radios on the cart's corners each time a radio ping to the "tag" you carry (radio travels about a foot per nanosecond). Four distances pin down your exact position; the cart steers toward it.</td></tr>
-<tr><td><strong>Camera</strong></td><td>A 12MP USB camera</td><td>Streams live video to your phone so you can see what the cart sees.</td></tr>
-<tr><td><strong>CAN bus</strong></td><td>A rugged two-wire network borrowed from the automotive world</td><td>How the Pi and the motor controllers talk: battery voltage, motor current, temperatures, fault codes all flow over these two wires.</td></tr>
-<tr><td><strong>PWM</strong></td><td>"Pulse-width modulation" — sending a number by varying how long an electrical pulse lasts</td><td>The language of throttle and steering. A 1.5-millisecond pulse means "center/stop"; longer means more forward/right, shorter means more reverse/left. The RC receiver, the servo, and the motor controller all speak it.</td></tr>
-<tr><td><strong>GPIO</strong></td><td>"General-purpose input/output" — the 40 metal pins on the Pi</td><td>Where every signal wire lands. Pins are referred to by number (e.g. GPIO13 = steering signal).</td></tr>
-<tr><td><strong>Level shifter</strong></td><td>A voltage translator on a fingernail-sized board</td><td>The RC receiver shouts at 5 volts; the Pi's pins only tolerate 3.3. This little board converts between them so nothing fries and nothing garbles.</td></tr>
-<tr><td><strong>I2C and UART</strong></td><td>Two simple "wire languages" chips use to talk to each other</td><td>I2C is a two-wire party line where devices take turns (the six lidars share one). UART is a private two-wire conversation between exactly two devices (each UWB radio gets one).</td></tr>
-<tr><td><strong>Fuse</strong></td><td>A strip of metal that melts if too much current flows</td><td>The fire-safety valve on the battery. A short circuit blows the fuse instead of igniting the wiring.</td></tr>
-<tr><td><strong>TVS diode</strong></td><td>A surge-protector component the size of a grain of rice</td><td>Clamps sudden voltage spikes before they reach the electronics. A spike from the battery charger killed our first Pi; this part is why it can't happen again.</td></tr>
-<tr><td><strong>Star ground</strong></td><td>A wiring rule, not a part</td><td>Every circuit's ground (return) wire routes back to ONE common point. This stops the motors' electrical noise from sneaking into the sensitive sensor and radio signals. It's non-negotiable on this cart.</td></tr>
-</table></div>
-<h2 id="0-overview-build-order">0.  Overview &amp; build order</h2>
-<div class="plain">I built this in layers on purpose. First a "dumb wagon" — a frame that rolls, steers, and drives by remote — and I made sure that worked before any self-driving stuff went on. Test each layer by itself before stacking the next one on top. That way, when something acts up, you know which layer to blame. I know the autonomous parts are the fun parts. But every hour I spent making a layer solid saved me five hours of head-scratching later. Trust me on this one.</div>
-<p>Build the mechanical cart first (frame, steering, drivetrain), then power, then the computer and motor controller, then RC control, then sensors and displays, then the autonomy hardware (UWB) and the follow-me software, and finally the safety systems that wrap all of it.</p>
-<ul>
-<li>1. Frame / chassis — 1.5" square aluminum, TIG welded</li>
-<li>2. Steering — wagon steering bracket + tie rods + 24V servo</li>
-<li>3. Drivetrain — 2 BLDC motors, 5:1 chain, 16.5" wheels (BOND THE TIRES FIRST)</li>
-<li>4. Power system — 8S LiFePO4 (24V 50Ah), fuse, TVS, dual 5V bucks, star ground</li>
-<li>5. Compute — Raspberry Pi 5 + Argon NEO 5 + OS + cooling</li>
-<li>6. Motor controller — Flipsky DUET XS60 dual VESC, configured over VESC Tool + CAN</li>
-<li>7. RC control — Flysky receiver, level shifter, GPIO wiring</li>
-<li>8. Drive &amp; steering software — hardware PWM, ramps, auto park-brake, deadman</li>
-<li>9. Sensors &amp; telemetry — 6x TFmini ring, RPLIDAR S3, CAN drive telemetry + Bluetooth BMS battery gauge</li>
-<li>10. Displays — camera to the phone, radar on the 5" screen</li>
-<li>11. UWB localization — 4 corner anchors + wearable tag (WORKING, 3.3Hz 4-anchor fix)</li>
-<li>12. Follow-me autonomy — 4-corner solver + bearing PD steering (road-tested)</li>
-<li>13. Safety systems — the full gate/watchdog/park stack</li>
-<li>14. Networking, web panel &amp; remote access</li>
-<li>15. Software, autostart &amp; backup</li>
-<li>16. 3D-printed parts</li>
-<li>17. Pin &amp; config reference</li>
-<li>18. Open items as of 7/14</li>
-</ul>
-<h2 id="1-frame-chassis">1.  Frame &amp; chassis</h2>
-<div class="plain">The frame is a flat rectangle of hollow square aluminum tube — picture a bed frame — 32 inches wide and 4 feet long, with extra tubes across it wherever something heavy sits (motors, axle, battery). I went with aluminum because it's light and won't rust at the beach, and welded because bolted joints shake loose in sand and vibration. Everything else in this guide bolts to this rectangle, so take your time getting it <em>square and flat</em>. A crooked frame means crooked wheels and a chain that keeps jumping off.</div>
-<p>Material: 1.5-inch square aluminum tubing. Deck footprint: 32 inches wide x 4 ft deep. Raw stock ~$800 from a local metal supplier; joints TIG welded with ER309L 3/32" stainless filler; 4"x4"x1/4" 6063 angle for brackets/gussets.</p>
-<ol>
-<li><strong>Plan and mark before cutting.</strong> Draw the frame on paper with every dimension: the perimeter rectangle (two 32" cross members + two 4-ft side rails) plus a cross member wherever load lands — the motor mounts, the rear axle bearings, and the battery box. Mark cuts on the tube with a square and a fine marker. Measure twice; aluminum stock is too expensive to scrap.
-</li>
-<li><strong>Cut the tube.</strong> A miter/chop saw with a non-ferrous (aluminum-rated) blade gives clean square cuts; a metal bandsaw or even a hacksaw with a miter box works if you're patient. Deburr every cut edge with a file — fresh-cut aluminum is razor sharp and burrs keep joints from seating flush.
-</li>
-<li><strong>Dry-fit and square it up.</strong> Lay the perimeter out on a known-flat surface, clamp the corners, then measure the two diagonals corner-to-corner. When both diagonals are exactly equal, the rectangle is square — this is the whole trick. Nudge and re-measure until they match.
-</li>
-<li><strong>Tack-weld, re-check, then fully weld.</strong> Tack-weld the corners (small temporary welds), re-check the diagonals — welding pulls metal as it cools — then add the interior cross members and TIG weld all joints with the ER309L filler. <em>Can't weld? That's fine:</em> do all the cutting, fitting, and clamping yourself, then take the clamped assembly to a local welding shop — an hour of a pro's TIG time is cheap compared to the tools, and the fit-up is the real labor anyway.
-</li>
-<li><strong>Add gussets at the load points.</strong> Weld pieces of the 4"x4"x1/4" 6063 angle as corner braces and mounting feet wherever the frame takes real force: axle bearings, the steering bracket, and the motor plates. A gusset turns a joint that can flex into one that can't.
-</li>
-<li><strong>Set rivet nuts for everything that bolts on later.</strong> A rivet nut is a threaded metal insert: drill a hole in the tube wall, squeeze the insert in with the rivet-nut tool, and you've got a strong machine-screw thread in metal that's otherwise too thin to tap. Use them (SAE rivet-nut kit) everywhere accessories mount — far stronger than self-tapping screws in thin aluminum, and you can unbolt things forever without wrecking the frame.
-</li>
-<li><strong>Finish the tube work.</strong> Cap the open tube ends (3/4" ribbed push-in caps) so they don't collect sand and water, and fit a rubber grommet in every hole where wire will pass through (much more on this in §1b).
-</li>
-</ol>
-<div class="note"><strong>NOTE:</strong> The frame is the datum for everything else. Wheel bearing alignment and chain alignment both depend on it being square and flat.</div>
-<h3 id="1b-wiring-the-frame">1b.  Running wires through the tubing — step by step</h3>
-<div class="plain">The frame's hollow tubes are free wire channels. Wires run inside them stay safe from sun, salt spray, snags, and dropped cargo — and the cart looks clean instead of like a hairball. You won't pull every wire on day one; wiring happens bit by bit as each system goes on. But drill the holes, add the grommets, and drop in the pull strings <em>now</em>, while the frame is bare and easy to work on. Follow the rules below and you'll never think about the wiring again. Skip them and you're hunting a mystery short in month two.</div>
-<ol>
-<li><strong>Plan every run on paper first.</strong> List each wire: what it connects (both endpoints), roughly how long, and which of the two families it belongs to — <strong>POWER</strong> (thick, electrically noisy: battery leads, motor phase wires, servo power) or <strong>SIGNAL</strong> (thin, sensitive: sensor wires, RC channels, UART, CAN, camera USB).
-</li>
-<li><strong>Keep the two families apart.</strong> Power and signal ideally run in <em>different tubes</em>, or at minimum enter/exit far from each other. The three fat phase wires between each motor controller and motor are the worst offenders — they radiate switching noise — so they never share a tube with signal wires. This isn't perfectionism: motor noise coupling into the RC and UART lines was a real, observed failure on this cart (it's why the star-ground rule in §4 exists).
-</li>
-<li><strong>Drill entry and exit holes</strong> a size up from the bundle that will pass through, on the underside or inward-facing tube faces so rain can't run in. Drill only where the tube isn't structural at a weld or load point.
-</li>
-<li><strong>Deburr every hole</strong> — a countersink bit spun by hand, or sandpaper rolled on a dowel. A raw drilled hole in aluminum has an edge that will saw through insulation as the cart vibrates.
-</li>
-<li><strong>Grommet every hole. No exceptions.</strong> Push a rubber grommet (the Vrupin kit) into each hole before any wire goes through. Vibration + bare aluminum edge = a chafed-through wire and a dead short weeks later, at the beach, where you can't find it.
-</li>
-<li><strong>Get a string through the tube first.</strong> Three ways, easiest first: (a) tilt the tube and drop a small nut tied to light string through; (b) hold a shop-vac at the far hole and let it suck a string tied to a scrap of plastic bag through; (c) push an electrician's fish tape or a straightened coat hanger through and tie the string to it.
-</li>
-<li><strong>Pull the wires with the string.</strong> Tie the string to the wire bundle and wrap the joint in tape so it forms a smooth bullet shape with no snagging edges. Pull gently and steadily — if it fights, back up and re-tape rather than yanking. <strong>Connectors never go through the tube:</strong> pull bare wire ends and crimp the connectors on afterward (the pre-crimped Dupont/JST kit for signal wires; proper crimp lugs plus adhesive-lined heat shrink for power).
-</li>
-<li><strong>Pull extra, always.</strong> Leave 6–12" of slack at each end — a service loop — so connectors can be re-made and boxes can be opened without the wire going drum-tight. Wire is cheap; a too-short run through a sealed tube is a do-over.
-</li>
-<li><strong>Leave a pull string behind in every tube.</strong> When you pull a bundle through, tie a spare length of string to it and pull that through too, then leave it in place. Future-you <em>will</em> add a sensor next month, and the string turns a 30-minute fishing job into a 30-second pull. Re-leave a new string every time you use one.
-</li>
-<li><strong>Label both ends of every wire BEFORE it disappears into a tube.</strong> Masking-tape flags and a fine marker are fine ("CH3 RC → GPIO24", "ANCH2 5V"). Once a wire is inside the frame you cannot trace it by looking; ten unlabeled white wires emerging from a hole are a puzzle you gave yourself.
-</li>
-<li><strong>Dress the runs outside the tubes.</strong> Where wires travel in the open: braided PET loom over the bundle, adhesive zip-tie mounts every 6" or so, and a <em>drip loop</em> (the wire dips below the entry point, so water drips off the bottom of the loop instead of following the wire in) before every enclosure. Wires enter waterproof boxes through cable glands (the PG7–PG19 kit), never through a bare hole.
-</li>
-<li><strong>Grounds follow the star-ground rule.</strong> Every ground wire routes back to the single star point at the buck converters (§4) — resist every temptation to grab a "convenient" nearby ground. This is a wiring-time decision, so make it while pulling wire, not after.
-</li>
-<li><strong>Test before you connect.</strong> With everything still unpowered, use a multimeter's continuity beeper on each labeled run end-to-end, and check that adjacent wires <em>don't</em> beep to each other (no shorts from a nicked jacket during the pull). Two minutes per wire now versus hours of live debugging later.
-</li>
-</ol>
-<h2 id="2-steering">2.  Steering</h2>
-<div class="plain">The front wheels pivot on one swiveling beam, just like a toy wagon — actually, it <em>is</em> one. I salvaged the pivot assembly from a kid's wagon, and that solved the hardest mechanical problem for free. Instead of a kid pulling a handle, a strong servo motor swings the beam left and right through a "tie rod" (a threaded rod with a ball joint on each end, same idea as in your car). The Pi steers by sending the servo a timed electrical pulse; the servo moves to that angle and holds it. This part matters: the servo runs on 24 volts, and only its thin <em>signal</em> wire goes anywhere near the Pi.</div>
-<p>Built around a steering bracket / pivot assembly salvaged from a kid's WAGON (the front pivoting axle beam) — ready-made center pivot + stub axles — with powered steering added via tie rods and a 24V industrial servo.</p>
-<ol>
-<li>Mount the wagon bracket to the front cross member; fit the front wheels to its stub axles.
-</li>
-<li>Connect the servo to the knuckle(s) with X AUTOHAUX M8 ball-joint tie rods (several lengths bought — 80/100/120/185/210mm — pick the one giving full lock without binding, then thread-lock).
-</li>
-<li>Servo = Happymodel Super400 Plus, 300° PWM. <strong>It is a 24V industrial servo with its own internal driver — NOT a hobby servo.</strong> Power it from the 24V bus; feed ONLY the PWM signal from the Pi.
-</li>
-<li>Signal to <strong>GPIO13</strong> (RP1 hardware PWM chan1). Do NOT run a servo ground jumper to the Pi header — grounds meet once at the buck (star ground, see §4).
-</li>
-</ol>
-<p><strong>Working tune (config.py):</strong> slew limiter 1500us/s, center deadband 0.10, travel <code>SERVO_RANGE_US=540</code> (60% throw — 50% was too little; raised 6/28 and it drives much better).</p>
-<div class="note"><strong>Field lesson (7/8):</strong> the servo popped out of its socket under hill load once — check the linkage seating when steering goes soft.</div>
-<div class="note"><strong>Front-end rebuild (7/12–13) — plan for this from day one.</strong> The wagon's original stamped-metal steering tabs are fine for a kid pulling a handle, but a 24V servo fighting loaded wheels in sand eventually bends them. The fix that made the front end load-rated: cut new tabs from <strong>3/16" steel plate</strong> and weld them onto the steering structure, remount the servo, and add <strong>diagonal braces (5/8" square solid aluminum, one each side of the servo up to the steering frame)</strong> so servo torque can't rack the mount. Two hard-won rules from this rebuild: <strong>(1) route the servo's drag link BEHIND the cross tie rod</strong> — routed in front it binds mid-travel, and a stalled servo has enough torque to rip itself off its mount (it did); (2) after any servo remount, <strong>re-verify the steering center and travel limits in software</strong> — the old trims were tuned to the old geometry. Clearance at full wheel lock is tight with the braces in — sweep lock-to-lock by hand before powering up.</div>
-<h2 id="3-drivetrain-motors-chain-wheels">3.  Drivetrain (motors, chain, wheels)</h2>
-<div class="plain">Each rear wheel works like a bicycle in reverse: the motor spins a small sprocket, and a bike chain carries that to a big sprocket bolted to the wheel. The big sprocket has five times the teeth of the small one, so the wheel turns five times slower than the motor — but with five times the twisting force. That's the "5:1 reduction," and it's what lets a fist-sized motor push a loaded cart through soft sand. There are two motors, one per wheel, with no axle between them — each side drives on its own. And read the orange warning below before you do anything else: the tires will just spin on their metal hubs unless you glue them first. This one bit me.</div>
-<p>Two-wheel rear drive: two Flipsky 7070 110KV sensored BLDC outrunners (14 poles / 7 pole pairs), each driving a rear wheel through a 5:1 single-speed bike-chain reduction. Wheels: 16.5" (42cm) PU, 3/4" bearings. ~733 ERPM per mph on this drivetrain.</p>
-<div class="note"><strong>⚠ CRITICAL — BOND THE TIRE TO THE HUB FIRST.</strong> The tubular PU tire spins freely on the metal hub under drive torque — the sprocket turns the hub, the tire doesn't follow. Before anything else on the wheels: split the hub → scuff tube AND hub mating surfaces with 80-grit → plastic epoxy → re-bolt halves → FULL cure → only then mount spacers + sprocket. Skip this and the cart will not move — guaranteed.</div>
-<ol>
-<li>Mount the motors (motor plates / 6063 angle); each drives one rear wheel.
-</li>
-<li>Sprockets for 5:1 (small on motor, large on wheel), keyed with carbon-steel key stock.
-</li>
-<li>1/2"x1/8" 114-link single-speed bike chain per side ("410" chain). Align sprockets in-plane; slight slack, not taut.
-</li>
-<li>Rear axle on uxcell SBPFL204-12 pillow blocks / UCF204-12 flange bearings (3/4" bore); 3/4" 304 stainless rod is the axle stock.
-</li>
-<li>Print + fit the wheel/bearing spacers (§16): OUTER 30mm with counterbores, INNER 25mm. PETG, high infill — load-bearing.
-</li>
-<li>Bolt on the wheels.
-</li>
-</ol>
-<p><strong>What the drivetrain can and can't do (measured 7/8–7/10 with tests/hill_power_log.py):</strong></p>
-<ul>
-<li>Flat + moderate hills: fine. Small steep hill: climbs (654W peak, 26.8A pack, FETs ≤61°C).</li>
-<li>The BIG hill stalls with BOTH motors pinned at 60A (the DUET XS60 per-side hardware ceiling) while battery current sat at only 23A of 30A available → the cart is <strong>TORQUE-limited, not power-limited</strong>. More battery will NOT move that stall point; only gearing would (60T wheel sprocket = 6:1, +20% torque — real 410-chain 60T is a custom part, ESP SPR-41060G1 ~$82; decision deferred). ⚠ Cheap "60 tooth" listings are #40/41/420 pitch — 410 bike chain will NOT seat on them. My current verdict: the mechanical rating of the printed spacers/chain is the torque spec; the big hill is an accepted boundary.</li>
-<li>One motor spins "backwards" because the motors face opposite directions — fixed in software (Invert Motor Direction on that half), NEVER by swapping phase wires.</li>
-</ul>
-<h2 id="4-power-system-distribution">4.  Power system &amp; distribution</h2>
-<div class="plain">Everything runs off one battery: a native 24-volt (25.6V nominal) 50Ah lithium iron phosphate pack. The big muscles (motors, steering servo) drink that "24V bus" straight; the delicate electronics get 5V from buck converters. Three things guard the bus: a <strong>fuse</strong> (melts and disconnects if a short tries to pull huge current — that's your fire protection), a <strong>TVS diode</strong> (a surge protector that clamps voltage spikes — I didn't know what a TVS diode was either, until a spike killed my first Raspberry Pi), and a <strong>bulk capacitor</strong> (a small energy sponge that smooths out jolts). And don't skip the "star ground" rule at the end: every ground wire meets at exactly one point. That keeps the motors' electrical noise out of the sensors' faint signals.</div>
-<p><strong>Battery (current, installed 7/22): Power Queen 24V 50Ah Bluetooth LiFePO4 — 8S, 25.6V nominal, 1280Wh, ~23lb. BMS: 50A continuous / 60A 30-min peak; measured real capacity 52.5Ah at the first full charge.</strong> Native 24V means no series wiring and a single BMS — one the Pi reads directly over Bluetooth as the cart's fuel gauge (§9b). It rides in a 3D-printed under-frame side-loader box hung below the rails. This pack replaced the interim 2x SEFEPODER SP1220M 12.8V 20Ah series pair (7/10–7/22), which itself replaced the original 2x 15Ah pair (whose 16–20A BMS was the proven power ceiling — 19.4A measured draw pinned it). Charger: BROODAY 24V 10A LiFePO4 (29.2V) — unchanged, works on every 8S pack this cart has run.</p>
-<ol>
-<li>Build the 24V bus with 8AWG/12AWG silicone wire + the Recoil bus bar. <strong>Bus order: battery (+) → main fuse → bulk caps → TVS → loads.</strong>
-</li>
-<li><strong>MAIN PACK FUSE: 50A ANL</strong> (re-sized 7/22 for the 50Ah pack — 40A drive draw plus 40A regen braking, at the BMS's 50A continuous rating; needs 10AWG+ on that leg; high interrupt rating — LiFePO4 dumps huge fault current). Confirm it is physically installed — it was still on the to-do list at last audit.
-</li>
-<li><strong>TVS (installed 6/25): SMBJ30A across the 24V bus</strong> at the bus/charge entry — stripe/cathode → V+, anode → GND, SHORT FAT leads (polarized; backwards = dead short). This is the defense against the charger transient that killed Pi #1. 30V standoff vs 29.2V regen-full is tight but acceptable; if it ever nuisance-clamps near full charge, swap to SMBJ33A/36A.
-</li>
-<li>Bulk low-ESR electrolytic (≥35V) across the bus to soak regen energy (complements the TVS).
-</li>
-<li>Two 24V→5V 10A 50W waterproof bucks: <strong>BUCK #1</strong> = Pi + 5V logic bus; <strong>BUCK #2</strong> = dedicated clean 5V for the UWB anchor bus (fault-isolated from the Pi). Fuse each buck input (~3A).
-</li>
-<li><strong>STAR GROUND (non-negotiable):</strong> the noisy 24V ground (VESC, servo) and the quiet 5V logic ground meet at ONE point, at the buck. Never run VESC/servo grounds to the Pi header — it was tried, it did not help, and it injects motor noise into RC/UART signals.
-</li>
-</ol>
-<div class="note"><strong>CHARGING DISCIPLINE: never run the electronics while the pack is on the charger</strong> — the surge that killed Pi #1 came in through the charge path. Electronics OFF (remote relay) while charging. (The battery gauge now survives charged-while-off correctly — see §9b.)</div>
-<p>Split-bus plan (motor packs separate from a 15Ah electronics battery, XT60 charge ports keyed by voltage, 14.6V 5A charger for the 15Ah): designed 7/9, frame-rail battery boxes printed (§16) — finish per the checklist in memory/beachcart-vesc-tuning.md.</p>
-<h2 id="5-compute-raspberry-pi-5">5.  Compute (Raspberry Pi 5)</h2>
-<div class="plain">The Raspberry Pi is the cart's brain — an $80 computer the size of a credit card, running Linux. Every sensor reading, steering decision, and safety check in this guide is a program running on it. Two things matter most right now: power it properly (clean 5V from Buck #1, never straight battery voltage) and keep it cool (a hot Pi slows itself down, and a slow brain makes a sluggish cart). The "hardware PWM" stuff below just means two of the Pi's pins can make perfectly steady timing pulses in dedicated silicon. Steering and throttle use those two pins because software-made pulses jitter — and jittery pulses made my motors twitch until I figured that out.</div>
-<p>Raspberry Pi 5 8GB in an Argon NEO 5 aluminum case, powered via USB-C bare-wire lead from Buck #1 (5V 5A).</p>
-<ol>
-<li>Flash Raspberry Pi OS 64-bit (labwc/Wayland desktop). Hostname <code>Beachcart</code>, SSH on.
-</li>
-<li>In <code>/boot/firmware/config.txt</code>: <code>usb_max_current_enable=1</code> (raises USB-A budget 600mA → 1.6A — required for camera + RPLIDAR; verify with <code>vcgencmd get_config usb_max_current_enable</code> = 1).
-</li>
-<li>GPIO library: <strong>lgpio</strong> (pigpio and RPi.GPIO do NOT work on Pi 5), gpiochip 0. Python venv at ~/venv (pyserial, pygame, numpy, scikit-image for the 3D generators). Project in ~/beach_cart.
-</li>
-<li>Two outputs use RP1 TRUE hardware PWM via sysfs (<code>/sys/class/pwm/pwmchip0</code>): GPIO13 = servo (chan1, needs <code>dtoverlay=pwm,pin=13,func=4</code>), GPIO18 = VESC (chan2, muxed by drive.py at startup — no overlay/reboot needed).
-</li>
-</ol>
-<p><strong>Cooling (hard-won, still one open item):</strong></p>
-<ul>
-<li>The NEO 5's built-in base fan died (likely the same transient that killed Pi #1). Replacement 30mm 5V blower installed 7/3 on the Pi 5 fan header — it runs FULL-ON via GPIO45 (the pwm overlay disables the firmware fan curve; no tach, so software can't see spin — check physically).</li>
-<li>⚠ <strong>The 7/3 fan install required pulling the HAT + every header pin, and the SoC thermal pad shifted: the Pi now idles ~65°C when a healthy NEO 5 idles 45–55°C, and it soft-throttled at 79.6°C on 7/10. RE-SEAT THE THERMAL PAD</strong> (open case, re-seat/replace pads, snug evenly; expect ~50°C idle). Software trim already applied: lidar_radar.py capped 30→15fps (top CPU load 35%→~20% of a core; the sweep only updates at 10Hz so nothing visible is lost).</li>
-<li>After ANY header/HAT surgery, rebuild wiring from <strong>PINOUT.md</strong> — it exists precisely because the 7/3 rebuild had to reverse-engineer four files. Reconnect order + per-wire tables are there.</li>
-</ul>
-<h2 id="6-motor-controller-flipsky-duet-xs60-dual-vesc">6.  Motor controller (Flipsky DUET XS60 dual VESC)</h2>
-<div class="plain">A brushless motor can't just be hooked to a battery — something has to fire its three wire coils in exactly the right rhythm, thousands of times a second, or it just twitches. That something is the ESC (electronic speed controller). A "VESC" is the open-source kind: same job, but you can see and tune everything from a free laptop app called <strong>VESC Tool</strong>. This section is almost all <em>settings</em> — teaching the controller what motor it's spinning, how fast it can go, how much current it can pull, and how to brake. I earned every number below by watching something misbehave, so copy them exactly. And watch for this: our unit is really <em>two</em> controllers in one box, and every setting has to be written to <em>both halves</em>. Forgetting the second half got me more than once.</div>
-<p>One <strong>Flipsky DUET XS60</strong> — a DUAL ESC: two independent 60A drive halves in one box, one half per motor, internally CAN-linked. Treat the halves as two separate VESCs for configuration (every setting must be written to BOTH). The Pi sends a single PPM throttle on GPIO18 to the master; CAN forwards it to the other half.</p>
-<p><strong>⚠ CAN IDs are currently 0x13 + 0x14 — but EVERY VESC Tool wizard/session can silently renumber one.</strong> It has happened at least three times (0x10→0x12, then →0x11/0x12, then →0x13/0x14). If a "VESC vanishes," re-scan the bus and update <code>BATT_CONTROLLERS</code> in config.py before suspecting hardware.</p>
-<p>Wiring: each motor's 3 phase wires + hall sensor cable to its half; 24V from the bus; CAN-H/CAN-L to the Pi's CAN HAT (§9b) with shared ground.</p>
-<p><strong>Configuration that works (write to BOTH halves):</strong></p>
-<ol>
-<li>Motor detection for the Flipsky 7070, sensored FOC — confirm the hall table isn't all 0/255.
-</li>
-<li><strong>Control Type = PID Speed Control</strong> (stick = target speed; closed-loop holds speed in sand and on hills — this is what finally made throttle smooth; Current mode couldn't).
-</li>
-<li><strong>Max ERPM 3300 (~4.5mph)</strong>, reverse cap matched.
-</li>
-<li><strong>Speed PID: Minimum ERPM 5</strong> (factory 900 made centered-stick = coast — this is the roll-out fix), <strong>Allow Braking checked, Kp 0.008 / Ki 0.03</strong> (factory-soft gains wouldn't brake on hills). Note: PID-speed can NEVER hold a standstill — firmware releases the motor below min ERPM (0 included). Standstill hold is done Pi-side (auto park-brake, §8).
-</li>
-<li>Voltage cutoffs (8S LiFePO4): <strong>Start 22.4V / End 20.0V / regen 29.2V — type them manually.</strong> The Battery Cutoff Calculator is set for Li-ion and will stomp these if you press Apply.
-</li>
-<li>Current limits (live 7/26): <strong>Motor 60A / Brake −60A / Battery 20A per side (=40A pack) / regen −20A per side / Timeout Brake 40A. Absolute Max 120A</strong> (a fault-trip threshold, NOT a power knob — it was left at the 83A default and stall-spikes in FOC tripped ABS_OVER_CURRENT on every drive-off, the 7/10 "hill cutout"; 120A = headroom restored, zero faults since). ⛔ Do not raise battery amps past the pack's BMS spec (the old 15Ah pack died at exactly this).
-</li>
-<li><strong>App Cfg → PPM: Ramping 1.0s positive / 0.5s negative; Timeout Brake Current 15A</strong> (signal loss now brakes instead of coasting — the park brake and every safety path rely on it). Re-calibrate PPM with the Input Setup Wizard (full-rev / full-fwd / neutral, ~15% deadband) — an uncalibrated pulse range reads as "throttle is 0-to-full on/off."
-</li>
-<li>Invert Motor Direction on the backward-facing half only.
-</li>
-</ol>
-<div class="note"><strong>SAVE PROCEDURE (bites every time):</strong> edits are local until WRITTEN. <strong>↑M writes Motor Cfg; ↓M READS the VESC and overwrites your edits; ↑A writes App Cfg.</strong> Write BOTH halves — they do not auto-sync. (The 7/8 brake fix failed the first time because only ↑A was pressed.)</div>
-<p><strong>CAN hygiene rules (each learned the hard way):</strong></p>
-<ul>
-<li><strong>STOP the cart software before any VESC Tool config write</strong> (<code>systemctl --user stop beachcart.service</code>) — battery.py's polling corrupts writes ("config reverts every power-cycle").</li>
-<li>After ANY wizard: re-scan the bus for moved CAN IDs.</li>
-<li>After any CAN-tool config write, <strong>re-sync the phone VESC app</strong> (↓M read BOTH halves → save backup) — else its stale one-button "apply" stomps the change later.</li>
-<li>External CAN tools poll with sender id <strong>0x2B</strong> (safe alongside the service): <code>tests/vesc_absmax.py</code> (read/patch Abs Max), <code>tests/vesc_battmax.py</code> (battery amps), <code>tests/hill_power_log.py</code> (live power CSV logger).</li>
-<li><strong>Never sender-check DUET replies:</strong> the second drive answers at base+1 (0x14) but stamps its replies with the BASE id (0x13). A sender==target check makes half the ESC look dead (7/10 bug).</li>
-</ul>
-<h2 id="7-rc-control">7.  RC control</h2>
-<div class="plain">This is a normal hobby-store radio set: a pistol-grip transmitter in your hand and a matchbox-sized receiver on the cart. The receiver puts out three "channels" — steering wheel, trigger, and a switch — each as a timed pulse the Pi reads on its pins. The cart is self-driving by default; flip the channel-3 switch and a human has the wheel instantly. One thing to catch: the receiver speaks in 5-volt pulses, and the Pi's pins can only take 3.3. Every signal goes through a small "level shifter" board that translates. Skip it and the Pi reads garbage — or worse, gets damaged.</div>
-<p>Manual driving: Flysky FS-GT3C 3-channel transmitter + GR3E receiver. <strong>RC CH3 = the manual-override / safety switch</strong> (autonomy is the default mode; CH3 high = instant manual).</p>
-<ol>
-<li>Bind the GR3E; it outputs 5V PWM on 3 channels.
-</li>
-<li><strong>CRITICAL: run all 3 signals through the LONELY BINARY bidirectional level shifter (5V→3.3V).</strong> Raw 5V onto Pi GPIO = garbage reads.
-</li>
-<li>Shifted signals to the Pi (BCM): <strong>CH1 steer = GPIO22, CH2 throttle = GPIO27, CH3 = GPIO24</strong> (CH3 moved off 23 to free the CAN interrupt — don't trust old labels). Receiver + shifter grounds tie to Pi GND.
-</li>
-<li>Test inputs with <code>tests/rc_noise.py</code> (~±6us jitter, 0 rejected) and outputs with <code>tests/output_test.py</code> (wheels up; it holds neutral 4s first because the VESC must see steady ~1.5ms neutral to ARM before accepting throttle).
-</li>
-</ol>
-<div class="note"><strong>Gotchas:</strong> a transmitter that is OFF still reads a steady ~1515us on the Pi (looks centered-but-live) — confirm the TX is actually on. Manual RC drive is NEVER gated by the proximity system (hard design rule); only autonomous follow is.</div>
-<h2 id="8-drive-steering-software-drivepy-steeringpy">8.  Drive &amp; steering software (drive.py / steering.py)</h2>
-<div class="plain">These two programs are the cart's reflexes. They take whatever is commanding the cart right now — your remote, or the follow-me brain — and turn "40% throttle, slight left" into the actual timed pulses the servo and motor controller expect. Along the way they enforce the manners: speed changes ramp up smoothly instead of lurching ("slew limiting"), tiny stick wiggles near center get ignored ("deadband"), and a stack of automatic protections kicks in when anything goes quiet — stop if the brain stops talking, park-brake after two seconds of sitting still, and clamp everything safe even if the whole program crashes.</div>
-<ul>
-<li>Throttle in: (ch2−1500)/500, inverted, deadband 0.18. VESC pulse = 1500us ± 400 (<code>DRIVE_RANGE_US</code>), clamp 1100–1900us, 50Hz.</li>
-<li>Pi-side throttle slew: up 0.7/s, down 2.5/s (down stays fast for braking). ⚠ Open item: this stacks with the VESC's 1.0s PPM ramp — pick ONE ramp source eventually.</li>
-<li>Steering: pulse 1500us ± 540, clamp 600–2400us, deadband 0.10, slew 1500us/s.</li>
-<li><strong>AUTO PARK-BRAKE (working, re-enabled 7/8 late):</strong> after 2s of commanded-zero (<code>PARK_BRAKE_IDLE_S=2.0</code>, <code>PARK_BRAKE_CMD_EPS=0.02</code>), drive.py drops the PPM pulse train entirely (duty 0) → the VESC's 1s signal-loss timeout clamps its 15A timeout-brake on BOTH halves. Release is command-driven only, so it never cycles on a hill. Powered-off cart still freewheels (pushable dead cart preserved — that's deliberate).</li>
-<li><strong>Deadman:</strong> drive parks neutral if the follow-me command is stale &gt;1.5s (<code>DRIVE_AUTO_STALE_S</code>) or the phone E-STOP (<code>remote_stop</code>) is set — a hung autonomy thread can't keep driving.</li>
-<li><strong>Crash-runaway protection:</strong> <code>park_neutral.sh</code> runs as <code>ExecStopPost=</code> in beachcart.service — on ANY main.py death (crash/OOM/SIGKILL) it forces the servo to neutral and the VESC channel to duty 0 (= parked, not freewheeling) straight from sysfs. RP1 hardware PWM keeps emitting the last pulse after a process dies; this is what handles that.</li>
-</ul>
-<h2 id="9-sensors-telemetry">9.  Sensors &amp; telemetry</h2>
-<div class="plain">Sensors are the cart's senses. This section wires up three of them: six little laser rangefinders that watch for obstacles, a battery gauge that works like a smart fuel gauge, and a spinning laser that maps everything around the cart. Each subsection's Overview box explains its own sensor.</div>
-<h3 id="9a-obstacle-lidar-ring-6x-tfmini-plus">9a.  Obstacle LiDAR ring — 6x TFmini Plus</h3>
-<div class="plain">Each TFmini is a laser tape measure the size of your thumb: it fires an invisible laser and times the reflection, reporting a distance many times a second. Six of them ring the cart — some aimed straight out to spot obstacles, some angled down at the ground ahead. The angled ones are the neat trick: at boot they memorize how far away the ground normally is. Something <em>closer</em> than that means "obstacle." Something <em>farther</em> means the ground fell away — a curb edge or washout, so STOP. All six share one pair of wires to the Pi through a "multiplexer," a switchboard chip that lets the Pi talk to them one at a time.</div>
-<ol>
-<li>Six TFmini Plus (IP65) on printed brackets: ch0 Front Straight, ch1 Front Down (curb), ch2 Front Right + ch3 Front Left (compound 28° down + 28° out corners), ch4 Back Left, ch5 Back Right. Verify the map with <code>tests/lidar_identify.py</code> (stop the service first; run <code>-u</code> unbuffered).
-</li>
-<li>All 6 through a TCA9548A I2C mux (0x70, bus 1); each sensor is 0x10 behind its channel.
-</li>
-<li><code>modules/lidar.py</code> polls the mux; <code>modules/proximity.py</code> produces the alert line (feet, yellow &lt;5ft, red flashing &lt;2ft) AND the safety gate (§13).
-</li>
-<li>The angled down-sensors auto-calibrate a ground baseline at boot (~15s in). <strong>Baseline outlier cross-check (7/8):</strong> a baseline &gt;0.8ft (<code>PROX_CAL_OUTLIER_FT</code>) off the group median means something was in view during cal → that sensor goes UNCALIBRATED/quiet for the run ("=OUTLIER" in the status file) instead of latching a false DROP-OFF stop. This killed the recurring "false cliff" failure mode.
-</li>
-<li>Drop-off (cliff) detection: a down sensor reading FARTHER than baseline+1ft (or no-return) = STOP. Built for the dune-walkway washouts. ⚠ Rain defeats it (wet sand + wet lenses = 850nm no-returns = false cliff latches) — rain fixes are an open item; the phone BYPASS button is the workaround.
-</li>
-<li>Rear sensors (ch4/5) are ALERT-ONLY by design — see the reverse rule in §12.
-</li>
-</ol>
-<h3 id="9b-battery-gauge-coulomb-counter-over-can">9b.  Battery gauge + coulomb counter over CAN</h3>
-<div class="note"><strong>UPDATE 7/26: the coulomb counter is retired.</strong> The Power Queen pack (installed 7/22) has a Bluetooth BMS the Pi now reads directly every 5 minutes — exact state-of-charge straight from the battery, so the software no longer has to estimate it (a voltage-table floor at the steep low-end knee remains as the only estimator, a safety net in case the Bluetooth link dies). The CAN plumbing below still carries voltage, current, and drive telemetry, and its reliability lessons stand — but if your battery's BMS speaks Bluetooth, read it; don't rebuild the checkbook.</div>
-<div class="plain">The Pi asks the motor controllers "what voltage do you see, and how much current is flowing?" over the CAN network, and turns the answers into a percent-full gauge. The catch: LiFePO4 batteries hold almost exactly the same voltage from 90% full down to 60%, so voltage alone can't tell you what's left. I learned that the hard way — my first gauge read way too full in the middle of the range. The fix is "coulomb counting": the software counts every amp-hour flowing out of (and back into) the battery, like balancing a checkbook, and only trusts voltage at the very top and bottom. The rest of this section is the plumbing it took to make those CAN readings reliable while two controllers talk over each other on the same two wires.</div>
-<ol>
-<li>Waveshare 2-Ch Isolated CAN HAT (MCP2515, 16MHz), CAN0 interrupt GPIO23. VESC CAN-H/L to CAN_0 with shared ground. <code>config.txt</code>: <code>dtparam=spi=on</code> + <code>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=23</code>.
-</li>
-<li>can0 @ 500k auto-raised at boot by the system oneshot <strong>can0.service</strong> (BindsTo can0.device) — without it the gauge dies on every reboot.
-</li>
-<li><code>modules/battery.py</code> polls COMM_GET_VALUES on <strong>both halves [0x13, 0x14]</strong>, averages voltage, sums current, and runs the <strong>hybrid SoC estimator</strong>:
-<ul><li><strong>Measured 8S LFP SoC table</strong> (7/4: full 16.6h bench discharge, 26.4→24.6V, 14.8Ah usable — <code>tests/battery_discharge_test.py</code>). The huge LFP dwell is real: 26.3V spans ~90→60%. Rested-full anchor = 26.30V.</li><li><strong>Coulomb counting</strong> between voltage anchors (VESC i_in + 0.8A electronics overhead; <code>BATT_CAPACITY_AH=19.5</code> for the new pack — estimate, re-measure). Persists across reboots in /var/tmp/cart_soc.json. Idle drain ~5.4%/h is real (electronics).</li><li>Charge-detect ≥27.2V resets to 100% on unplug; low-end v≤26.15 clamps DOWN via the table; <strong>boot anchor <code>BATT_CC_FULL_V=26.28</code></strong> — waking at rested-full voltage takes max(saved, table), which fixes the "charged while the Pi was off → gauge says 19%" gap.</li><li>5-sample median filter kills the top-of-table jitter (100%↔77% flashing).</li></ul>
-</li>
-<li><strong>CAN read hardening (7/10, after two counter-poisonings):</strong> VESC FILL frames carry no sender id, so the two halves' multi-frame replies interleave on a busy bus. battery.py drains stale frames before each request, requires the PROCESS_RX_BUFFER completion frame, and verifies payload CRC16 — corrupt replies return None instead of integrating garbage.
-</li>
-<li>Webpanel motor-sync watchdog (<code>VESC_SYNC_*</code>): red banner when the halves' ERPM diverge &gt;20% for 3s or one vanishes off CAN.
-</li>
-</ol>
-<h3 id="9c-360-lidar-rplidar-s3">9c.  360° LiDAR — RPLIDAR S3</h3>
-<div class="plain">This is the spinning puck you see on self-driving cars, just smaller: a laser rangefinder spinning ten times a second, drawing a 360° floor plan of everything around the cart out to 40 meters. It plugs into the Pi over USB. Its map drives the radar display on the cart's screen, and since 7/10 it's also a safety sensor — it watches a corridor ahead of the cart and slows or stops for anything walking into the path. It catches what the narrow-beam TFminis can miss, like a person's legs slightly off-center.</div>
-<ol>
-<li>CP2102N USB-UART adapter — use the /dev/serial/by-id symlink, <strong>1 Mbaud</strong>, standard SCAN (0x20), raw SLAMTEC protocol (<code>modules/lidar360.py</code>), ~10Hz sweeps into shared state.
-</li>
-<li>Mounted on the puck at torso height (2D scanner — one plane; the TFmini ring covers low/ground/curb). 0° = forward, alignment confirmed via the cargo blob; <code>tests/s3_offset_cal.py</code> exists for post-remount calibration.
-</li>
-<li><strong>Rear mask:</strong> <code>S3_MASK_SECTORS=[(90,270)]</code> blanks the rear half at ingestion (cargo sits there); all consumers inherit.
-</li>
-<li>USB self-heal watchdog: no data for 5s → USBDEVFS_RESET ("software replug", no root needed) — fixes the CP210x control-transfer wedge that silently froze the feed for hours. Health file /tmp/cart_lidar360_status.txt.
-</li>
-<li><strong>The S3 is a safety sensor now (7/10):</strong> <code>_scan_s3()</code> in proximity.py projects front-arc bins (±60°) to (ahead, lateral); ≥2 bins inside the 1.7ft-half-width drive corridor at &lt;6ft = SLOW, &lt;3ft = STOP ("AHEAD (360)"). Built because a person walking in front during follow-me slipped past ch0's 2° beam. Stale sweep &gt;1s = fail-open to TFmini-only. Walk-in-front re-test pending.
-</li>
-</ol>
-<h2 id="10-displays-camera-5-screen">10.  Displays (camera + 5" screen)</h2>
-<div class="plain">The cart has two "faces": your phone gets the live camera feed plus every control and gauge through a web page (§14), and a small 5-inch screen on the cart shows a radar-style sweep of what the 360° lidar sees. The radar is drawn mirror-style on purpose — forward points down. During follow-me you're standing in <em>front</em> of the cart looking back at the screen, so this way left is left and right is right from where you stand.</div>
-<p>Layout since 7/5 (wheels-down): <strong>the camera streams to the PHONE web panel; the 5" screen is a fullscreen radar scope + info strip.</strong></p>
-<ol>
-<li>Camera: Arducam 12MP autofocus USB (UVC → /dev/video0; rpicam/libcamera saying "no cameras" is normal for USB). <code>WEBPANEL_CAMERA=True</code> makes the webpanel the sole camera owner (ends the old ffplay/panel hand-off bug). <code>CAMERA_ROT180=True</code> — the cart flip put it upside down; rotation is done in the phone browser CSS (zero CPU; a raw /snapshot.jpg is still unrotated).
-</li>
-<li>5" display: ELECROW 800x480 HDMI on HDMI-A-2 — <strong>no EDID</strong>, so pin the mode twice: <code>video=HDMI-A-2:800x480M@60</code> in cmdline.txt (boot splash) AND a kanshi profile (~/.config/kanshi/config) for the labwc desktop. Video-only as wired (touch doesn't travel over HDMI); plexiglass cover planned.
-</li>
-<li><code>tools/lidar_radar.py</code> (auto-started by radar.service) draws the fullscreen PPI scope + battery/follow/prox info strip from the /tmp status files. <code>RADAR_ROT180=True</code> — the scope is drawn mirror-style (FWD=down) so it reads correctly when you stand in FRONT of the cart during follow-me. 15fps cap (CPU trim). Object tracking, crossing assistant (WAIT/CLEAR), and the follow-the-gap arrow are display/advisory only.
-</li>
-<li>Desktop notifications: the wf-panel-pi "Wi-Fi Authentication Required" agent covered the radar mid-ride — disabled via ~/.config/wf-panel-pi/wf-panel-pi.ini (must be that subdir path). <code>pkill -f lidar_radar.py</code> = supervisor relaunches it fullscreen.
-</li>
-</ol>
-<h2 id="11-uwb-localization-working-4-anchors-tag-4a-fix-33hz">11.  UWB localization — WORKING (4 anchors + tag, [4A] fix @3.3Hz)</h2>
-<div class="plain">This is how the cart knows where you are — the heart of follow-me. UWB (ultra-wideband) is basically indoor GPS: four radio "anchors" on the cart's corners each ping a small "tag" you carry and time how long the radio wave takes to come back. Radio travels about a foot per nanosecond, so the round-trip time <em>is</em> the distance. Four distances from four known corners pin down exactly where the tag is, same as GPS satellites pin down your phone. This section has the strictest rules in the whole guide, because these little radio modules are the most fragile thing on the cart. They run on exactly 3.3 volts and die instantly at 5. They'll even kill <em>themselves</em> if powered without two tiny "decoupling" capacitors steadying their power during a transmission burst. I didn't know any of that going in — about half the modules I ever bought died teaching me. Follow the rules below and yours won't.</div>
-<p>4x REYAX RYUW122_Lite anchors on the cart corners + 1 wearable tag. Anchor spacing (measured): 34" left↔right x 45" front↔rear (<code>FOLLOW_ANCHOR_W_CM=86.36</code>, <code>L_CM=114.3</code>). ANCH1=front-left, ANCH2=front-right, <strong>ANCH4=rear-LEFT, ANCH3=rear-RIGHT (verified by tag-held-left test — the first guess was swapped and steered the cart the wrong way).</strong></p>
-<h3 id="power-the-part-that-killed-a-dozen-modules-follow-exactly">Power (the part that killed a dozen modules — follow exactly)</h3>
-<ol>
-<li><strong>RYUW122 is strictly 3.3V and dies at 5V.</strong> Per corner: 5V from Buck #2 → local 3.3V step-down at the module → module. Use the <strong>Mini360</strong> (fails SAFE — can't pass 5V through). The newer step-downs fail-unsafe and have murdered multiple modules when they blew; ANCH4 still has one — replace it (open item).
-</li>
-<li><strong>HARD GATE — no power, no serial, not even a probe, to a module without its decoupling caps:</strong> 10uF low-ESR electrolytic (+leg to VDD, stripe to GND) in parallel with a 0.1uF ceramic across VDD/GND, shortest leads at the radio pins. The UWB TX burst browns out the rail without them — that brown-out is what "silently killed" the first batches. Violating this once blew an anchor.
-</li>
-<li><strong>METER 3.3V at the module before connecting anything</strong> after any corner work. Diagnostic shortcut that keeps proving out: UART-fine-but-ranging-dead, or repeated module death at ONE corner = meter the step-down FIRST (it's putting out 5V, or browning out on the RF burst).
-</li>
-<li>Each anchor gets its own signal-ground wire back to the Pi reference; the anchor COMMON ground is ONE wire to the Pi through the reset FET (below). Never route grounds through a USB hub.
-</li>
-</ol>
-<h3 id="ground-reset-fet-fixes-power-on-latch-up">Ground-reset FET (fixes power-on latch-up)</h3>
-<p>Anchors wedge at power-up (the Pi's UART lines drive into them before their rail settles — IO-injection latch-up; only breaking the GND return clears it, a RESET-pin pulse won't). <strong>Working fix:</strong> IRLB8721 logic-level MOSFET in the anchor common ground — Drain→anchor GND, Source→Pi GND, Gate→220Ω→<strong>GPIO16</strong> (pin 36), 10k gate pulldown (held OFF at boot). <code>uwb-gnd.service</code> switches it on ~5s after boot; <code>~/uwb_reset.sh</code> = software unplug/replug for mid-run wedges. <strong>Wait ~30s after a reset before probing.</strong> A real reset shows the board data lights FLICKER (anchor boot spew); no flicker = they never lost power.</p>
-<h3 id="uart-transport-2x-waveshare-sc16is752-i2c-to-uart-boards">UART transport — 2x Waveshare SC16IS752 I2C-to-UART boards</h3>
-<ol>
-<li>Board 0x48 (jumpers default) + board 0x49 (A0=1), both on I2C bus 1 at 3.3V (never 5V). Two <code>dtoverlay=sc16is752-i2c</code> lines → ports /dev/ttySC0–3. Don't solder address bridges — set <code>addr=</code> in the overlay (a solder attempt burned a board).
-</li>
-<li><strong>One INT wire per board, and it's mandatory</strong> (the driver is interrupt-driven — no INT = RX data stuck in the FIFO forever = "anchors dead" while they're fine): <strong>0x48 INT → GPIO17 (pin 11); 0x49 INT → GPIO12 (pin 32). ⛔ GPIO25/pin22 is physically DEAD on this Pi — leave it empty.</strong> Verify: <code>grep -E '1-004[89]' /proc/interrupts</code> while polling — a counter that doesn't climb = INT problem.
-</li>
-<li>Anchor UART is a TXD↔RXD crossover into the board channel. An echo (board reads its own TX) = RX-path wiring fault — meter continuity.
-</li>
-<li>Recovery when boards are absent at boot (deferred probe): fix wires → <code>i2cdetect -y 1</code> shows 48/49 → <code>echo 1-0048 | sudo tee /sys/bus/i2c/drivers/sc16is7xx/bind</code> (+ 1-0049) → ports appear. No reboot needed.
-</li>
-</ol>
-<h3 id="configuration-sops">Configuration &amp; SOPs</h3>
-<ol>
-<li>Flash each anchor: <code>tests/uwb_config_anchor.py ANCHn /dev/ttySCx</code> → MODE=1, <strong>NETWORKID=BEACHCAR (the field truncates to 8 chars!)</strong>, unique ADDRESS (ANCH1–4), CPIN=zeros — must match the tag. The tool retries writes to +OK and verifies by CONSENSUS reads (single reads glitch into fake mismatches).
-</li>
-<li><strong>⛔ THE PORT MAP IS BOOT-UNSTABLE.</strong> The two boards bind in either order; the ttySCx↔anchor map shuffles between boots (bit us 7/3 AND 7/10 — a config write went to the wrong, healthy module via a stale map). <strong>Never configure by port. Read <code>AT+ADDRESS?</code> on every ttySC* first.</strong> (follow_me is immune — it discovers anchors by address.) Factory-fresh modules read TAG12345/MODE=0/Anchor12; "new" modules from the batch may arrive PRE-configured with colliding addresses — always read all channels after adding one.
-</li>
-<li><strong>Stop beachcart.service before hand-probing anchors</strong> — it holds the ports and eats replies (verify it's inactive; it has come back mid-session). Empty reads with the service running mean nothing.
-</li>
-<li>Bring-up per corner (proven recipe): caps + metered 3.3V → <code>uwb_charz.py</code> (link quality) → <code>uwb_config_anchor.py</code> → <code>uwb_range.py</code> (expect 10/10 vs the tag). Green LED = ranging link (needs tag AND anchor up), not power.
-</li>
-<li>Ranging is ANCHOR-driven: the anchor issues AT+ANCHOR_SEND and reports distance; the tag auto-replies but never streams unsolicited.
-</li>
-</ol>
-<h3 id="the-wearable-tag">The wearable tag</h3>
-<p>A single LiPo crosses 3.3V as it drains, so the tag uses a <strong>TPS63020 buck-boost</strong> (a plain buck "works then quits" — that mystery cost a module). Chain: 803040 LiPo → TP4056 USB-C charger (B+/B−, always-on so it charges switched-off) → slide switch → TPS63020 (set 3.3V by shorting the 3V3 pad ONLY) → 10uF+0.1uF → RYUW122. Printed case (§16), antenna end away from the body/metal. <strong>A dead tag battery looks like "all anchors +OK but 0 hits"</strong> — the panel now shows that exact diagnosis automatically. Wall-charge the tag.</p>
-<h2 id="12-follow-me-autonomy-modulesfollow_mepy-working-road-tested">12.  Follow-me autonomy (modules/follow_me.py) — WORKING, road-tested</h2>
-<div class="plain">This is the program that does the actual following. Every third of a second it takes the four anchor distances, works out where you are (a bit of geometry called "trilateration" — finding the one point that fits all four measured distances), and turns that into two numbers: which way to steer (toward you) and how fast to go (based on how far away you are — it slows as it gets close and stops about 8 feet away, so it never crowds you). On top of that are the manners that make it trustworthy: it wakes up disarmed and won't move until you deliberately cycle the tag off and on, it refuses to drive at you if you're behind it, and it never, ever reverses on its own in sand — a stuck cart has to stay light enough to push out by hand.</div>
-<p><strong>Control model:</strong> AUTONOMOUS is the default and runs with the RC off. Grab the RC + CH3 high = instant manual override. Failsafe (RC lost) blocks manual only, never autonomy.</p>
-<p><strong>Position solver (7/3):</strong> age-weighted least-squares trilateration over every fresh anchor distance → true tag (x,y) → range + bearing. Any ≥2 anchors keep a fix; degrades gracefully. Fronts range every loop, rears round-robin (<code>FOLLOW_REAR_EVERY=2</code>); ranging port timeout 0.1s (this was the speed fix) → <strong>3.3Hz with all 4 anchors at 20/20</strong>. Freshness window 0.9s.</p>
-<p><strong>Steering = bearing PD law</strong> (the original cm-diff law was distance-blind and pulsed):</p>
-<ul>
-<li>EMA-smoothed bearing (<code>FOLLOW_BRG_SMOOTH=0.55</code>), slew-clamped 18°/fix, deadband 10°, gain 0.03/° (full lock ~43°), D-term <code>FOLLOW_STEER_KD=0.012</code> on the filtered bearing rate (unwinds the wheel early as the bearing converges — kills the wheels-down overshoot the parked bench tune couldn't see).</li>
-<li>Ease: engage 0.12 / release 0.18 — self-centering FASTER than engage (the reverse asymmetry weaved on the road).</li>
-<li><code>FOLLOW_STEER_MAX_FOLLOW=0.60</code> caps normal-following throw; full 1.00 lock is reserved for the planned phone U-turn button.</li>
-<li>Trace logger: /var/tmp/follow_trace.csv (all tuning from data now — the first road test left zero data).</li>
-</ul>
-<p><strong>Throttle:</strong> from solver range — stop inside 250cm (<code>FOLLOW_SETPOINT_CM</code>; sized so your legs sit ~3ft OUTSIDE the prox-gate caution edge — at 150 the gate flickered and stalled the cart), full cap at 450cm, <code>FOLLOW_THROTTLE_CAP=0.60</code> (~2.7mph) until braking is fully trusted.</p>
-<p><strong>Safety behaviors (all live):</strong></p>
-<ul>
-<li><strong>Boot-disarm:</strong> boots DISARMED; arms only when the tag goes absent→present (cycle the tag OFF→ON). Power-on-with-tag-nearby can never drive away. (The gate is seeded correctly so the anchor-wake window can't falsely clear it — that was a real bug, fixed 7/5.)</li>
-<li><strong>Tag-behind stop:</strong> a fix at/behind the front axle = throttle 0, hold straight (it used to compute throttle from |distance| only and would drive AWAY from someone behind it).</li>
-<li>Prox gate multiplies the follow throttle (§13); manual RC is never gated.</li>
-<li><strong>⛔ REVERSE RULE (locked):</strong> no autonomous reverse, ever, on sand — a stuck cart must stay push-able. Rear sensors are alert-only until terrain detection + rear sensing + a closed-loop current self-check exist (hard-surface-only reverse is the eventual design).</li>
-</ul>
-<p><strong>Next layer (designed, not built):</strong> goal-biased follow-the-gap — steer to the clear lidar gap nearest the tag bearing. One code change in recommend_heading() when it's time.</p>
-<h2 id="13-safety-systems-the-stack-in-order-of-what-fires">13.  Safety systems (the stack, in order of what fires)</h2>
-<div class="plain">Safety here is an onion, not one switch: nine separate layers, each able to stop the cart on its own. They run from "sees a problem coming" (the proximity gate) down to "everything crashed" (a script that parks the wheels even if the whole program dies). The rule behind all of them is simple: any single failure should make the cart <em>stop</em>, never make it run away. The table reads top to bottom in the order things would fire. And check the gap list at the bottom — I keep an honest list of what's <em>not</em> protected yet, because pretending it's all covered is how you get surprised.</div>
-<div class="table-wrap"><table>
-<tr><th>Layer</th><th>What it does</th></tr>
-<tr><td>Prox gate (proximity.py)</td><td>Fuses forward TFminis + S3 corridor into a throttle scale: 1.0 clear / 0.5 slow / 0.0 STOP (obstacle, curb, drop-off, corridor hit). Follow-only; manual RC never gated. Master switch <code>PROX_GATE_ENABLED=True</code>.</td></tr>
-<tr><td>Phone BYPASS</td><td>Webpanel button pauses sensor BRAKING for 45s then auto-re-arms (never latching). For deliberate curb hops / gate false-trips. Display alerts stay live.</td></tr>
-<tr><td>Follow-me gates</td><td>Boot-disarm, tag-behind stop, tag-lost stop, stop bubble 250cm.</td></tr>
-<tr><td>Deadman</td><td>drive.py parks neutral if the autonomy command is stale &gt;1.5s or phone E-STOP is set.</td></tr>
-<tr><td>Thread watchdog (main.py)</td><td>rc_input/drive/steering thread death → immediate safe shutdown (was silent-latch-forever).</td></tr>
-<tr><td>Auto park-brake</td><td>2s commanded-zero → PPM pulse dropped → VESC 15A timeout brake both halves.</td></tr>
-<tr><td>ExecStopPost</td><td>park_neutral.sh forces servo-neutral + VESC duty-0 clamp on ANY process death.</td></tr>
-<tr><td>VESC-side</td><td>Timeout Brake Current 15A; PID min-ERPM 5 brakes hard while moving; voltage cutoffs.</td></tr>
-<tr><td>CH3</td><td>Always overrides to manual.</td></tr>
-</table></div>
-<p><strong>Known gaps (decided-but-not-built or open):</strong> the gate fails OPEN on dead I2C / dead lidar thread / optical no-return; no low-battery action (pack just bogs and dies); webpanel /api/resume is unauthenticated on :8080; rain no-return false cliffs.</p>
-<h2 id="14-networking-web-panel-remote-access">14.  Networking, web panel &amp; remote access</h2>
-<div class="plain">Tailscale is a free app that puts your devices on their own private, encrypted mini-internet. The cart keeps one permanent private address no matter whose WiFi it's on, so your phone and laptop can always reach it — even at the beach, where a pocket cellular hotspot gives the cart its internet. On top of that sits the web panel: a webpage served by the cart itself that works like a car dashboard on your phone — live camera, speed, battery, sensor health, an E-STOP button. The "autoconnect ladder" below just means the cart tries its list of known WiFi networks in order at boot and falls back if one's missing.</div>
-<p><strong>Tailscale is the backbone: the cart is one stable private address from anywhere.</strong></p>
-<ul>
-<li><strong>ALWAYS ssh user@&lt;the cart's Tailscale address&gt; + <code>tmux attach</code></strong> (never the LAN IP) — works from any WiFi, survives network flips. PuTTY saved session "beachcart" (keepalive 30s); phone = Termius.</li>
-<li>wayvnc is bound to the Tailscale IP only (it was passwordless on 0.0.0.0 — anyone on home WiFi had desktop control).</li>
-</ul>
-<p><strong>WiFi autoconnect ladder</strong> (one radio, NetworkManager picks highest in range): home WiFi = 100 → Moxee cellular hotspot = 50 (power it ON when out — it gives the cart real internet at the beach so Tailscale works) → rental WiFi = 50 → BeachCart own-AP = −50 (last resort; phone can join it, panel at 10.42.0.1; no internet in that mode). <strong>AP-trap fix (7/8):</strong> if the boot scan misses everything, NM used to wedge in the BeachCart AP forever (it never tears down an active AP to rescan). <code>tools/wifi_rescue.sh</code> + user <code>wifi-rescue.timer</code> (2 min) auto-escapes unless a phone is actually connected — live-tested, trap→home WiFi in 24s.</p>
-<p><strong>Web panel</strong> (<code>modules/webpanel.py</code>, port <strong>8080</strong>, phone control panel): live camera, Pi temp (°F, yellow 158/red 176), Drive card (mph, motor A, FET °F, live + latched faults, Ah/Wh, trip miles), per-anchor UWB health card + tag-dead banner, motor-sync banner, prox gate reason + BYPASS button, E-STOP/resume, <strong>"ASK CLAUDE" box</strong> (dictate into the textarea → injects into the live Claude Code tmux pane — iOS dictation doesn't work in raw terminals).</p>
-<p><strong>Photo drop</strong> (<code>tools/photo_upload.py</code>, port <strong>8090</strong>): phone → Pi picture uploads → ~/beach_cart/uploads/ (how I get phone photos onto the Pi). nohup-run — restart it after a reboot.</p>
-<h2 id="15-software-running-autostart">15.  Software, running &amp; autostart</h2>
-<div class="plain">The cart's software starts itself: flip the power on, and about a minute later everything — drive, sensors, follow-me, the radar screen, the web panel — is running with no keyboard or monitor. That's done with "services" (Linux for "always run this program, restart it if it dies, run this cleanup if it crashes"). This section lists them all, plus how to run things by hand when you're tinkering, and the automatic backups that push every change to a private online copy twice an hour.</div>
-<ol>
-<li>Manual run: <code>cd ~/beach_cart &amp;&amp; PYTHONPATH=~/beach_cart python3 main.py</code>. <code>~/start_cart.sh</code> = manual foreground run. To drive manually: flip RC CH3.
-</li>
-<li><strong>Services:</strong> user <code>beachcart.service</code> (linger on; ExecStopPost=park_neutral.sh), <code>radar.service</code> (5" scope, After=beachcart; WantedBy=default.target — graphical-session.target is inactive on this setup), <code>wifi-rescue.timer</code>, <code>beachcart-autopush.timer</code>, wayvnc; system <code>can0.service</code> (CAN up at boot), <code>uwb-gnd.service</code> (anchor ground FET).
-</li>
-<li>Stop cleanly: SIGINT to the python main.py process (match by exact comm; avoid kill -9 — though ExecStopPost now parks safely even then).
-</li>
-<li>Dev workflow: type <code>cart</code> → tmux split (Claude Code left, shell right), survives SSH drops. Claude Code runs ON the Pi (memory + README auto-load); README = the handoff brain.
-</li>
-<li><strong>Backup:</strong> auto-commit + push every 30 min to a private GitHub repo (<code>beachcart-autopush.timer</code>; push now: <code>systemctl --user start beachcart-autopush.service</code>). <code>system_config/collect.sh</code> snapshots everything outside the repo (systemd units, /boot, deps) so the repo is a full restore image — <code>RESTORE.md</code> is the new-Pi playbook.
-</li>
-<li><code>sudo -n</code> passwordless flip-flops by session — test, don't assume. nmcli works without sudo (polkit grants the console user network control).
-</li>
-</ol>
-<h2 id="16-3d-printed-parts-generators-in-3d_models-petg-unless-note">16.  3D-printed parts (generators in 3d_models/, PETG unless noted)</h2>
-<div class="plain">Every custom bracket, spacer, and case on the cart is 3D-printed in PETG — a plastic that handles sun and moisture better than the usual PLA. The odd part: instead of drawing these parts in a CAD program, each one is generated by a small Python script. A dimension tweak is a one-line edit and a re-run. No printer? Every part here is simple enough for a local print shop or library makerspace to run from the STL files.</div>
-<p>The .py voxel/marching-cubes generator is the source of truth; the STL is its output (stl/ is gitignored — regenerate, or serve with a temp <code>http.server 8091</code> over Tailscale for the PC).</p>
-<ul>
-<li>TFmini flat bracket (tfmini_mc.py) — 55x21x6mm.</li>
-<li>TFmini 28°-down bracket (tfmini_angled_down.py) — curb/ground sensor.</li>
-<li>TFmini compound corner brackets (tfmini_corner_compound.py) — 28° down + 28° out, LEFT/RIGHT pair.</li>
-<li>Wheel/bearing spacers (wheel_spacer.py) — 90mm OD, 40mm bore, 47mm bearing pocket; INNER 25mm, OUTER 30mm w/ counterbores. High infill, pocket-face-up. Load-bearing.</li>
-<li>5" screen case — 45° tilt enclosure.</li>
-<li>UWB tag case (tag_case_gen.py) — 52x38x20mm, press-fit lid, USB-C cutout, switch slot, thinned RF wall at the antenna end, D-ring fob loop. <strong>Assembly: boards + wiring first, battery LAST</strong> (it blocks the ports otherwise).</li>
-<li>Battery boxes: battery_box_50_side_gen.py (<strong>the installed one</strong> — PA6-CF under-frame side-loader for the 50Ah pack: hanging box + screw-on door + 2x slotted L-hangers, hung 7/22) + battery_box_gen.py v5 (two-bay motor-pack box) + battery_box_50_gen.py (two-piece shiplap between-rails box, superseded, kept as spare).</li>
-<li>sprocket_60t_gen.py — 60T 410-chain sprocket MOCK-UP (G1 bolt pattern, 250mm) — fit-check only, PETG teeth are NOT a drive part.</li>
-<li><strong>Solid 2-piece wheel hub (wheel_hub_core_gen.py) — PA6-CF, the big one.</strong> Replaces the factory hub + spacer stack (which develops play under torque): bell + grooved Ø121 tire barrel + bearing boss as one solid body per half; two identical halves lock with hidden castellated fingers — print the same STL twice, rotate one 90°. Battery strap (battery_strap_50_gen.py) — rim-mounted hold-down bar for the 50Ah box, print PETG on its side.</li>
-</ul>
-<p><strong>P1S print notes (PETG):</strong> 245/255°C, bed 70°C, 0.25mm first layer, LOW part-cooling fan (40–50% — high fan warps corners), brim on small parts. First-layer lifting = wash the plate with warm water + DISH SOAP (not just IPA).</p>
-<h3 id="16b-printing-pa6-cf">16b.  Printing carbon-fiber nylon (PA6-CF) — the hub recipe</h3>
-<div class="plain">The wheel hubs are the one part PETG can't handle, so they print in carbon-fiber nylon — much stiffer and tougher, but a picky material. I did the homework below (and double-checked it) before betting 50-hour prints on it.</div>
-<ul>
-<li><strong>Hardened everything:</strong> carbon fiber is abrasive — it eats a standard nozzle in about 10 hours. Hardened-steel nozzle (0.6mm is the safest choice for CF — better flow, near-zero clog risk on long prints) AND hardened extruder drive gears, both, before the first meter of filament.</li>
-<li><strong>Dry or die:</strong> nylon absorbs water from the air in hours. Dry spools 8–12h at 80°C before printing, keep fresh desiccant in the enclosure DURING the print, and get a dried backup spool loaded before any print longer than one spool.</li>
-<li><strong>Slice for the load path:</strong> 100% infill everywhere is wasted time. Use the slicer's modifier-volume trick: a cylinder over the structural core (bolts, bearing pocket, locking joint) set to 100% infill + extra walls, with ~40% cubic infill and 6 walls in the rest. Solid where the forces live, lattice where they don't. Result: 50h / 1.3kg per hub half.</li>
-<li><strong>Bed &amp; chamber:</strong> follow the filament maker's own profile and nobody else's — brands genuinely conflict (Bambu PA6-CF wants a ~100°C+ bed, glue stick, and the lid ON; other brands want the opposite). Never raise print speeds on nylon — warp risk.</li>
-<li><strong>Skip the oven anneal:</strong> tempting, but a bake risks warping precision bores and bearing seats. Bond/assemble while the part is dry, then let ambient humidity condition the nylon — it reaches peak toughness on its own over a few days.</li>
-<li><strong>Fit calibration:</strong> never "fix" a tight bore by scaling the model in the slicer (shrinkage % scales EVERYTHING). Print small test coupons of the critical features first — bearing pocket, bolt holes, joint fingers — measure, and adjust the named fit constant in the part's generator script instead.</li>
-</ul>
-<h2 id="17-key-pin-config-reference-full-map-pinoutmd">17.  Key pin &amp; config reference (full map: PINOUT.md)</h2>
-<div class="plain">The one-page cheat sheet: which wire lands on which Pi pin, plus the key electrical numbers. When something's acting up or you're rebuilding, check this list first.</div>
-<ul>
-<li>GPIO library lgpio, gpiochip 0. Star ground — VESC/servo grounds NEVER on the Pi header.</li>
-<li>Steering servo: GPIO13 (RP1 hw PWM chan1), signal only. VESC PPM: GPIO18 (chan2), signal only.</li>
-<li>RC in (BCM, via level shifter): CH1=22, CH2=27, CH3=24.</li>
-<li>CAN HAT: MCP2515 16MHz, interrupt GPIO23, can0 @ 500k. VESC halves at CAN 0x13 + 0x14 (volatile — re-scan after any VESC Tool session). External tools poll as 0x2B.</li>
-<li>I2C bus 1: TFmini mux 0x70 (sensors 0x10 behind it); SC16IS752 boards 0x48 (INT GPIO17/pin11) + 0x49 (INT GPIO12/pin32). ⛔ GPIO25/pin22 is dead — leave empty.</li>
-<li>UWB ground FET: GPIO16 (pin 36).</li>
-<li>Battery: Power Queen 24V 50Ah Bluetooth LiFePO4 (8S, 52.5Ah measured), 29.2V charger; SoC read from the pack's Bluetooth BMS. VESC cutoffs 22.4/20.0/regen 29.2. Motor 60A / Batt 20A/side / regen −20A / Timeout Brake 40A / Abs Max 120A.</li>
-<li>Power protection: 50A ANL main fuse (10AWG leg), SMBJ30A TVS (installed), bulk cap. Electronics OFF while charging.</li>
-<li>UWB: NETWORKID=BEACHCAR, anchors ANCH1(FL)/ANCH2(FR)/ANCH3(RR)/ANCH4(RL), tag TAG1. Anchor spacing 86.36 x 114.3 cm.</li>
-<li>Key addresses: cart Tailscale &lt;the cart's Tailscale address&gt; — webpanel :8080, photo drop :8090, VNC :5900 (Tailscale-bound). Own-AP mode: 10.42.0.1.</li>
-</ul>
-<h2 id="18-open-items-as-of-711">18.  Open items as of 7/14</h2>
-<div class="plain">The honest to-do list. Every real build has one — putting it out here keeps me from pretending the cart is more finished than it is.</div>
-<ol>
-<li><strong>Re-seat the Pi's thermal pad</strong> (idles 65°C; throttled at 79.6°C on 7/10) — before the trip.
-</li>
-<li>Walk-in-front re-test of the S3 corridor braking (on blocks, then in follow-me).
-</li>
-<li>Replace ANCH4's fail-unsafe 3.3V step-down with a Mini360 (last one on the cart).
-</li>
-<li>Inspect the front-right corner bracket/harness for 7/10 hill-slide damage beyond the module.
-</li>
-<li>Install the 50A ANL main pack fuse (re-sized for the 50Ah pack; not yet in).
-</li>
-<li>Gearing decision (60T = 6:1) after the trip. (Power Queen 50Ah: DONE — installed 7/22, VESCs at 20A/side.) Split-bus electronics battery still to finish.
-</li>
-<li>Ramp reconciliation: Pi-side 0.7/s vs VESC 1.0s PPM ramp still stack.
-</li>
-<li>Prox-gate rain fixes (longer no-return persistence, 2-of-3 agreement, phone RECAL-GROUND button); gate fails-open on dead sensors → make it fail closed + sensor liveness.
-</li>
-<li>Low-battery action (warning + clean poweroff above BMS cutoff) — needs the loaded discharge threshold; limp-home mode still deferred on the same data.
-</li>
-<li>Webpanel /api/resume is unauthenticated on :8080.
-</li>
-<li>Park-brake debug leads if symptoms return: timeout_brake=15A verified on one half only; battery.py polling may reset the VESC timeout; safe_start release lag.
-</li>
-<li><em>New 7/14:</em> re-verify steering center + travel limits after the front-end rebuild (trims were tuned to the old servo mount), and hand-sweep full lock for brace clearance before the next drive.
-</li>
-<li><em>New 7/14:</em> the carbon-fiber hub project (§16b) — PLA shape check, then 4 halves at 50h each, bond, and swap wheels before the end of the month.
-</li>
-</ol>
-<p>--- End of guide. Chronological history: README.md. Bill of materials: STOCK_LIST.md. Wiring: PINOUT.md. Restore: RESTORE.md. ---</p>
-    <h2 id="parts">Parts List (Bill of Materials)</h2>
-    <p class="doc-meta">Confirmed from purchase records June 2026; statuses updated July 26, 2026.
-    Status key: <strong>[BUILD]</strong> in the final cart · <strong>[SPARE]</strong> bought, not in the final build ·
-    <strong>[RETIRED]</strong> was in the build, superseded · <strong>[DEAD]</strong> destroyed along the way ·
-    <strong>[PLANNED]</strong> decided, not yet bought/arrived · <strong>[TOOL]</strong> reusable tool.</p>
-<h2 id="compute-cooling">Compute &amp; Cooling</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Single-board computer</td><td>Raspberry Pi 5, 8GB</td><td>1</td><td>BUILD</td><td>hostname <code>Beachcart</code>. (Pi #1 was killed by a charger transient — see Surge Protection.)</td></tr>
-<tr><td>Pi case + cooling</td><td>Argon NEO 5 Aluminum, dual passive/active</td><td>1</td><td>BUILD</td><td>Onboard base fan died (same transient era).</td></tr>
-<tr><td>Cooling fan (replacement)</td><td>30mm 5V blower, Pi 5 fan-header plug</td><td>1</td><td>BUILD</td><td><strong>INSTALLED 7/3</strong> (the HAT-removal header disaster session). Runs full-on via GPIO45 (pwm overlay kills the firmware curve; no tach). ⚠ OPEN: the SoC <strong>thermal pad shifted during the 7/3 surgery</strong> — Pi idles ~65°C, soft-throttled 79.6°C on 7/10. Re-seat the pad.</td></tr>
-<tr><td>SD card reader</td><td>acer USB-C dual-slot</td><td>1</td><td>BUILD</td><td></td></tr>
-</table></div>
-<h2 id="batteries-installed-motor-pack-710">Batteries — INSTALLED (motor pack: Power Queen 50Ah, 7/22)</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Motor battery pack</td><td><strong>Power Queen 24V 50Ah Bluetooth LiFePO4</strong> (10.24 x 6.61 x 8.27 in, 1280Wh, ~23lb), 8S / 25.6V nominal</td><td>1</td><td>BUILD</td><td><strong>INSTALLED 7/22</strong> in the under-frame box. Spec: <strong>50A continuous / 60A 30-min peak BMS</strong>; native 24V = no series wiring, ONE BMS; existing BROODAY charger + VESC 8S cutoffs work as-is. First full charge recalibrated the BMS reference: <strong>real capacity 52.5Ah</strong> (ships underrated). VESC battery amps <strong>20A/side (=40A pack) / regen −20A/side</strong>. <strong>State-of-charge comes straight from the pack's Bluetooth BMS</strong>, read by the Pi every 5 minutes (the software coulomb counter is retired — see §9b). ⚠ One Bluetooth central at a time: close the vendor phone app fully or the Pi's reads fail. Won't fix the big hill — that stall is TORQUE-limited (motors pinned at 60A hw cap), not power-limited.</td></tr>
-<tr><td>Battery pack (interim, 7/10–7/22)</td><td>2x SEFEPODER SP1220M 12.8V 20Ah LiFePO4, wired in SERIES = 8S</td><td>2</td><td>RETIRED</td><td>The interim motor pack (installed 7/10, <strong>retired 7/22</strong> when the Power Queen went in; may be returned/repurposed). Spec: 40A BMS trip / 20A continuous / 3C pulse / 10A charge; ran at 15A/side = 30A. Hill re-test 7/10 night: zero faults, 654W peak, 26.8A, Vmin 24.1V.</td></tr>
-<tr><td>Battery pack (previous)</td><td>2x SEFEPOWER SP1215 12.8V 15Ah LiFePO4 (series)</td><td>2</td><td>RETIRED</td><td>Retired from motor duty 7/10 — its 16–20A BMS was the measured power ceiling (19.4A draw pinned it on the hill). Split-bus plan: one 15Ah becomes the <strong>electronics battery</strong> in the existing bracket (14.6V 5A charger picked for it). Measured 14.8Ah usable (7/4 bench discharge).</td></tr>
-<tr><td>Battery charger (24V)</td><td>BROODAY 24V 10A LiFePO4 (29.2V)</td><td>1</td><td>BUILD</td><td>Works as-is for the Power Queen (8S). ⚠ Never run electronics while charging.</td></tr>
-<tr><td>Charger (12V, electronics batt)</td><td>14.6V 5A LiFePO4</td><td>1</td><td>PLANNED</td><td>Picked 7/9 for the 15Ah electronics battery (a 20A unit was rejected — over every pack's charge spec). XT60 charge-port scheme: different connector per voltage.</td></tr>
-<tr><td>Main pack fuse</td><td><strong>50A ANL</strong>, high interrupt rating, 10AWG+ leg</td><td>1</td><td>PLANNED</td><td>Re-sized 7/22 for the 50Ah pack: 40A drive draw (20A/side) + 40A regen, at the pack's 50A-continuous BMS rating. <strong>Still to physically install.</strong></td></tr>
-<tr><td>Battery box (50Ah, under-frame side-loader)</td><td>3D-printed two-piece hanging box + door + 2x slotted L-hangers (battery_box_50_side_gen.py, <strong>PA6-CF</strong>, ~3 spools)</td><td>1</td><td>BUILD</td><td>Printed + <strong>hung under the frame 7/22</strong> — battery lies on its side and slides out through a screw-on door (battery out most of the way → bolt the lugs → slide home). Cover field-revised to a stepped profile. ⚠ Full steering lock now reaches the box → steering throw is software-clamped with ~1" verified clearance.</td></tr>
-<tr><td>Battery box (50Ah, between-rails — superseded)</td><td>3D-printed two-piece frame-rail box (battery_box_50_gen.py, PETG)</td><td>1</td><td>SPARE</td><td>Printed 7/9–7/10: 18mm shiplap joint (each half &gt; P1S bed alone), each half rail-mounts independently. Superseded by the under-frame side-loader (the battery wouldn't fit standing up); halves + strap design kept as spares.</td></tr>
-</table></div>
-<h2 id="power-distribution-protection">Power Distribution &amp; Protection</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Main buck converters</td><td>24V/12V→5V 10A 50W waterproof</td><td>2</td><td>BUILD</td><td>Buck #1 = Pi + logic bus; Buck #2 = dedicated clean 5V UWB anchor bus (fault-isolated). Star ground meets HERE.</td></tr>
-<tr><td>TVS diode</td><td><strong>SMBJ30A</strong> (100-pc lot)</td><td>1 (+spares)</td><td>BUILD</td><td><strong>INSTALLED 6/25</strong> across the 24V bus at charge entry — stripe→V+, short fat leads. The defense against the transient that killed Pi #1. 30V standoff vs 29.2V regen is tight; swap to SMBJ33A/36A if it nuisance-clamps.</td></tr>
-<tr><td>3.3V regulators (anchors)</td><td>Mini360 DC 5-30V→3.3V 1.8A, 5-pack</td><td>4 in use</td><td>BUILD</td><td>Per-corner anchor power. <strong>Mini360 = fails SAFE (can't pass 5V)</strong>; the newer no-name step-downs FAIL-UNSAFE and killed multiple RYUW122s when they blew. ANCH1/2/3 = Mini360 as of 7/10; ⚠ <strong>ANCH4 still has a fail-unsafe one — replace it</strong>. Always meter 3.3V before connecting a module.</td></tr>
-<tr><td>Buck-boost (tag)</td><td>TPS63020 module ("XL63020" seller label)</td><td>1</td><td>BUILD</td><td>Tag power — a plain buck can't hold 3.3V across a LiPo's 4.2→3.0V discharge. Set 3.3V by shorting the 3V3 pad ONLY.</td></tr>
-<tr><td>LiPo charger (tag)</td><td>TP4056 USB-C</td><td>1 (+spares)</td><td>BUILD</td><td>Always-on (B+/B−) so the tag charges switched-off.</td></tr>
-<tr><td>Tag battery</td><td>803040 LiPo (40x30x8)</td><td>1</td><td>BUILD</td><td>Wall-charge it — a dead tag reads as "all anchors OK, 0 hits".</td></tr>
-<tr><td>Pi power lead</td><td>USB-C bare-wire DC input, 20AWG 5V 5A</td><td>2-pack</td><td>BUILD</td><td>Pi powered via USB-C off Buck #1. <code>usb_max_current_enable=1</code> applied.</td></tr>
-<tr><td>MOSFET (UWB GND reset)</td><td>IRLB8721PBF logic-level N-ch, 30V/62A (10pk)</td><td>1</td><td>BUILD</td><td><strong>WIRED + WORKING</strong>: low-side switch in the anchor common ground on GPIO16 (220Ω gate, 10k pulldown). <code>uwb-gnd.service</code> + <code>~/uwb_reset.sh</code>. Fixes the power-on latch-up.</td></tr>
-<tr><td>Resistor kit</td><td>BOJACK 1000pc, 25 values 1Ω–1MΩ</td><td>1</td><td>BUILD</td><td>Arrived; used for the FET gate resistors + spares.</td></tr>
-<tr><td>Remote switch</td><td>dstfuy wireless 40A relay</td><td>1</td><td>BUILD</td><td>Electronics-off-while-charging discipline.</td></tr>
-<tr><td>USB hub (old)</td><td>Yahboom 4-Port USB 3.0</td><td>1</td><td>SPARE</td><td>Ran bus-powered (no matching 9–24V plug) → browned out at the 4th anchor. Superseded by the SC16IS752 path.</td></tr>
-<tr><td>USB hub (powered)</td><td>Compact 4-Port USB 3.2 Gen1 powered hub</td><td>1</td><td>DEAD</td><td>Arrived, then <strong>burned</strong> (VL817 controller scorched) when wired to the 5V bus 6/29 — suspect short at the cut barrel-jack joint. This failure pivoted anchors to the SC16IS752 boards for good. Bench any replacement on a current-limited supply first.</td></tr>
-</table></div>
-<h2 id="sensing">Sensing</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>LiDAR ring (obstacle)</td><td>DIYmall Benewake TFmini Plus, IP65, UART</td><td>6</td><td>BUILD</td><td>All 6 ranging via mux (I2C 0x10 behind it). ch0 F-straight, ch1 F-down, ch2 FR, ch3 FL, ch4 BL, ch5 BR. Feeds the safety gate + drop-off detection.</td></tr>
-<tr><td>I2C multiplexer</td><td>DEVMO TCA9548A (CJMCU-9548) 1-to-8</td><td>1</td><td>BUILD</td><td>addr 0x70, I2C bus 1.</td></tr>
-<tr><td>360° LiDAR</td><td>RPLIDAR S3 dToF, 40m</td><td>1</td><td>BUILD</td><td><strong>In the final build since 6/20</strong> (old "spare" status wrong): 1Mbaud via CP2102N, radar scope on the 5" screen, rear 90–270° masked, and since 7/10 it feeds the <strong>forward corridor safety braking</strong> (person detection follow-me gap).</td></tr>
-<tr><td>UWB modules</td><td>REYAX RYUW122_Lite (6.5/8GHz)</td><td>~11 bought</td><td>BUILD</td><td><strong>4 anchors + 1 tag LIVE ([4A] fix @3.3Hz)</strong>. Several consumed learning the power rules (TX-brownout w/o caps, 5V from failed step-downs, the 7/10 hill-slide smash). Remainder = spares. 3.3V-ONLY; caps mandatory before any power/serial.</td></tr>
-<tr><td>Camera</td><td>Arducam 12MP Autofocus USB, HDR</td><td>1</td><td>BUILD</td><td>UVC → /dev/video0; streams to the phone webpanel (rotated 180 in browser CSS).</td></tr>
-<tr><td>LiDAR (alt)</td><td>MakerFocus TF-Luna single-point</td><td>2</td><td>SPARE</td><td>Superseded by TFmini.</td></tr>
-<tr><td>Camera (alt)</td><td>Raspberry Pi Camera Module 3</td><td>2</td><td>SPARE</td><td>Superseded by Arducam.</td></tr>
-</table></div>
-<h2 id="motor-control-drivetrain">Motor Control &amp; Drivetrain</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Drive motors</td><td>Flipsky 7070 110KV BLDC, 10mm sensored</td><td>2</td><td>BUILD</td><td>14 poles / 7 pole pairs; one software-inverted. 60A per side = the cart's torque ceiling (big-hill stall is an accepted boundary).</td></tr>
-<tr><td>Motor controller</td><td><strong>Flipsky DUET XS60 — one DUAL ESC</strong> (two 60A drive halves)</td><td>1</td><td>BUILD</td><td>~$250. Halves on CAN <strong>0x13 + 0x14 as of 7/10</strong> — ⚠ IDs are volatile; every VESC Tool wizard can renumber one, re-scan the bus. (Old "CAN ID 17 + 2nd local VESC" note was this same unit, mis-described.) Current tune: PID speed, 3300 ERPM, 60A motor / 15A batt / 120A abs, timeout brake 15A.</td></tr>
-<tr><td>Wheels</td><td>16.5" (42cm) PU wheel, 3/4" bearing</td><td>4</td><td>BUILD</td><td>WZ1-42UB; ~$679 incl. shipping. ⚠ Tire MUST be epoxy-bonded to the hub before drivetrain work.</td></tr>
-<tr><td>Steering servo</td><td>Happymodel Super400 Plus, PWM 300°, 24V industrial</td><td>1</td><td>BUILD</td><td>GPIO13 signal only; ~$148. Check linkage seating — popped its socket under hill load once.</td></tr>
-<tr><td>Drive chain</td><td>Single-speed bike chain 1/2"×1/8" ("410") 114-link</td><td>2</td><td>BUILD</td><td>5:1 reduction.</td></tr>
-<tr><td>Sprocket (gearing option)</td><td>ESP SPR-41060G1 60T 410-chain (6:1, +20% torque)</td><td>1</td><td>PLANNED</td><td>Custom-made, ~$82, wouldn't arrive before the trip — <strong>not ordered</strong>; decision after the trip. PETG mock-up printed for fit-check only. ⚠ Cheap "60T" listings are #40/41/420 pitch — 410 chain won't seat.</td></tr>
-<tr><td>Bearings</td><td>uxcell SBPFL204-12 pillow block, 3/4" bore</td><td>4</td><td>BUILD</td><td></td></tr>
-<tr><td>Bearings</td><td>UCF204-12 square flange, 3/4" bore</td><td>4-pack</td><td>BUILD</td><td>self-aligning</td></tr>
-<tr><td>Steering tie rods</td><td>X AUTOHAUX M8 ball joint (final length)</td><td>1 set</td><td>BUILD</td><td>bought 80/100/120/185/210mm — sizing iteration</td></tr>
-<tr><td>Tie rods (extra sizes)</td><td>X AUTOHAUX M8, unused lengths</td><td>several</td><td>SPARE</td><td></td></tr>
-<tr><td>VESC BT module (alt)</td><td>V6 nrf51_vesc Bluetooth (Flipsky)</td><td>1</td><td>SPARE</td><td>Phone VESC Tool connects to the DUET directly.</td></tr>
-</table></div>
-<h2 id="interface-comms">Interface &amp; Comms</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>CAN interface</td><td>Waveshare 2-Ch Isolated CAN HAT (MCP2515 + SN65HVD230)</td><td>1</td><td>BUILD</td><td>can0 @ 500k (auto-up via can0.service); CAN0 INT GPIO23; can1 unused. Battery gauge + all CAN tooling.</td></tr>
-<tr><td>Serial expansion (UWB)</td><td>Waveshare SC16IS752 I2C-to-UART, 2 UART each</td><td>2 in use (3 bought)</td><td>BUILD</td><td>Boards 0x48 (INT GPIO17/pin11) + 0x49 (INT GPIO12/pin32), wired off-header, 3.3V only. One earlier board <strong>burned</strong> attempting a solder address-bridge (set <code>addr=</code> in the overlay instead) → replacement bought. ⚠ ttySC↔anchor map shuffles between boots — identify by <code>AT+ADDRESS?</code>, never by port. GPIO25/pin22 is DEAD on this Pi — never use for INT.</td></tr>
-<tr><td>Logic level shifter</td><td>LONELY BINARY bidirectional 3.3V↔5V kit (27pc)</td><td>1</td><td>BUILD</td><td>BSS138; all 3 RC channels pass through it (raw 5V = garbage reads).</td></tr>
-<tr><td>RC transmitter</td><td>Flysky FS-GT3C 2.4GHz 3-channel</td><td>1</td><td>BUILD</td><td>CH3 = manual-override switch.</td></tr>
-<tr><td>RC receiver</td><td>Flysky GR3E / FS-GR3E</td><td>2</td><td>BUILD</td><td><strong>CH1 GPIO22, CH2 GPIO27, CH3 GPIO24</strong> (old 23/22 labels wrong).</td></tr>
-<tr><td>Display</td><td>ELECROW 5" 800×480 HDMI</td><td>1</td><td>BUILD</td><td>HDMI-A-2, no EDID (mode pinned in cmdline.txt + kanshi). Video-only as wired; shows the fullscreen radar since 7/5. 45° tilt case printed.</td></tr>
-<tr><td>HDMI cable</td><td>Micro HDMI→HDMI 4ft + Duttek 8K Mini HDMI</td><td>2</td><td>BUILD</td><td></td></tr>
-<tr><td>Cellular hotspot</td><td>Moxee</td><td>1</td><td>BUILD</td><td>The beach-internet uplink: cart auto-joins it (priority 50) so Tailscale reaches the cart anywhere. Separate battery device — power it ON and keep it charged when out.</td></tr>
-<tr><td>USB-TTL adapters</td><td>HJHYUL CP2102 USB→TTL 4-pin (3.3V)</td><td>3</td><td>SPARE</td><td>Were the anchor path pre-SC16IS752; still handy for bench AT-command work.</td></tr>
-<tr><td>Slide switches</td><td>EGSCST SS12D00G micro SPDT (150pc)</td><td>1 kit</td><td>BUILD</td><td>tag power switch + spares</td></tr>
-</table></div>
-<h2 id="wiring-connectors-cable-management">Wiring, Connectors &amp; Cable Management</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th></tr>
-<tr><td>Silicone wire 12awg</td><td>ZIGPEO 50ft red/black</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Silicone wire 8awg</td><td>10ft red/10ft black</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Silicone wire 24awg</td><td>TUOFENG 6-color + BNTECHGO spools</td><td>2</td><td>BUILD</td></tr>
-<tr><td>Jumper wires</td><td>EDGELEC Dupont M-F 100cm + 50cm</td><td>2</td><td>BUILD</td></tr>
-<tr><td>Pre-crimped connectors</td><td>GH/Dupont 2.54 + JST GH 1.25mm kit</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Power distribution</td><td>Recoil BBS25P bus bar (2×M5 + 5 screw)</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Terminal blocks</td><td>MILAPEAK 4/5/6-position 600V 15A (6 sets)</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Fuse holders</td><td>Anyongora 12awg inline (4pk) + VANTRONIK Maxi 100A</td><td>—</td><td>BUILD</td></tr>
-<tr><td>Connectors</td><td>Amass MT60 (5pr) + Amass XT90 anti-spark (5pr)</td><td>—</td><td>BUILD</td></tr>
-<tr><td>Cable glands</td><td>LISTENJIALE waterproof PG7–PG19 (50pc)</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Cable sleeving</td><td>132ft expandable braided PET loom</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Heat shrink</td><td>400pc 3:1 adhesive-lined marine grade</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Quick disconnects</td><td>Sherco-Auto 8awg heat-shrink (10pk)</td><td>1</td><td>BUILD</td></tr>
-<tr><td>Zip-tie mounts</td><td>XHF 3/4" back-glue (100pc)</td><td>1</td><td>BUILD</td></tr>
-<tr><td>USB cables</td><td>Poyiccot short USB-USB (2) + Jelly Tang USB3 ext + FEMORO micro</td><td>—</td><td>BUILD</td></tr>
-<tr><td>Decoupling caps (UWB)</td><td>10uF 50V low-ESR electrolytic + 0.1uF ("104") ceramic</td><td>per module</td><td>BUILD</td></tr>
-</table></div>
-<h2 id="structural-frame-fasteners">Structural, Frame &amp; Fasteners</h2>
-<div class="table-wrap"><table>
-<tr><th>Component</th><th>Model / Spec</th><th>Qty</th><th>Status</th><th>Notes</th></tr>
-<tr><td>Raw aluminum stock</td><td>1.5" square tubing / sheet / bar</td><td>bulk</td><td>BUILD</td><td>~$800, local metal supplier</td></tr>
-<tr><td>Steering bracket</td><td>salvaged kid's-wagon front pivot assembly</td><td>1</td><td>BUILD</td><td>center pivot + stub axles</td></tr>
-<tr><td>Aluminum angle</td><td>4"×4"×1/4" 6063</td><td>4</td><td>BUILD</td><td></td></tr>
-<tr><td>Stainless tube</td><td>GeilSpace 3/4" OD 304 SS round (2pk)</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Stainless rod</td><td>3/4" 304 SS round rod, 48"</td><td>1</td><td>BUILD</td><td>rear axle stock</td></tr>
-<tr><td>Threaded rod</td><td>Arwnnklo M6 304 SS 10" + nuts</td><td>2</td><td>BUILD</td><td></td></tr>
-<tr><td>TIG filler</td><td>MorningRo ER309L 3/32" stainless rod 2lb</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Cap screws</td><td>Joamang M4 (100pc) + ATHYUTH M2 (960pc)</td><td>—</td><td>BUILD</td><td></td></tr>
-<tr><td>Rivet nuts</td><td>SAE pressure rivet nut tool kit (530pc)</td><td>1</td><td>BUILD</td><td>tool + nuts</td></tr>
-<tr><td>Drive keys</td><td>Swpeet carbon steel key stock (140pc)</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Tube end caps</td><td>Prescott 3/4" ribbed plastic (20pk)</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Grommets</td><td>Vrupin rubber kit (188pc)</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Thread locker</td><td>ESKONKE 648 retaining compound</td><td>1</td><td>BUILD</td><td></td></tr>
-<tr><td>Enclosures</td><td>LeMotech ABS boxes (10pc) + GITRUAX IP67 box</td><td>—</td><td>BUILD</td><td></td></tr>
-</table></div>
-<h2 id="3d-printed-parts-petg-generators-in-3d_models">3D-Printed Parts (PETG, generators in 3d_models/)</h2>
-<div class="table-wrap"><table>
-<tr><th>Part</th><th>Generator</th><th>Status</th></tr>
-<tr><td>TFmini brackets (flat / 28°-down / compound corners L+R)</td><td>tfmini_mc / tfmini_angled_down / tfmini_corner_compound</td><td>BUILD</td></tr>
-<tr><td>Wheel/bearing spacers (INNER 25mm, OUTER 30mm)</td><td>wheel_spacer.py</td><td>BUILD (load-bearing — the torque spec)</td></tr>
-<tr><td>5" screen case, 45° tilt</td><td>—</td><td>BUILD</td></tr>
-<tr><td>UWB tag enclosure (press-fit lid, fob loop)</td><td>tag_case_gen.py</td><td>BUILD</td></tr>
-<tr><td>Motor-pack battery box (two-bay)</td><td>battery_box_gen.py v5</td><td>BUILD</td></tr>
-<tr><td>50Ah battery box (two-piece shiplap)</td><td>battery_box_50_gen.py</td><td>BUILD (awaiting the pack)</td></tr>
-<tr><td>60T sprocket MOCK-UP (fit-check only, not a drive part)</td><td>sprocket_60t_gen.py</td><td>BUILD</td></tr>
-</table></div>
-<h2 id="tools-reusable-not-part-of-cart-value">Tools (reusable — not part of cart value)</h2>
-<div class="table-wrap"><table>
-<tr><th>Tool</th><th>Model</th><th>Status</th></tr>
-<tr><td>Soldering gun</td><td>Weller D550PK 260W/200W kit</td><td>TOOL</td></tr>
-<tr><td>Solder</td><td>MAIYUM 63-37 rosin core 0.8mm 100g</td><td>TOOL</td></tr>
-<tr><td>3D printer</td><td>Bambu Lab P1S</td><td>TOOL</td></tr>
-</table></div>
-</main>
-
   <footer class="doc-footer" id="contact">
     <div class="inner">
-      <p style="margin:0;">Questions about the build? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
+      <p style="margin:0;">Questions? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
       <p style="margin:8px 0 0;">© <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="index.html" style="color:inherit;">kmjdynamics.com</a></p>
     </div>
   </footer>
