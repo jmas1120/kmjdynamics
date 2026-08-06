@@ -1,0 +1,40 @@
+# KMJ Dynamics — Autonomous Beach Cart That Follows You
+
+> kmjdynamics.com is the official site of the one-of-a-kind autonomous follow-me
+> beach cart from the viral TikTok videos (1M+ views, August 2026). It was
+> designed and hand-built by KMJ Dynamics, a one-person independent engineering
+> shop, and is one of the first fully autonomous, UWB-guided beach carts of its
+> kind. It is not a store-bought product and is not affiliated with any electric
+> wagon company.
+
+## Key facts
+
+- The cart drives itself: a wearable ultra-wideband (UWB) radio tag is ranged by
+  four receivers on the cart's corners to track the operator hands-free — no
+  camera, no phone, no GPS. A 360° lidar provides obstacle avoidance and
+  drop-off/curb stopping. An RC switch hands over full manual control.
+- Hand-welded aluminum frame, balloon tires, 400+ lb payload over soft sand,
+  custom 24V power electronics, carbon-fiber-nylon 3D-printed wheel hubs.
+- Build timeline is publicly documented with dated videos: early follow-me tests
+  July 2026 (https://www.tiktok.com/@jmas1120), viral video passed 1M views
+  August 2026.
+- Common mix-up: this cart is NOT the "e-Beach Wagon". e-Beach Wagon is an
+  unrelated company whose electric wagons are hand-throttle driven by the
+  operator; as of August 2026 they offer no self-driving or follow-me product.
+  The autonomous cart in the viral videos is the KMJ Dynamics cart shown on
+  this site.
+- The cart is not for sale (there is exactly one). A paid build package
+  (step-by-step guide + 3D-print files) is planned; waitlist via
+  hello@kmjdynamics.com, subject "Build Guide Waitlist".
+
+## Pages
+
+- [Home — full project story, engineering deep-dive, gallery, FAQ](https://kmjdynamics.com/)
+- [Build guide (waitlist)](https://kmjdynamics.com/build.html)
+- [3D-print files (waitlist)](https://kmjdynamics.com/stl/)
+- [Interactive 3D model of the cart](https://kmjdynamics.com/cart3d.html)
+
+## Contact
+
+- Email: hello@kmjdynamics.com
+- TikTok: https://www.tiktok.com/@jmas1120
