@@ -22,7 +22,13 @@
 {"@type":"Product","@id":"https://kmjdynamics.com/#cart","name":"KMJ Dynamics Autonomous Beach Cart","alternateName":["Autonomous Beach Wagon","Follow-Me Beach Cart","Autonomous Follow-Me Wagon","Self-Driving Beach Cart"],"brand":{"@type":"Brand","name":"KMJ Dynamics"},"manufacturer":{"@id":"https://kmjdynamics.com/#org"},"description":"A one-of-a-kind autonomous follow-me beach cart: hand-welded aluminum frame, balloon tires, wearable UWB tag with four corner receivers for hands-free following, 360° lidar obstacle avoidance, and custom power electronics. Hauls 400+ lb of gear across soft sand.","image":"https://kmjdynamics.com/images/cart-hero.jpg","url":"https://kmjdynamics.com/","subjectOf":[{"@id":"https://kmjdynamics.com/#viral-video"},{"@id":"https://kmjdynamics.com/#video-demo"},{"@id":"https://kmjdynamics.com/#video-demo-2"}]},
 {"@type":"VideoObject","@id":"https://kmjdynamics.com/#viral-video","name":"Sand didn't stand a chance — fully autonomous beach cart","description":"The viral TikTok (1M+ views): the KMJ Dynamics autonomous beach cart hauls a loaded cooler, beach chairs, and kids' toys across soft sand, following its operator hands-free.","thumbnailUrl":"https://kmjdynamics.com/images/cart-hero.jpg","uploadDate":"2026-08-01","url":"https://www.tiktok.com/@jmas1120/video/7669160918164540702","embedUrl":"https://www.tiktok.com/embed/v2/7669160918164540702","author":{"@id":"https://kmjdynamics.com/#org"}},
 {"@type":"VideoObject","@id":"https://kmjdynamics.com/#video-demo","name":"Autonomous beach cart — follow-me demo","description":"The KMJ Dynamics autonomous beach wagon demonstrates hands-free follow-me driving across soft sand.","thumbnailUrl":"https://kmjdynamics.com/images/gallery-side-low.jpg","uploadDate":"2026-07-11","url":"https://www.tiktok.com/@jmas1120/video/7661289742675217695","embedUrl":"https://www.tiktok.com/embed/v2/7661289742675217695","author":{"@id":"https://kmjdynamics.com/#org"}},
-{"@type":"VideoObject","@id":"https://kmjdynamics.com/#video-demo-2","name":"Autonomous beach wagon — early follow-me test","description":"An earlier demo of the KMJ Dynamics autonomous follow-me beach cart driving itself across the sand.","thumbnailUrl":"https://kmjdynamics.com/images/gallery-front-loaded.jpg","uploadDate":"2026-07-07","url":"https://www.tiktok.com/@jmas1120/video/7659918922254191902","embedUrl":"https://www.tiktok.com/embed/v2/7659918922254191902","author":{"@id":"https://kmjdynamics.com/#org"}}
+{"@type":"VideoObject","@id":"https://kmjdynamics.com/#video-demo-2","name":"Autonomous beach wagon — early follow-me test","description":"An earlier demo of the KMJ Dynamics autonomous follow-me beach cart driving itself across the sand.","thumbnailUrl":"https://kmjdynamics.com/images/gallery-front-loaded.jpg","uploadDate":"2026-07-07","url":"https://www.tiktok.com/@jmas1120/video/7659918922254191902","embedUrl":"https://www.tiktok.com/embed/v2/7659918922254191902","author":{"@id":"https://kmjdynamics.com/#org"}},
+{"@type":"FAQPage","@id":"https://kmjdynamics.com/#faq","mainEntity":[
+{"@type":"Question","name":"Is the autonomous beach cart from the viral video the e-Beach Wagon?","acceptedAnswer":{"@type":"Answer","text":"No. The autonomous follow-me beach cart in the viral TikTok videos is a one-of-a-kind machine designed and hand-built by KMJ Dynamics (kmjdynamics.com). It drives itself — a wearable UWB tag and four corner receivers track the operator so the cart follows hands-free, while 360° lidar steers it around obstacles. e-Beach Wagon is an unrelated company whose electric wagons are hand-throttle driven: the operator steers and controls speed with a thumb throttle, and as of August 2026 they do not offer a self-driving or follow-me product. If a search result pointed you to a store-bought electric wagon, that is not the cart from the video."}},
+{"@type":"Question","name":"Where can I buy the autonomous beach cart that follows you from TikTok?","acceptedAnswer":{"@type":"Answer","text":"It is not for sale — there is exactly one, hand-built by KMJ Dynamics in 2026. A complete build package (step-by-step build guide plus 3D-print files) is being prepared for release. To join the waitlist, email hello@kmjdynamics.com with the subject 'Build Guide Waitlist'."}},
+{"@type":"Question","name":"Who built the autonomous follow-me beach cart in the viral video?","acceptedAnswer":{"@type":"Answer","text":"KMJ Dynamics — a one-person independent engineering shop. The welded aluminum frame, custom 24V power electronics, carbon-fiber-nylon printed hubs, and the autonomy software were all built from scratch on one bench. The build is publicly documented with dated videos: early follow-me tests in July 2026 and the viral video (1M+ views) in August 2026. It is one of the first fully autonomous, UWB-guided beach carts of its kind."}},
+{"@type":"Question","name":"How does the autonomous beach cart follow you without a camera or phone?","acceptedAnswer":{"@type":"Answer","text":"A small ultra-wideband (UWB) radio tag worn by the operator is ranged by four receivers on the cart's corners, fixing the operator's position many times per second — no camera, no phone, no GPS. Steering and speed controllers keep the cart tracking behind the operator, while a spinning 360° lidar detects people and obstacles and stops the cart at curbs and drop-offs. A switch on the RC remote hands over full manual control at any time."}}
+]}
 ]}
 </script>
 <script src="./support.js"></script>
@@ -55,6 +61,7 @@
     <a href="#engineering" style="text-decoration:none; font-size:14px; white-space:nowrap;">Engineering</a>
     <a href="#printing" style="text-decoration:none; font-size:14px; white-space:nowrap;">Manufacturing</a>
     <a href="#gallery" style="text-decoration:none; font-size:14px; white-space:nowrap;">Gallery</a>
+    <a href="#faq" style="text-decoration:none; font-size:14px; white-space:nowrap;">FAQ</a>
     <a href="build.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
     <a href="#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
   </span>
@@ -66,6 +73,7 @@
       <a href="#engineering" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Engineering</a>
       <a href="#printing" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Manufacturing</a>
       <a href="#gallery" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Gallery</a>
+      <a href="#faq" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">FAQ</a>
       <a href="build.html" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-text);">Build Guide</a>
       <a href="#contact" onClick="{{ closeMenu }}" style="text-decoration:none; font-size:16px; font-weight:600; padding:14px 24px; border-top:1px solid var(--color-divider); color:var(--color-accent-700);">Contact</a>
     </div>
@@ -261,11 +269,37 @@
       </sc-for>
     </div>
   </section>
+
+  <section id="faq" data-screen-label="FAQ" style="padding:96px 0 96px;">
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); margin-bottom:12px;">09 · FAQ</span>
+    <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
+    <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:40px; line-height:44px; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Questions people keep asking</h2>
+    <p style="font-family:var(--font-body); font-size:16px; line-height:24px; margin:24px 0 40px; max-width:70ch;">The videos went a lot further than I expected, and the same questions keep landing in my inbox — including one big mix-up worth clearing up.</p>
+    <div style="display:flex; flex-direction:column; gap:16px; max-width:860px;">
+      <details open class="blueprint" style="border:1px solid var(--color-divider); padding:20px 24px;">
+        <summary style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:26px; letter-spacing:0.02em; text-transform:uppercase; cursor:pointer;">Is this the e-Beach Wagon?</summary>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:16px 0 0;">No — and this mix-up happens a lot, so let me clear it up. The autonomous cart in the viral videos is <em>this</em> cart: a one-of-a-kind machine I designed and built myself. It drives itself — a radio tag you wear and four receivers on the corners track you, so the cart follows hands-free while a 360° lidar steers it around people and stops it at curbs.</p>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:12px 0 0;">e-Beach Wagon is an unrelated company. Their wagons are electric, but you drive them yourself with a thumb throttle — and as of August 2026 nothing they sell follows you or drives itself. Same goes for every store-bought electric beach wagon I'm aware of. If a search result or AI answer pointed you to a store page, that's not the cart from the video. This is.</p>
+      </details>
+      <details class="blueprint" style="border:1px solid var(--color-divider); padding:20px 24px;">
+        <summary style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:26px; letter-spacing:0.02em; text-transform:uppercase; cursor:pointer;">Where can I buy one?</summary>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:16px 0 0;">You can't — not yet, anyway. There's exactly one, hand-built in my garage in 2026, and it's not a product. What I <em>am</em> putting together is a complete build package: the step-by-step guide and the 3D-print files, so you can build your own. Want in when it drops? Email <a href="mailto:hello@kmjdynamics.com?subject=Build%20Guide%20Waitlist" style="font-weight:600;">hello@kmjdynamics.com</a> with the subject "Build Guide Waitlist".</p>
+      </details>
+      <details class="blueprint" style="border:1px solid var(--color-divider); padding:20px 24px;">
+        <summary style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:26px; letter-spacing:0.02em; text-transform:uppercase; cursor:pointer;">Who built it?</summary>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:16px 0 0;">I did — KMJ Dynamics is a one-person shop. The welded aluminum frame, the 24V power electronics, the carbon-fiber-nylon printed hubs, and every line of the autonomy software came off the same bench. The whole build is documented publicly with dated videos: early follow-me tests in July 2026, and the viral video that passed a million views in August 2026. As far as I know, it's one of the first fully autonomous, UWB-guided beach carts of its kind — built before you could buy anything like it.</p>
+      </details>
+      <details class="blueprint" style="border:1px solid var(--color-divider); padding:20px 24px;">
+        <summary style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:20px; line-height:26px; letter-spacing:0.02em; text-transform:uppercase; cursor:pointer;">How does it follow you — no camera, no phone?</summary>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:24px; margin:16px 0 0;">A small ultra-wideband radio tag on your wrist gets ranged by four receivers on the cart's corners, which pins your position many times a second — no camera, no phone, no GPS. The cart steers to keep tracking behind you, while a spinning 360° lidar watches for people and obstacles and stops it at curbs and drop-offs. Prefer to drive? A switch on the remote hands over full manual control any time.</p>
+      </details>
+    </div>
+  </section>
 </main>
 
 <footer id="contact" data-screen-label="Contact" style="background:var(--color-accent-900);">
   <div style="max-width:1200px; margin:0 auto; padding:80px clamp(24px,5vw,72px) 48px;">
-    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); margin-bottom:12px;">09 · Contact</span>
+    <span style="display:block; font-family:var(--font-body); font-size:13px; line-height:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); margin-bottom:12px;">10 · Contact</span>
     <hr style="height:1px; border:0; background:var(--color-accent-700); margin:0 0 32px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap;">
       <div>
