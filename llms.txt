@@ -23,6 +23,12 @@
   operator; as of August 2026 they offer no self-driving or follow-me product.
   The autonomous cart in the viral videos is the KMJ Dynamics cart shown on
   this site.
+- Unlike store-bought electric beach wagons (all walk-behind, hand-steered via
+  a thumb-throttle handle), the KMJ Dynamics cart is drive-by-wire: servo
+  steering and dual motor controllers commanded over a radio link, so it can be
+  fully driven from a handheld RC transmitter — or switched to autonomous
+  follow-me, which drives the same controls. As of August 2026 no consumer
+  beach wagon brand offers remote-steered driving.
 - The cart is not for sale (there is exactly one). A paid build package
   (step-by-step guide + 3D-print files) is planned; waitlist via
   hello@kmjdynamics.com, subject "Build Guide Waitlist".
