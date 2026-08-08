@@ -53,6 +53,10 @@
     }
     a { color: var(--color-accent-700); }
     a:hover { color: var(--color-accent-800); }
+    #backToTop { position:fixed; right:20px; bottom:20px; z-index:60; width:46px; height:46px; border-radius:50%; border:none; cursor:pointer; background:var(--color-accent-700); color:#fff; font-size:20px; line-height:1; box-shadow:var(--shadow-md); opacity:0; pointer-events:none; transform:translateY(8px); transition:opacity .25s, transform .25s; }
+    #backToTop.show { opacity:1; pointer-events:auto; transform:none; }
+    #backToTop:hover { background:var(--color-accent-800); }
+    @media (prefers-reduced-motion: reduce) { #backToTop { transition:none; } }
   </style>
 </helmet>
 
@@ -435,6 +439,21 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<button id="backToTop" type="button" aria-label="Back to top" title="Back to top">&#8593;</button>
+<script>
+(function(){
+  var b = document.getElementById('backToTop');
+  if (!b) return;
+  b.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+  var t = null;
+  addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){ t = null; b.classList.toggle('show', window.scrollY > 600); }, 100);
+  }, { passive: true });
+})();
 </script>
 <script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
