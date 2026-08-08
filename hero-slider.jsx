@@ -1,15 +1,15 @@
 const { useState, useEffect, useRef } = React;
 
 const SLIDES = [
-  { src: 'images/cart-hero.jpg', alt: 'The autonomous beach cart on balloon tires, loaded with a cooler and chairs',
+  { src: 'images/gallery-beach-profile.jpg', alt: 'The cart loaded with cooler, towels and chairs on the beach, ocean and umbrellas behind it',
     kicker: 'Flagship project — autonomous beach cart', title: 'Engineering that carries its own weight',
     sub: 'KMJ Dynamics is an independent engineering shop. The proof of work: a fully autonomous follow-me beach cart — welded aluminum frame, custom power electronics, and map-free navigation, all built on one bench.',
     href: '#project', cta: 'See the project' },
-  { src: 'images/gallery-front-loaded.jpg', alt: 'Front three-quarter view of the cart fully loaded',
+  { src: 'images/gallery-beach-rear-tracks.jpg', alt: 'The loaded cart from behind, its tire tracks trailing through the sand',
     kicker: 'Autonomy', title: 'A cart that follows you',
     sub: 'A wearable UWB tag and four corner receivers fix your position; the cart drives itself to you, hands-free, while a 360° scanner steers it around obstacles.',
     href: '#how', cta: 'How it works' },
-  { src: 'images/gallery-side-high.jpg', alt: 'Side view of the cart parked with chairs and cooler loaded',
+  { src: 'images/gallery-beach-lowside.jpg', alt: 'Low-angle view of the cart on balloon tires under a blue sky on the beach',
     kicker: 'Engineering', title: 'Built to survive its own motors',
     sub: 'Distributed, individually regulated power, hardware-timed control, and CAN-bus telemetry — the unseen systems where the real engineering lives.',
     href: '#engineering', cta: 'Under the hood' },
@@ -21,7 +21,7 @@ const SLIDES = [
     kicker: 'Interactive model', title: 'Explore the cart in 3D',
     sub: 'A full interactive model built to real dimensions — orbit it yourself, run the guided tour, and switch on X-ray mode to see the wiring inside the frame.',
     href: 'cart3d.html', cta: 'Open the 3D model' },
-  { src: 'images/gallery-rear.jpg', alt: 'Rear view of the loaded cart with the remote on the cooler lid',
+  { src: 'images/gallery-beach-dunes.jpg', alt: 'Side profile of the loaded cart on the sand with dunes and beach houses behind',
     kicker: 'The manual', title: 'Built bolt by bolt, documented',
     sub: 'The complete working build manual — every step, every setting, every part — is published right here on the site.',
     href: 'build.html', cta: 'Read the build guide' },
@@ -70,7 +70,7 @@ function HeroSlider({ heroHeight = 640, wash = false }) {
               transition: 'opacity .6s ease', opacity: n === i ? 1 : 0 }} />
         ))}
       </div>
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 12%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 55%, color-mix(in srgb, var(--color-accent-900) 92%, transparent) 100%)', pointerEvents: 'none' }}></div>
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 8%, color-mix(in srgb, var(--color-accent-900) 68%, transparent) 50%, color-mix(in srgb, var(--color-accent-900) 97%, transparent) 100%)', pointerEvents: 'none' }}></div>
       <button type="button" aria-label="Previous slide" style={arrowStyle('left')} onClick={() => go(i - 1)}>‹</button>
       <button type="button" aria-label="Next slide" style={arrowStyle('right')} onClick={() => go(i + 1)}>›</button>
       <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 2 }}>
