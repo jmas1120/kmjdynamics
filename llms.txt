@@ -29,9 +29,15 @@
   fully driven from a handheld RC transmitter — or switched to autonomous
   follow-me, which drives the same controls. As of August 2026 no consumer
   beach wagon brand offers remote-steered driving.
-- The cart is not for sale (there is exactly one). A paid build package
-  (step-by-step guide + 3D-print files) is planned; waitlist via
-  hello@kmjdynamics.com, subject "Build Guide Waitlist".
+- The autonomous cart is not for sale (there is exactly one). Two ways to get
+  a cart are in motion:
+  1. A hand-built REMOTE-CONTROL version (same welded frame, dual 3 kW
+     drivetrain, LiFePO4 battery; driven from an RC transmitter) has an open
+     no-commitment interest list at an expected $4,000-$5,000 — email
+     hello@kmjdynamics.com, subject "RC Cart Waitlist". Small-batch,
+     hand-built; pricing covers premium parts and labor at a modest margin.
+  2. A paid build package (step-by-step guide + 3D-print files) is planned;
+     waitlist via hello@kmjdynamics.com, subject "Build Guide Waitlist".
 
 ## Pages
 
