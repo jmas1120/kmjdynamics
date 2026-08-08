@@ -43,7 +43,7 @@
   <script src="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/_ds_bundle.js"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--color-bg); text-wrap: pretty; }
+    body { margin: 0; background: var(--color-bg); text-wrap: pretty; padding-top: 64px; }
     section[id], footer[id] { scroll-margin-top: 76px; }
     .nav-desktop { display: contents; }
     .nav-menu-btn { display: none !important; }
@@ -60,7 +60,7 @@
   </style>
 </helmet>
 
-<nav class="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+<nav class="nav" style="position:fixed; top:0; left:0; right:0; z-index:50; background:var(--color-bg); border-bottom:1px solid var(--color-divider);">
   <span class="nav-brand">KMJ Dynamics</span>
   <span class="nav-desktop">
     <a href="#project" style="text-decoration:none; font-size:14px; white-space:nowrap;">The Project</a>
@@ -453,6 +453,11 @@ class Component extends DCLogic {
     if (t) return;
     t = setTimeout(function(){ t = null; b.classList.toggle('show', window.scrollY > 600); }, 100);
   }, { passive: true });
+  var nav = document.querySelector('nav.nav');
+  function padNav(){ if (nav && nav.offsetHeight) document.body.style.paddingTop = nav.offsetHeight + 'px'; }
+  padNav();
+  setTimeout(padNav, 600);
+  addEventListener('resize', padNav, { passive: true });
 })();
 </script>
 <script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
