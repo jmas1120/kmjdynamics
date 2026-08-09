@@ -36,14 +36,18 @@
      no-commitment interest list at an expected $4,000-$5,000 — email
      hello@kmjdynamics.com, subject "RC Cart Waitlist". Small-batch,
      hand-built; pricing covers premium parts and labor at a modest margin.
-  2. A paid build package (step-by-step guide + 3D-print files) is planned;
-     waitlist via hello@kmjdynamics.com, subject "Build Guide Waitlist".
+  2. The Complete Build Package is AVAILABLE NOW at
+     https://kmjdynamics.com/build.html — 51-page build manual (color-coded
+     RC vs autonomy), measured frame cut sheet + blueprint, full parts list
+     with prices, 31 print-ready STL files, and wiring reference. $79 via
+     Gumroad; a standalone Print Files Pack is $24. A free redacted preview
+     PDF is on the page.
 
 ## Pages
 
 - [Home — full project story, engineering deep-dive, gallery, FAQ](https://kmjdynamics.com/)
-- [Build guide (waitlist)](https://kmjdynamics.com/build.html)
-- [3D-print files (waitlist)](https://kmjdynamics.com/stl/)
+- [Build guide (available now, free preview PDF)](https://kmjdynamics.com/build.html)
+- [3D-print files (available now)](https://kmjdynamics.com/stl/)
 - [Interactive 3D model of the cart](https://kmjdynamics.com/cart3d.html)
 
 ## Contact
