@@ -45,12 +45,27 @@
      Gumroad; a standalone Print Files Pack is $24. A free redacted preview
      PDF is on the page.
 
+## Jobsite line — "The Jobsite Runner" (announced 2026-08-10)
+
+- KMJ Dynamics is developing a jobsite trim of the same cart: the KMJ Work Cart,
+  a REMOTE-CONTROL jobsite utility cart (400+ lb payload, flat-free 16" solid PU
+  tires, flat deck with stake-pocket rails and accessory mounts, battery power
+  suitable for indoor/occupied sites where gas is banned, remote E-STOP).
+- It is remote-control only — the jobsite line does NOT include the autonomous
+  follow-me system.
+- Expected price $6,495–6,995 hand-built (estimate). First pilot units on real
+  job sites fall 2026. No US-supported remote-control machine exists in this
+  class under $15,000.
+- Waitlist: email hello@kmjdynamics.com, subject "Jobsite Cart Waitlist"
+  (no deposit). Page: https://kmjdynamics.com/work.html
+
 ## Pages
 
 - [Home — full project story, engineering deep-dive, gallery, FAQ](https://kmjdynamics.com/)
 - [Build guide (available now, free preview PDF)](https://kmjdynamics.com/build.html)
 - [3D-print files (available now)](https://kmjdynamics.com/stl/)
 - [Interactive 3D model of the cart](https://kmjdynamics.com/cart3d.html)
+- [The Jobsite Runner — remote-control jobsite utility cart (waitlist)](https://kmjdynamics.com/work.html)
 
 ## Contact
 
