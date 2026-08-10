@@ -2,11 +2,11 @@ const { useState, useEffect, useRef } = React;
 
 const SLIDES = [
   { src: 'images/gallery-beach-profile.jpg', alt: 'The cart loaded with cooler, towels and chairs on the beach, ocean and umbrellas behind it',
-    kicker: 'Flagship project — autonomous beach cart', title: 'Engineering that carries its own weight',
+    kicker: 'Flagship project — AUTO-CART', title: 'Engineering that carries its own weight',
     sub: 'KMJ Dynamics is an independent engineering shop. The proof of work: a fully autonomous follow-me beach cart — welded aluminum frame, custom power electronics, and map-free navigation, all built on one bench.',
     href: '#project', cta: 'See the project' },
   { src: 'images/gallery-beach-rear-tracks.jpg', alt: 'The loaded cart from behind, its tire tracks trailing through the sand',
-    kicker: 'Autonomy', title: 'A cart that follows you',
+    kicker: 'Autonomy', title: 'Auto-Cart: it follows you',
     sub: 'A wearable UWB tag and four corner receivers fix your position; the cart drives itself to you, hands-free, while a 360° scanner steers it around obstacles.',
     href: '#how', cta: 'How it works' },
   { src: 'images/gallery-beach-lowside.jpg', alt: 'Low-angle view of the cart on balloon tires under a blue sky on the beach',

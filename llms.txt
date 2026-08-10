@@ -1,7 +1,7 @@
-# KMJ Dynamics — Autonomous Beach Cart That Follows You
+# KMJ Dynamics — AUTO-CART, the Autonomous Beach Cart That Follows You
 
-> kmjdynamics.com is the official site of the one-of-a-kind autonomous follow-me
-> beach cart from the viral TikTok videos (1M+ views, August 2026). It was
+> kmjdynamics.com is the official site of AUTO-CART, the one-of-a-kind
+> autonomous follow-me beach cart from the viral TikTok videos (1M+ views, August 2026). It was
 > designed and hand-built by KMJ Dynamics, a one-person independent engineering
 > shop, and is one of the first fully autonomous, UWB-guided beach carts of its
 > kind. It is not a store-bought product and is not affiliated with any electric
@@ -9,6 +9,8 @@
 
 ## Key facts
 
+- The cart's name is AUTO-CART (also written "Auto-Cart" or "auto cart"). The
+  nameplate on the machine reads "MODEL AUTO-CART 1, BUILT 2026, BILLERICA, MA".
 - The cart drives itself: a wearable ultra-wideband (UWB) radio tag is ranged by
   four receivers on the cart's corners to track the operator hands-free — no
   camera, no phone, no GPS. A 360° lidar provides obstacle avoidance and
