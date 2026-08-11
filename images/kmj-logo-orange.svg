@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#2a3641"/>
+      <stop offset="0.55" stop-color="#1a232e"/>
+      <stop offset="1" stop-color="#0e141c"/>
+    </linearGradient>
+    <linearGradient id="kmj" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffa646"/>
+      <stop offset="1" stop-color="#ef7415"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- full-bleed background (platform crops to a circle for avatars) -->
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <rect width="800" height="800" fill="url(#sheen)"/>
+
+  <!-- subtle ring inside the avatar safe-area -->
+  <circle cx="400" cy="400" r="352" fill="none" stroke="#f6851f" stroke-opacity="0.22" stroke-width="4"/>
+
+  <!-- forward-motion chevrons: the follow-me / autonomous cue -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="26">
+    <path d="M330 214 L400 262 L470 214" stroke="#f6851f" stroke-opacity="0.45"/>
+    <path d="M330 262 L400 310 L470 262" stroke="#f6851f" stroke-opacity="0.95"/>
+  </g>
+
+  <!-- KMJ monogram -->
+  <text x="400" y="512" text-anchor="middle"
+        font-family="'Arial Black', 'Segoe UI', Arial, sans-serif"
+        font-weight="900" font-size="248" letter-spacing="-6"
+        fill="url(#kmj)">KMJ</text>
+
+  <!-- divider -->
+  <rect x="238" y="560" width="324" height="5" rx="2.5" fill="#f6851f" fill-opacity="0.8"/>
+
+  <!-- wordmark -->
+  <text x="404" y="628" text-anchor="middle"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-weight="600" font-size="62" letter-spacing="20"
+        fill="#f4b988">DYNAMICS</text>
+</svg>
