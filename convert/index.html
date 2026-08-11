@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beach Cart Conversion — Locking Hubs, Motors & Build Files — KMJ Dynamics</title>
+<meta name="description" content="Convert your beach cart or wagon to motorized: solid locking wheel hubs that stop balloon tires spinning on the hub, plus the complete drivetrain, battery, and wiring guide. From the builder of the viral autonomous AUTO-CART." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+<link rel="stylesheet" href="../_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://kmjdynamics.com/#org","name":"KMJ Dynamics","url":"https://kmjdynamics.com/","email":"hello@kmjdynamics.com","sameAs":["https://www.tiktok.com/@jmas1120","https://www.youtube.com/@KMJDynamics"]},
+{"@type":"WebPage","@id":"https://kmjdynamics.com/convert/","name":"Beach Cart Conversion — Locking Hubs, Motors & Build Files","url":"https://kmjdynamics.com/convert/","description":"How to convert a beach cart or wagon to motorized, and the locking hub design that prevents balloon tires spinning on the hub.","about":{"@id":"https://kmjdynamics.com/build.html#print-pack"},"publisher":{"@id":"https://kmjdynamics.com/#org"}},
+{"@type":"FAQPage","@id":"https://kmjdynamics.com/convert/#faq","mainEntity":[
+{"@type":"Question","name":"Can I convert my existing beach cart or wagon to electric?","acceptedAnswer":{"@type":"Answer","text":"Yes — a manual balloon-tire cart or wagon can be converted to motorized. The three pieces that matter are the wheel hubs (the tire must be mechanically locked so motor torque can't spin it on the hub), the drivetrain (motor, controller, battery), and the wiring. KMJ Dynamics publishes the 3D-printable locking hub files ($24) and a complete build guide covering the full drivetrain, battery, and wiring ($79) at kmjdynamics.com."}},
+{"@type":"Question","name":"Why does my balloon tire spin on the hub on a motorized cart?","acceptedAnswer":{"@type":"Answer","text":"Soft balloon tires grip sand better than they grip a smooth hub. Under motor torque the hub can rotate inside the stationary tire — and on tires whose valve stem routes through the hub, that rotation shears the valve stem and destroys the tire. The fix is a hub that locks the tire mechanically (not just by friction) plus a specified adhesive bond. Tires with the valve stem outside the hub, like Wheeleez, survive slip without damage — which is part of what their premium buys."}},
+{"@type":"Question","name":"What size tires do the KMJ Dynamics hub files fit?","acceptedAnswer":{"@type":"Answer","text":"Today's print files fit 16.5-inch Wheeleez-class balloon tires. Additional fitments — including 12-inch Wheeleez — are in development and are added to the pack as free updates."}},
+{"@type":"Question","name":"Do I need the full build guide or just the print files for a conversion?","acceptedAnswer":{"@type":"Answer","text":"If you only need the locking hubs and printed parts, the $24 Print Files Pack stands alone. If you're doing the full conversion — motor sizing, battery, controller, wiring — the $79 Complete Build Package includes the print files plus the manual whose frame, drivetrain, and power chapters are exactly the conversion recipe (the autonomy chapters are optional and clearly separated)."}}
+]}
+]}
+</script>
+<style>
+  body { margin: 0; background: var(--color-bg); text-wrap: pretty; font-family: var(--font-body); color: var(--color-text); }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-800); }
+  .doc { max-width: 900px; margin: 0 auto; padding: 48px 24px 90px; font-size: 16px; line-height: 24px; }
+  .kicker { display: block; font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
+  .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
+  h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 6vw, 72px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
+  h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.15; text-transform: uppercase; letter-spacing: 0.01em; margin: 40px 0 12px; }
+  .meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; line-height: 24px; max-width: 66ch; }
+  .cta-box { margin: 32px 0; padding: 24px; border: 1px solid var(--color-accent-300); border-left: 3px solid var(--color-accent-700); background: var(--color-accent-100); }
+  .cta-box p { margin: 0 0 16px; }
+  .nav { position: relative; }
+  .nav-desktop { display: contents; }
+  .nav-menu-btn { display: none; }
+  @media (max-width: 760px) {
+    .nav-desktop { display: none; }
+    .nav-menu-btn { display: inline-flex; }
+  }
+  .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
+  footer { border-top: 1px solid var(--color-divider); }
+  footer .inner { max-width: 900px; margin: 0 auto; padding: 40px 24px 56px; font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+</style>
+</head>
+<body>
+<nav class="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+  <a class="nav-brand" href="../index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
+  <span class="nav-desktop">
+    <a href="../index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
+    <a href="../build.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
+    <a href="../stl/" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
+    <a href="../index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
+  </span>
+  <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="../index.html">Home</a>
+    <a href="../build.html">Build Guide</a>
+    <a href="../stl/">Print Files</a>
+    <a href="../index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <span class="kicker">Convert Your Cart</span>
+  <hr class="kicker-rule" />
+  <h1>Beach Cart Conversion</h1>
+  <p>You already own a beach cart or wagon. You want it to drive itself across the sand instead of dragging your shoulder out of its socket. This page is the honest version of how that conversion works — from the builder of the <a href="../index.html">AUTO-CART</a>, the fully autonomous beach cart 1.5&nbsp;million people watched follow its owner down the beach.</p>
+
+  <h2>The part that kills most conversions</h2>
+  <p>It isn't the motor. It's the wheels. Soft balloon tires grip sand far better than they grip a smooth plastic hub — so the first time real motor torque hits, the hub spins <em>inside</em> the tire. On most balloon tires the valve stem routes through the hub, which means one good slip shears the stem clean off and the tire is dead on the beach. It's the most common field failure on kit-built and home-converted carts, and almost nobody warns you about it.</p>
+  <p>Two things prevent it. First, a hub that locks the tire <strong>mechanically</strong>, not just by friction. Second, the right adhesive bond as insurance. (A side note worth knowing: on Wheeleez tires the valve stem exits <em>outside</em> the hub — so even if slip happens, nothing tears. That detail is a real part of what their premium price buys.)</p>
+
+  <h2>The locking hubs</h2>
+  <p>The KMJ Dynamics two-piece castellated hub is the wheel part of the conversion solved: printed in carbon-fiber nylon, it clamps the tire between interlocking halves so motor torque can't rotate the hub independently, with the same urethane adhesive spec the real AUTO-CART runs on its dual 3&nbsp;kW drivetrain. Today's files fit <strong>16.5-inch Wheeleez-class balloon tires</strong>; additional fitments — including 12-inch Wheeleez — are in development and get added to the pack as free updates.</p>
+
+  <div class="cta-box">
+    <p><strong>The Print Files Pack — $24.</strong> All 31 printed parts including the locking hubs, with print settings, material rules, and the mounting + adhesive spec. Buy once, every future fitment and revision included.</p>
+    <a href="https://kmjdynamics.gumroad.com/l/beach-cart-print-files" style="text-decoration:none;"><button type="button" class="btn btn-primary">Get the Print Files — $24</button></a>
+    <p class="meta" style="margin:12px 0 0;">Instant download. No printer? Any local print shop or library makerspace can run these files.</p>
+  </div>
+
+  <h2>The rest of the conversion</h2>
+  <p>Hubs keep the wheels alive; the drivetrain makes them turn. Motor sizing for sand (hint: one small hub motor will disappoint you), battery chemistry and a real BMS, controller wiring, throttle or RC control — that's the other 80% of a conversion, and it's exactly what the frame, drivetrain, and power chapters of the <a href="../build.html">Complete Build Package</a> cover, with real part numbers and real prices. The manual is color-coded: follow the green chapters for a remote-control conversion and skip the autonomy stack entirely (or add it later — the follow-me brain is a separate layer).</p>
+  <p class="meta">The $79 package includes the print files, the 53-page manual, the measured cut sheet and blueprint, the full parts list, and the wiring reference — with free updates for life.</p>
+
+  <h2>Honest expectations</h2>
+  <p>A conversion done right — locked hubs, adequate motors, LiFePO4 power — turns a dead-weight wagon into a machine that hauls 400&nbsp;lb across soft sand while you walk. Done wrong, it eats tires and strands you at the far end of the beach. The difference is about $24 of hub files and reading the drivetrain chapter before buying a motor kit. Questions before you start? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a> — I read everything.</p>
+</main>
+
+<footer>
+  <div class="inner">
+    <p style="margin:0;">Questions? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
+    <p style="margin:8px 0 0;">© <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="../index.html" style="color:inherit;">kmjdynamics.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('navMenuBtn'), panel = document.getElementById('navMobile');
+  btn.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    btn.textContent = open ? 'Close' : 'Menu';
+    btn.setAttribute('aria-expanded', open);
+  });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){
+    panel.classList.remove('open'); btn.textContent = 'Menu'; btn.setAttribute('aria-expanded','false');
+  }); });
+})();
+</script>
+<script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
