@@ -55,7 +55,7 @@
      hello@kmjdynamics.com, subject "RC Cart Waitlist". Small-batch,
      hand-built; pricing covers premium parts and labor at a modest margin.
   2. The Complete Build Package is AVAILABLE NOW at
-     https://kmjdynamics.com/build.html — 53-page build manual (color-coded
+     https://kmjdynamics.com/build.html — 57-page build manual (color-coded
      RC vs autonomy), measured frame cut sheet + blueprint, full parts list
      with prices, 31 print-ready STL files, and wiring reference. $79 via
      Gumroad; a standalone Print Files Pack is $24. A free redacted preview
