@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Build an Electric Beach Wagon — The Honest Version — KMJ Dynamics</title>
+<meta name="description" content="How to build an electric beach wagon that actually works in soft sand: motor sizing, gear reduction, wheel hubs, LiFePO4 power, and control. Written by the builder of the viral autonomous AUTO-CART, including what fails and why." />
+<link rel="canonical" href="https://kmjdynamics.com/how-to-build-electric-beach-wagon/" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>" />
+<link rel="stylesheet" href="../_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://kmjdynamics.com/#org","name":"KMJ Dynamics","url":"https://kmjdynamics.com/","email":"hello@kmjdynamics.com","sameAs":["https://www.tiktok.com/@jmas1120","https://www.youtube.com/@KMJDynamics"]},
+{"@type":"WebPage","@id":"https://kmjdynamics.com/how-to-build-electric-beach-wagon/","name":"How to Build an Electric Beach Wagon — The Honest Version","url":"https://kmjdynamics.com/how-to-build-electric-beach-wagon/","description":"The five decisions that determine whether a home-built electric beach wagon works in soft sand, from the builder of the autonomous AUTO-CART.","publisher":{"@id":"https://kmjdynamics.com/#org"}},
+{"@type":"HowTo","@id":"https://kmjdynamics.com/how-to-build-electric-beach-wagon/#howto","name":"How to build an electric beach wagon","description":"Building a motorized beach wagon that works in soft sand comes down to five decisions: motor power, gear reduction, wheels and hubs, battery chemistry, and control method.","totalTime":"PT40H","estimatedCost":{"@type":"MonetaryAmount","currency":"USD","value":"2800"},"step":[
+{"@type":"HowToStep","name":"Size the motors for sand, not pavement","text":"Soft sand can multiply rolling resistance roughly tenfold versus pavement. A single small hub motor that moves a wagon on a driveway will stall on a dry beach. Plan for real continuous power, not peak-rated marketing numbers."},
+{"@type":"HowToStep","name":"Gear it down","text":"A brushless motor makes its torque at high rpm, but a beach wagon travels at walking pace. Without substantial reduction the motor overheats trying to make torque at low rpm. A two-stage chain reduction around 10:1 puts a fast motor into the right band."},
+{"@type":"HowToStep","name":"Lock the tire to the hub","text":"Balloon tires grip sand better than they grip a smooth hub. Under motor torque the hub spins inside the tire, and on tires whose valve stem routes through the hub, that shears the stem and destroys the tire. Use a hub that locks the tire mechanically plus a specified urethane bond."},
+{"@type":"HowToStep","name":"Choose LiFePO4 with a real BMS","text":"Lead-acid is too heavy for the energy delivered and sags under load. LiFePO4 holds voltage under current draw, tolerates heat better than lithium-ion, and a proper battery management system protects the pack. Budget roughly 1.3 kWh for a full beach day."},
+{"@type":"HowToStep","name":"Decide throttle or radio control","text":"A thumb throttle on a handle is simplest. Radio control frees your hands and lets you walk ahead of the cart, but requires a receiver failsafe set to true neutral and a controller timeout so signal loss stops the machine instead of running it away."}
+]},
+{"@type":"FAQPage","@id":"https://kmjdynamics.com/how-to-build-electric-beach-wagon/#faq","mainEntity":[
+{"@type":"Question","name":"How much does it cost to build an electric beach wagon?","acceptedAnswer":{"@type":"Answer","text":"A serious build using quality parts runs roughly $2,700 to $3,900 in materials, depending on whether you already own tooling and consumables. The big line items are the wheels, the aluminum, the motors and controller, the battery, and 3D printing filament. Budget builds using scooter parts and a garden cart can come in far cheaper, but they generally will not move a loaded wagon through dry sand."}},
+{"@type":"Question","name":"What size motor do I need for an electric beach wagon?","acceptedAnswer":{"@type":"Answer","text":"More than you think. Soft dry sand can multiply rolling resistance roughly ten times compared with pavement, so a single small hub motor that works fine on a driveway will stall on a beach. The KMJ Dynamics cart runs two brushless motors through a two-stage chain reduction of about 10:1, which delivers walking-pace speed with enough torque to move a 400 lb payload up a soft sand incline."}},
+{"@type":"Question","name":"Why does my balloon tire spin on the hub?","acceptedAnswer":{"@type":"Answer","text":"Soft balloon tires grip sand far better than they grip a smooth plastic hub, so when motor torque arrives the hub rotates inside the stationary tire. On tires whose valve stem routes through the hub, one slip shears the stem and kills the tire. The fix is a hub that locks the tire mechanically rather than by friction, plus the correct adhesive bond."}},
+{"@type":"Question","name":"Can I convert an existing beach wagon instead of building from scratch?","acceptedAnswer":{"@type":"Answer","text":"Yes. If you already own a balloon-tire cart or wagon, converting it is usually cheaper and faster than welding a frame. The wheels and hubs are the part that most often fails on a conversion. KMJ Dynamics publishes a dedicated conversion page at kmjdynamics.com/convert/."}},
+{"@type":"Question","name":"What battery should I use for a motorized beach cart?","acceptedAnswer":{"@type":"Answer","text":"LiFePO4. It holds voltage under heavy current draw, tolerates heat far better than standard lithium-ion, and is the sensible chemistry for a machine that sits in a hot car and gets used near salt water. Around 1.3 kWh at 24V covers a full beach day. Use a pack with a real battery management system and fuse the main positive lead at the battery."}},
+{"@type":"Question","name":"How long does it take to build an electric beach wagon?","acceptedAnswer":{"@type":"Answer","text":"For a first build working from a documented plan, expect somewhere in the range of 30 to 50 hours spread across evenings and weekends, plus 3D printing time that runs unattended. Building without a plan takes far longer, because most of the hours go into decisions and rework rather than assembly."}}
+]}
+]}
+</script>
+<style>
+  body { margin: 0; background: var(--color-bg); text-wrap: pretty; font-family: var(--font-body); color: var(--color-text); }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-800); }
+  .doc { max-width: 900px; margin: 0 auto; padding: 48px 24px 90px; font-size: 16px; line-height: 24px; }
+  .kicker { display: block; font-size: 13px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 12px; }
+  .kicker-rule { height: 1px; border: 0; background: var(--color-divider); margin: 0; }
+  h1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 5.4vw, 66px); line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 24px -0.052em; }
+  h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.15; text-transform: uppercase; letter-spacing: 0.01em; margin: 40px 0 12px; }
+  h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 19px; line-height: 1.2; letter-spacing: 0.01em; margin: 28px 0 8px; }
+  .meta { color: color-mix(in srgb, var(--color-text) 70%, transparent); font-size: 15px; line-height: 24px; max-width: 66ch; }
+  .cta-box { margin: 32px 0; padding: 24px; border: 1px solid var(--color-accent-300); border-left: 3px solid var(--color-accent-700); background: var(--color-accent-100); }
+  .cta-box p { margin: 0 0 16px; }
+  .safety { margin: 32px 0 0; padding: 18px 20px; border: 1px solid var(--color-divider); border-left: 3px solid var(--color-divider); font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+  .safety strong { color: var(--color-text); }
+  ul.tight { margin: 8px 0 0; padding-left: 20px; }
+  ul.tight li { margin: 0 0 6px; }
+  .nav { position: relative; }
+  .nav-desktop { display: contents; }
+  .nav-menu-btn { display: none; }
+  @media (max-width: 760px) {
+    .nav-desktop { display: none; }
+    .nav-menu-btn { display: inline-flex; }
+  }
+  .nav-mobile { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-md); display: none; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { text-decoration: none; font-size: 16px; padding: 14px 24px; border-top: 1px solid var(--color-divider); color: var(--color-text); }
+  footer { border-top: 1px solid var(--color-divider); }
+  footer .inner { max-width: 900px; margin: 0 auto; padding: 40px 24px 56px; font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+</style>
+</head>
+<body>
+<nav class="nav" style="position:sticky; top:0; z-index:50; background:var(--color-bg);">
+  <a class="nav-brand" href="../index.html" style="text-decoration:none; color:inherit;">KMJ Dynamics</a>
+  <span class="nav-desktop">
+    <a href="../index.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Home</a>
+    <a href="../build.html" style="text-decoration:none; font-size:14px; white-space:nowrap;">Build Guide</a>
+    <a href="../stl/" style="text-decoration:none; font-size:14px; white-space:nowrap;">Print Files</a>
+    <a href="../index.html#contact" style="text-decoration:none;"><button type="button" class="btn btn-primary" style="white-space:nowrap;">Contact</button></a>
+  </span>
+  <button type="button" class="btn btn-ghost nav-menu-btn" id="navMenuBtn" aria-expanded="false" style="white-space:nowrap;">Menu</button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="../index.html">Home</a>
+    <a href="../build.html">Build Guide</a>
+    <a href="../stl/">Print Files</a>
+    <a href="../index.html#contact" style="font-weight:600; color:var(--color-accent-700);">Contact</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <span class="kicker">DIY Guide</span>
+  <hr class="kicker-rule" />
+  <h1>How to Build an Electric Beach Wagon</h1>
+  <p>I built one. Then I broke it, fixed it, and drove it on sand for a couple of years until it worked properly — and eventually it became the <a href="../index.html">AUTO-CART</a>, the autonomous beach cart 1.5&nbsp;million people watched follow its owner down the beach. This page is the honest version of what that took, written for someone about to start.</p>
+  <p>Most of what you'll find searching this is a garden cart with a scooter motor zip-tied to it. Those videos are fun and they work on a driveway. Almost none of them work on a dry beach with a real load, and the reason is always one of five decisions.</p>
+
+  <h2>The five decisions that decide everything</h2>
+
+  <h3>1. Motor power — sand is not pavement</h3>
+  <p>This is where most builds die. Soft dry sand can multiply rolling resistance by something like tenfold compared with pavement. A single small hub motor that scoots an empty wagon down your driveway will bog down and stall the first time it hits dry sand with a cooler, four chairs and an umbrella on board.</p>
+  <p>Ignore peak power ratings — they're marketing. What matters is continuous power and whether the motor can make torque without cooking itself. My cart runs <strong>two</strong> brushless motors rather than one, which also gives you drive on both sides and a machine that doesn't crab-walk when one wheel finds soft ground.</p>
+
+  <h3>2. Gear reduction — the step almost everyone skips</h3>
+  <p>A brushless motor makes its power high in the rev range. A beach wagon travels at walking pace, around 4&nbsp;mph. Bolt a motor straight to a wheel and you're asking it to make maximum torque at nearly zero rpm, which is exactly the condition that overheats motors and controllers.</p>
+  <p>The fix is reduction. My drivetrain runs a two-stage chain reduction of roughly <strong>10:1</strong>, which lets a fast, efficient motor spin where it's happy while the wheel turns slowly with real torque behind it. If you take one thing from this page and you're currently planning direct drive, take this one.</p>
+
+  <h3>3. Wheels and hubs — the failure nobody warns you about</h3>
+  <p>You need balloon tires. Nothing else floats on soft sand. But here's the part that catches people out: <strong>soft balloon tires grip sand far better than they grip a smooth hub.</strong> The first time real motor torque arrives, the hub spins <em>inside</em> the tire.</p>
+  <p>On most balloon tires the valve stem routes through the hub, so one good slip shears the stem clean off and the tire is dead — usually at the far end of the beach. It's the most common field failure on home-built and kit-converted carts. The tire has to be locked to the hub <strong>mechanically</strong>, not by friction, with an adhesive bond as insurance. I print two-piece castellated hubs in carbon-fiber nylon that clamp the tire between interlocking halves. <a href="../convert/">More on the hub problem here.</a></p>
+
+  <h3>4. Battery — LiFePO4, and fuse it</h3>
+  <p>Lead-acid is cheap and it will disappoint you: too heavy for the energy you get, and the voltage sags the moment you ask for current. Standard lithium-ion has better numbers but a worse temperament in a machine that sits in a hot car and lives near salt water.</p>
+  <p>Use <strong>LiFePO4</strong>. It holds voltage under load, tolerates heat, and lasts. Around <strong>1.3&nbsp;kWh at 24V</strong> comfortably covers a beach day with margin. Buy a pack with a real battery management system, and put a proper fuse in the main positive lead <em>at the battery</em> — not somewhere convenient downstream. That fuse is a day-one item, not a later upgrade.</p>
+
+  <h3>5. Control — throttle or radio</h3>
+  <p>A thumb throttle on a handle is the simple answer and there's nothing wrong with it. Radio control is better: your hands stay free, you can walk ahead, and steering becomes a servo instead of your shoulders.</p>
+  <p>If you go radio, two things are not optional. Set the receiver failsafe to <strong>true neutral</strong>, and set a signal-loss timeout in the motor controller. A cart that keeps its last throttle command when the radio drops out is a 200&nbsp;lb machine driving itself toward the water.</p>
+
+  <h2>The frame</h2>
+  <p>Welded aluminum if you can weld, for the obvious reason: salt. Steel will look rough by the end of the first season no matter how well you paint it. If you can't weld, don't let that stop you — <a href="../convert/">converting an existing balloon-tire wagon</a> skips the frame entirely and is genuinely the faster path for most people.</p>
+
+  <h2>What it actually costs</h2>
+  <p>A build using quality parts runs roughly <strong>$2,700 to $3,900</strong> in materials. The money concentrates in a handful of places: the wheels, the aluminum, the motors and controller, the battery, and 3D printing filament. Everything else is fasteners and wire.</p>
+  <p>You can build for far less with scooter parts and a garden cart. It just probably won't move a loaded wagon through dry sand, which was the entire point.</p>
+
+  <h2>How long it takes</h2>
+  <p>Working from a documented plan, a first build lands somewhere around <strong>30 to 50 hours</strong> of evenings and weekends, plus printing time that runs unattended overnight. Without a plan it takes much longer — not because assembly is slow, but because you spend the hours deciding, ordering the wrong part, and doing it twice. I know, because that's the version I did.</p>
+
+  <div class="cta-box">
+    <p><strong>The Complete Build Package — $79.</strong> The 53-page manual I wrote from the machine itself, not from a design exercise: measured frame cut sheet and blueprint, the full parts list with real prices and sources, wiring reference, and all 31 print-ready STL files including the locking hubs. Colour-coded so you can build the remote-control version and skip the autonomy chapters entirely.</p>
+    <a href="https://kmjdynamics.gumroad.com/l/beach-cart-build-package" style="text-decoration:none;"><button type="button" class="btn btn-primary">Get the Build Package — $79</button></a>
+    <p class="meta" style="margin:12px 0 0;">Instant download, free updates for life. A redacted preview PDF is on the <a href="../build.html">build guide page</a> if you want to see it first. Just need the printed parts? The <a href="../stl/">Print Files Pack is $24</a>.</p>
+  </div>
+
+  <h2>What I'd tell you if we were standing in my garage</h2>
+  <ul class="tight">
+    <li>Buy the wheels first. They're the biggest single cost and they set every other dimension.</li>
+    <li>Overspec the motors. Nobody has ever finished one of these and wished it were slower.</li>
+    <li>Solve the hub-to-tire lock before you solve anything else. It's the failure that ends beach days.</li>
+    <li>Fuse the battery on day one.</li>
+    <li>Drive it loaded, on dry sand, up a slope, before you call it done. Wet packed sand near the water lies to you.</li>
+  </ul>
+
+  <p style="margin-top:28px;">Questions before you start? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a> — I read everything, and I'd rather answer a question than watch someone buy the wrong motor.</p>
+
+  <div class="safety">
+    <p style="margin:0;"><strong>Safety note.</strong> A motorized beach wagon is a heavy machine with a large lithium battery, and building one is entirely at your own risk. Lithium packs demand correct charging, fusing and protection. Any machine capable of moving several hundred pounds can injure someone, and it does not belong near unsupervised children or in water. Check local rules before running a motorized vehicle on a public beach. Nothing on this page is professional engineering advice — you are responsible for what you build and how you use it.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <p style="margin:0;">Questions? <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a></p>
+    <p style="margin:8px 0 0;">© <span id="year"></span> KMJ Dynamics. All rights reserved. · <a href="../index.html" style="color:inherit;">kmjdynamics.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('navMenuBtn'), panel = document.getElementById('navMobile');
+  btn.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    btn.textContent = open ? 'Close' : 'Menu';
+    btn.setAttribute('aria-expanded', open);
+  });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){
+    panel.classList.remove('open'); btn.textContent = 'Menu'; btn.setAttribute('aria-expanded','false');
+  }); });
+})();
+</script>
+<script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
