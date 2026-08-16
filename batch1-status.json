@@ -1,0 +1,59 @@
+{
+  "updated": "2026-08-16",
+  "headline": "Batch 1 is in preparation. Deposits are not open yet — the waitlist hears first.",
+  "stages": [
+    {
+      "title": "Groundwork",
+      "state": "done",
+      "note": "KMJ Dynamics LLC formed (Massachusetts, Aug 2026). Production design finalized off the prototype. Frame welding partnered with a professional fabrication shop."
+    },
+    {
+      "title": "The paperwork you'd want us to have",
+      "state": "active",
+      "note": "Product liability insurance and attorney-drafted terms of sale, warranty, and deposit terms are in progress now. Deposits open when this is done — not before."
+    },
+    {
+      "title": "Deposits open",
+      "state": "upcoming",
+      "note": "$500 fully-refundable deposit reserves a numbered build slot. Waitlist members get first access, in signup order."
+    },
+    {
+      "title": "Materials ordered",
+      "state": "upcoming",
+      "note": "Metal, motors, wheels, electronics — ordered for the full batch. The long-lead items are the custom motor order and the frames."
+    },
+    {
+      "title": "Frames welded",
+      "state": "upcoming",
+      "note": "All ten frames welded from 6061 aluminum by the fab shop, to the prototype's measured dimensions."
+    },
+    {
+      "title": "Drivetrain, steering, electronics",
+      "state": "upcoming",
+      "note": "Built by John, cart by cart, in slot order — same hands that built the prototype."
+    },
+    {
+      "title": "Testing and QC",
+      "state": "upcoming",
+      "note": "Every cart gets a serial number and a recorded test and QC checklist before it leaves — including full remote-loss failsafe testing."
+    },
+    {
+      "title": "Delivery",
+      "state": "upcoming",
+      "note": "Hand-delivered by John, Maine to New Jersey, in build-slot order."
+    }
+  ],
+  "slots": [
+    { "n": 1, "label": "Cart #1 — shop prototype, not for sale. Built first, on camera, starting Aug 23.", "state": "starting" },
+    { "n": 2, "label": "Build slot 2", "state": "open" },
+    { "n": 3, "label": "Build slot 3", "state": "open" },
+    { "n": 4, "label": "Build slot 4", "state": "open" },
+    { "n": 5, "label": "Build slot 5", "state": "open" },
+    { "n": 6, "label": "Build slot 6", "state": "open" },
+    { "n": 7, "label": "Build slot 7", "state": "open" },
+    { "n": 8, "label": "Build slot 8", "state": "open" },
+    { "n": 9, "label": "Build slot 9", "state": "open" },
+    { "n": 10, "label": "Build slot 10", "state": "open" }
+  ],
+  "footnote": "This page is updated when something real happens, and only then. If a stage is waiting on something, it says so."
+}

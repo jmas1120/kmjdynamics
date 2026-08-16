@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batch 1 Build Status — RC Beach Cart | KMJ Dynamics</title>
+<meta name="description" content="Live build status for KMJ Dynamics RC beach cart batch 1: where the batch actually stands, stage by stage — deposits, materials, frames, build, testing, delivery.">
+<meta name="author" content="KMJ Dynamics">
+<meta name="theme-color" content="#f2f2f3">
+<link rel="canonical" href="https://kmjdynamics.com/status.html">
+<meta property="og:site_name" content="KMJ Dynamics">
+<meta property="og:title" content="Batch 1 Build Status — RC Beach Cart | KMJ Dynamics">
+<meta property="og:description" content="Where batch 1 actually stands, stage by stage. Updated when something real happens.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kmjdynamics.com/status.html">
+<meta property="og:image" content="https://kmjdynamics.com/images/cart-hero.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%235980a6'/><text x='32' y='34' font-family='Barlow Condensed,Arial,sans-serif' font-size='30' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='central'>K</text></svg>">
+<link rel="stylesheet" href="_ds/industry-e32b27fd-ee23-4c9b-8e99-99882648f4cf/styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg, #f2f2f3); color: var(--color-text, #1c1e21); padding-top: 64px; font-family: inherit; }
+  .nav-fixed { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: var(--color-bg, #f2f2f3); border-bottom: 1px solid var(--color-divider, #d8dadd); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .kicker { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent-700, #b45f17); font-weight: 600; }
+  h1 { margin: 8px 0 4px; }
+  .updated { font-size: 14px; color: var(--color-text-secondary, #5b6168); margin-bottom: 6px; }
+  .headline { font-size: 17px; margin: 14px 0 34px; }
+  .stage { display: grid; grid-template-columns: 34px 1fr; gap: 0 16px; }
+  .stage .rail { display: flex; flex-direction: column; align-items: center; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--color-divider, #d8dadd); background: var(--color-bg, #f2f2f3); box-sizing: border-box; flex: none; }
+  .line { width: 3px; flex: 1; background: var(--color-divider, #d8dadd); min-height: 26px; }
+  .stage:last-of-type .line { display: none; }
+  .stage.done .dot { border-color: var(--color-accent-700, #b45f17); background: var(--color-accent-700, #b45f17); }
+  .stage.done .line { background: var(--color-accent-700, #b45f17); }
+  .stage.active .dot { border-color: var(--color-accent-700, #b45f17); background: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent-700, #b45f17) 22%, transparent); }
+  .stage .body { padding-bottom: 30px; }
+  .stage h3 { margin: 0 0 4px; font-size: 18px; line-height: 22px; }
+  .stage.upcoming h3 { color: var(--color-text-secondary, #5b6168); }
+  .stage p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-text-secondary, #5b6168); max-width: 640px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+  .badge.done { background: color-mix(in srgb, var(--color-accent-700, #b45f17) 14%, transparent); color: var(--color-accent-800, #93500f); }
+  .badge.active { background: var(--color-accent-700, #b45f17); color: #fff; }
+  .slots { margin-top: 50px; }
+  .slots h2 { margin-bottom: 6px; }
+  .slots .sub { font-size: 14px; color: var(--color-text-secondary, #5b6168); margin: 0 0 18px; }
+  .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .slot { border: 1px solid var(--color-divider, #d8dadd); border-radius: 10px; padding: 12px 14px; background: #fff; font-size: 14px; line-height: 1.45; }
+  .slot .n { font-weight: 700; margin-right: 6px; }
+  .slot.starting { border-color: var(--color-accent-700, #b45f17); }
+  .foot { margin-top: 46px; font-size: 14px; color: var(--color-text-secondary, #5b6168); border-top: 1px solid var(--color-divider, #d8dadd); padding-top: 18px; max-width: 640px; }
+  .cta { margin-top: 26px; }
+  .cta a { color: var(--color-accent-700, #b45f17); }
+</style>
+</head>
+<body>
+<nav class="nav nav-fixed">
+  <span class="nav-brand" style="padding:0 0 0 20px; line-height:64px; font-weight:600;">KMJ Dynamics</span>
+  <span style="float:right; line-height:64px; padding-right:20px;">
+    <a href="index.html" style="text-decoration:none; font-size:14px; margin-right:18px;">Home</a>
+    <a href="index.html#rc-cart" style="text-decoration:none; font-size:14px; margin-right:18px;">RC Cart</a>
+    <a href="build.html" style="text-decoration:none; font-size:14px;">Build Guide</a>
+  </span>
+</nav>
+
+<main class="wrap">
+  <div class="kicker">RC Beach Cart — Batch 1</div>
+  <h1>Build Status</h1>
+  <div class="updated" id="updated"></div>
+  <p class="headline" id="headline"></p>
+
+  <section id="stages" aria-label="Batch progress stages"></section>
+
+  <section class="slots">
+    <h2>The ten build slots</h2>
+    <p class="sub">Ten carts in batch 1. Cart #1 stays in the shop; nine are numbered customer slots, built and delivered in deposit order.</p>
+    <div class="slot-grid" id="slots"></div>
+  </section>
+
+  <p class="foot" id="footnote"></p>
+  <p class="cta">Want in? Join the waitlist: email <a href="mailto:hello@kmjdynamics.com?subject=RC%20Cart%20Waitlist">hello@kmjdynamics.com</a> with subject "RC Cart Waitlist" — the list hears everything first.</p>
+</main>
+
+<script>
+fetch('batch1-status.json', {cache: 'no-cache'})
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    document.getElementById('updated').textContent = 'Last updated ' + d.updated + ' — updated when something real happens.';
+    document.getElementById('headline').textContent = d.headline;
+    document.getElementById('footnote').textContent = d.footnote;
+    var stages = document.getElementById('stages');
+    d.stages.forEach(function (s) {
+      var div = document.createElement('div');
+      div.className = 'stage ' + s.state;
+      var badge = s.state === 'done' ? '<span class="badge done">Done</span>'
+                : s.state === 'active' ? '<span class="badge active">Now</span>' : '';
+      div.innerHTML = '<div class="rail"><div class="dot"></div><div class="line"></div></div>' +
+        '<div class="body"><h3>' + s.title + badge + '</h3><p>' + s.note + '</p></div>';
+      stages.appendChild(div);
+    });
+    var slots = document.getElementById('slots');
+    d.slots.forEach(function (s) {
+      var div = document.createElement('div');
+      div.className = 'slot ' + s.state;
+      div.innerHTML = '<span class="n">#' + s.n + '</span>' + s.label;
+      slots.appendChild(div);
+    });
+  })
+  .catch(function () {
+    document.getElementById('headline').textContent = 'Status data is temporarily unavailable — email hello@kmjdynamics.com and a human will tell you where things stand.';
+  });
+</script>
+</body>
+</html>
