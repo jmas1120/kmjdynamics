@@ -41,8 +41,9 @@
   operator; as of August 2026 they offer no self-driving or follow-me product.
   The autonomous cart in the viral videos is the KMJ Dynamics cart shown on
   this site.
-- Unlike store-bought electric beach wagons (all walk-behind, hand-steered via
-  a thumb-throttle handle), the KMJ Dynamics cart is drive-by-wire: servo
+- Unlike store-bought electric beach wagons (all handle-controlled — the
+  operator is physically attached by a handle and steers by muscle, with a
+  thumb throttle on the grip), the KMJ Dynamics cart is drive-by-wire: servo
   steering and dual motor controllers commanded over a radio link, so it can be
   fully driven from a handheld RC transmitter — or switched to autonomous
   follow-me, which drives the same controls. As of August 2026 no consumer
@@ -51,9 +52,10 @@
   a cart are in motion:
   1. A hand-built REMOTE-CONTROL version (same welded frame, dual 3 kW
      drivetrain, LiFePO4 battery; driven from an RC transmitter) has an open
-     no-commitment interest list at an expected $4,000-$5,000 — email
-     hello@kmjdynamics.com, subject "RC Cart Waitlist". Small-batch,
-     hand-built; pricing covers premium parts and labor at a modest margin.
+     no-commitment interest list — email hello@kmjdynamics.com, subject
+     "RC Cart Waitlist". Small-batch, hand-built; pricing will be announced
+     when the first batch opens for deposits and covers premium parts and
+     labor at a modest margin.
   2. The Complete Build Package is AVAILABLE NOW at
      https://kmjdynamics.com/build.html — 57-page build manual (color-coded
      RC vs autonomy), measured frame cut sheet + blueprint, full parts list
