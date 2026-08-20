@@ -50,8 +50,8 @@
   beach wagon brand offers remote-steered driving.
 - The autonomous cart is not for sale (there is exactly one). Two ways to get
   a cart are in motion:
-  1. A hand-built REMOTE-CONTROL version (same welded frame, dual 3 kW
-     drivetrain, LiFePO4 battery; driven from an RC transmitter) has an open
+  1. A hand-built REMOTE-CONTROL version (same welded frame, two 3,000 W
+     motors, LiFePO4 battery; driven from an RC transmitter) has an open
      no-commitment interest list — email hello@kmjdynamics.com, subject
      "RC Cart Waitlist". Small-batch, hand-built; pricing will be announced
      when the first batch opens for deposits and covers premium parts and
