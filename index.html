@@ -426,17 +426,17 @@ class Component extends DCLogic {
       t = setTimeout(function(){ t = null; b.classList.toggle('show', window.scrollY > 600); }, 100);
     }, { passive: true });
   }
-  var nav = document.querySelector('nav.nav');
-  function padNav(){ if (nav && nav.offsetHeight) document.body.style.paddingTop = nav.offsetHeight + 'px'; }
+  // support.js re-renders everything inside <x-dc> with React after this script
+  // runs, replacing those DOM nodes — so never cache elements from inside it or
+  // attach listeners to them; query at use time and delegate clicks from document.
+  function padNav(){ var nav = document.querySelector('nav.nav'); if (nav && nav.offsetHeight) document.body.style.paddingTop = nav.offsetHeight + 'px'; }
   padNav();
   setTimeout(padNav, 600);
   addEventListener('resize', padNav, { passive: true });
 
-  var bar = document.querySelector('.tabbar');
   var storyHashes = { story:1, project:1, how:1, engineering:1, printing:1, approach:1 };
   function showTab(tab) {
-    if (!bar) return;
-    bar.querySelectorAll('button[data-tab]').forEach(function(btn){ btn.classList.toggle('on', btn.getAttribute('data-tab') === tab); });
+    document.querySelectorAll('.tabbar button[data-tab]').forEach(function(btn){ btn.classList.toggle('on', btn.getAttribute('data-tab') === tab); });
     document.querySelectorAll('.tabpanel').forEach(function(p){ p.classList.toggle('on', p.id === tab); });
   }
   function fromHash() {
@@ -448,21 +448,33 @@ class Component extends DCLogic {
       if (el) setTimeout(function(){ el.scrollIntoView(); }, 60);
     }
   }
-  if (bar) {
-    bar.addEventListener('click', function(e){
-      var btn = e.target.closest('button[data-tab]');
-      if (!btn) return;
-      var tab = btn.getAttribute('data-tab');
-      showTab(tab);
-      if (tab === 'overview') {
-        if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
-      } else {
-        location.hash = tab;
-      }
-    });
-  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.tabbar button[data-tab]');
+    if (!btn) return;
+    var tab = btn.getAttribute('data-tab');
+    showTab(tab);
+    if (tab === 'overview') {
+      if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    } else {
+      location.hash = tab;
+    }
+  });
   addEventListener('hashchange', fromHash);
   fromHash();
+  // Re-apply the deep-linked tab whenever React swaps in fresh nodes — the
+  // initial mount commits more than once, so keep enforcing (idempotently)
+  // until the panel from the hash is showing, for up to 10s after load.
+  if (location.hash) {
+    var mo = new MutationObserver(function(){
+      var h = (location.hash || '').replace(/^#/, '');
+      var tab = h === 'specs' ? 'specs' : (storyHashes[h] ? 'story' : null);
+      if (!tab) return;
+      var p = document.getElementById(tab);
+      if (p && !p.classList.contains('on')) { padNav(); fromHash(); }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function(){ mo.disconnect(); }, 10000);
+  }
 })();
 </script>
 <script data-goatcounter="https://kmjdynamics.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
