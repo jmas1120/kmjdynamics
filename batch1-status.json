@@ -1,11 +1,16 @@
 {
-  "updated": "2026-08-17",
-  "headline": "Ten numbered builds. Patent pending. Deposits open soon - the waitlist hears first.",
+  "updated": "2026-08-20",
+  "headline": "Ten numbered builds. Patent pending. The first purchase orders are out, and deposits are opening to the waitlist first.",
   "stages": [
     {
+      "title": "Parts on order",
+      "state": "active",
+      "note": "The first purchase orders went out August 20 - wheels, sprockets, shafts, and steering parts are on order from the batch suppliers. Frame fabrication is next."
+    },
+    {
       "title": "Taking deposits",
-      "state": "upcoming",
-      "note": "A $500 fully-refundable deposit holds a numbered build slot. Deposits open when the paperwork is finished - product liability insurance and attorney-drafted terms are in progress now - and the waitlist gets first access, in signup order."
+      "state": "active",
+      "note": "A $500 deposit holds a numbered build slot, fully refundable until you approve your final invoice. The waitlist gets first access, in signup order - the deposit link goes to the list directly, not this page."
     },
     {
       "title": "In production",
