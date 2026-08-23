@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-20",
-  "headline": "Ten numbered builds. Patent pending. The first purchase orders are out, and deposits are opening to the waitlist first.",
+  "updated": "2026-08-23",
+  "headline": "Patent pending. The first purchase orders are out, and deposits are open.",
   "stages": [
     {
       "title": "Parts on order",
@@ -10,7 +10,7 @@
     {
       "title": "Taking deposits",
       "state": "active",
-      "note": "A $500 deposit holds a numbered build slot, fully refundable until you approve your final invoice. The waitlist gets first access, in signup order - the deposit link goes to the list directly, not this page."
+      "note": "A $500 deposit holds a numbered build slot, fully refundable until you approve your final invoice. The deposit link is live on the homepage and right here on this page. If deposits ever outrun the current batch, your call: a full refund, or first in line for the next batch."
     },
     {
       "title": "In production",
@@ -22,18 +22,6 @@
       "state": "upcoming",
       "note": "Hand-delivered by John, Maine to New Jersey, in build-slot order."
     }
-  ],
-  "slots": [
-    { "n": 1, "label": "Cart #1 — shop cart, not for sale. Built first, on camera.", "state": "starting" },
-    { "n": 2, "label": "Build slot 2", "state": "open" },
-    { "n": 3, "label": "Build slot 3", "state": "open" },
-    { "n": 4, "label": "Build slot 4", "state": "open" },
-    { "n": 5, "label": "Build slot 5", "state": "open" },
-    { "n": 6, "label": "Build slot 6", "state": "open" },
-    { "n": 7, "label": "Build slot 7", "state": "open" },
-    { "n": 8, "label": "Build slot 8", "state": "open" },
-    { "n": 9, "label": "Build slot 9", "state": "open" },
-    { "n": 10, "label": "Build slot 10", "state": "open" }
   ],
   "footnote": "This page is updated when something real happens, and only then."
 }

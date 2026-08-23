@@ -70,14 +70,8 @@
 
   <section id="stages" aria-label="Batch progress stages"></section>
 
-  <section class="slots">
-    <h2>The ten build slots</h2>
-    <p class="sub">Ten numbered builds. Cart #1 stays in the shop; nine are customer slots, built and delivered in deposit order.</p>
-    <div class="slot-grid" id="slots"></div>
-  </section>
-
   <p class="foot" id="footnote"></p>
-  <p class="cta">Want in? Join the waitlist: email <a href="mailto:hello@kmjdynamics.com?subject=RC%20Cart%20Waitlist">hello@kmjdynamics.com</a> with subject "RC Cart Waitlist" — the list hears everything first.</p>
+  <p class="cta">Want in? The RC cart is $5,000, delivery included Maine to New Jersey, and a $500 fully refundable deposit reserves a numbered build slot: <a href="https://buy.stripe.com/aFacN4bvf1todUSaECgjC00" target="_blank" rel="noopener">reserve yours here</a>. Questions: <a href="mailto:hello@kmjdynamics.com">hello@kmjdynamics.com</a>.</p>
 </main>
 
 <script>
@@ -96,13 +90,6 @@ fetch('batch1-status.json', {cache: 'no-cache'})
       div.innerHTML = '<div class="rail"><div class="dot"></div><div class="line"></div></div>' +
         '<div class="body"><h3>' + s.title + badge + '</h3><p>' + s.note + '</p></div>';
       stages.appendChild(div);
-    });
-    var slots = document.getElementById('slots');
-    d.slots.forEach(function (s) {
-      var div = document.createElement('div');
-      div.className = 'slot ' + s.state;
-      div.innerHTML = '<span class="n">#' + s.n + '</span>' + s.label;
-      slots.appendChild(div);
     });
   })
   .catch(function () {
