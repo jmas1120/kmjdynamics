@@ -1,11 +1,11 @@
 {
-  "updated": "2026-08-23",
-  "headline": "Patent pending. The first purchase orders are out, and deposits are open.",
+  "updated": "2026-08-31",
+  "headline": "Patent pending. The first purchase order is out, and deposits are open.",
   "stages": [
     {
       "title": "Parts on order",
       "state": "active",
-      "note": "The first purchase orders went out August 20 - wheels, sprockets, shafts, and steering parts are on order from the batch suppliers. Frame fabrication is next."
+      "note": "The first purchase order went out August 20 - the batch's balloon wheels. The full parts list is being finalized now, and the remaining orders go out as it locks. Frame fabrication is next."
     },
     {
       "title": "Taking deposits",

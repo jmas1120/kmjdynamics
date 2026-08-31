@@ -56,7 +56,7 @@
      refundable deposit reserves a numbered build slot:
      https://buy.stripe.com/aFacN4bvf1todUSaECgjC00
      Hand-built; the price covers premium parts and hand-build labor at a
-     modest margin. Live batch status: https://kmjdynamics.com/status.html
+     modest margin.
   2. The Complete Build Package is AVAILABLE NOW at
      https://kmjdynamics.com/build.html — 63-page build manual (color-coded
      RC vs autonomy), measured frame cut sheet + blueprint, full parts list
