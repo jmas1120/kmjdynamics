@@ -50,7 +50,17 @@
   .foot { margin-top: 46px; font-size: 14px; color: var(--color-text-secondary, #5b6168); border-top: 1px solid var(--color-divider, #d8dadd); padding-top: 18px; max-width: 640px; }
   .cta { margin-top: 26px; }
   .cta a { color: var(--color-accent-700, #b45f17); }
-</style>
+
+    .nav-more { position: relative; display: inline-flex; }
+    .nav-more-btn { font-family: var(--font-body); font-size: 14px; background: none; border: 0; cursor: pointer; color: inherit; display: inline-flex; align-items: center; gap: 5px; padding: 0; vertical-align: middle; }
+    .nav-more-btn:hover { color: var(--color-accent); }
+    .nav-more-panel { display: none; position: absolute; top: 100%; right: -8px; padding-top: 16px; z-index: 70; }
+    .nav-more:hover .nav-more-panel, .nav-more:focus-within .nav-more-panel { display: block; }
+    .nav-more-inner { display: flex; flex-direction: column; min-width: 235px; background: var(--color-bg); border: 1px solid var(--color-divider); box-shadow: var(--shadow-md); }
+    .nav-more-inner a { text-decoration: none; font-size: 14px; color: var(--color-text); padding: 12px 18px; line-height: 1.4; }
+    .nav-more-inner a + a { border-top: 1px solid var(--color-divider); }
+    .nav-more-inner a:hover { color: var(--color-accent-700); background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+  </style>
 </head>
 <body>
 <nav class="nav nav-fixed">
@@ -59,6 +69,16 @@
     <a href="index.html" style="text-decoration:none; font-size:14px; margin-right:18px;">Home</a>
     <a href="index.html#rc-cart" style="text-decoration:none; font-size:14px; margin-right:18px;">RC Cart</a>
     <a href="build.html" style="text-decoration:none; font-size:14px;">Build Guide</a>
+    <span class="nav-more" style="line-height:normal; vertical-align:middle; margin-left:18px;">
+      <button type="button" class="nav-more-btn" aria-haspopup="true">More<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg></button>
+      <div class="nav-more-panel"><div class="nav-more-inner">
+        <a href="cart3d.html">3D Model</a>
+        <a href="work.html">The Jobsite Runner</a>
+        <a href="how-to-build-electric-beach-wagon/">How to Build a Beach Wagon</a>
+        <a href="convert/">Convert Your Wagon</a>
+        <a href="stl/">Print Files</a>
+      </div></div>
+    </span>
   </span>
 </nav>
 

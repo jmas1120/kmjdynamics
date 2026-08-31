@@ -70,11 +70,18 @@
   #hint{position:fixed;left:20px;bottom:16px;font-family:var(--mono);font-size:10px;
     letter-spacing:.06em;color:var(--dim);text-transform:uppercase;z-index:4}
 
-  #homebtn{position:fixed;top:14px;right:14px;z-index:6;font-family:var(--mono);font-size:11px;
+  #navchips{position:fixed;top:14px;right:14px;z-index:6;display:flex;gap:8px;align-items:flex-start}
+  #homebtn,.navchip{font-family:var(--mono);font-size:11px;
     letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);
     background:#fff;border:1px solid var(--line);border-radius:5px;padding:9px 14px;
-    display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-  @media (hover:hover){ #homebtn:hover{border-color:var(--accent);color:var(--accent)} }
+    display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer}
+  .navmenu{position:relative}
+  .navmenu-panel{display:none;position:absolute;top:100%;right:0;padding-top:8px}
+  .navmenu:hover .navmenu-panel,.navmenu:focus-within .navmenu-panel{display:block}
+  .navmenu-inner{display:flex;flex-direction:column;min-width:210px;background:#fff;border:1px solid var(--line);border-radius:5px;overflow:hidden;box-shadow:0 8px 24px #21304014}
+  .navmenu-inner a{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:10px 14px}
+  .navmenu-inner a+a{border-top:1px solid var(--line)}
+  @media (hover:hover){ #homebtn:hover,.navchip:hover{border-color:var(--accent);color:var(--accent)} .navmenu-inner a:hover{color:var(--accent)} }
 
   button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
@@ -92,7 +99,10 @@
 
 <div id="stage"></div>
 
-<a id="homebtn" href="index.html">← Home</a>
+<div id="navchips">
+  <a id="homebtn" href="index.html">← Home</a>
+  <span class="navmenu"><button type="button" class="navchip">Pages <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg></button><div class="navmenu-panel"><div class="navmenu-inner"><a href="index.html">Home</a><a href="build.html">Build Guide</a><a href="how-to-build-electric-beach-wagon/">How to Build</a><a href="convert/">Convert a Wagon</a><a href="stl/">Print Files</a><a href="work.html">Jobsite Runner</a></div></div></span>
+</div>
 
 <div class="hud" id="titleblock">
   <div class="eyebrow">KMJ Dynamics · Auto-Cart 1</div>
