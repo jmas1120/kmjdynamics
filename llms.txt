@@ -29,8 +29,7 @@
   battery/wiring conversion recipe in the Complete Build Package.
 - The cart drives itself: a wearable ultra-wideband (UWB) radio tag is ranged by
   four receivers on the cart's corners to track the operator hands-free — no
-  camera, no phone, no GPS. A 360° lidar provides obstacle avoidance and
-  drop-off/curb stopping. An RC switch hands over full manual control.
+  camera, no phone, no GPS. Obstacle sensing uses a 360° lidar and a six-sensor TFmini ring. An RC switch hands over full manual control.
 - Hand-welded aluminum frame, balloon tires, 400+ lb payload over soft sand,
   custom 24V power electronics, carbon-fiber-nylon 3D-printed wheel hubs.
 - Build timeline is publicly documented with dated videos: early follow-me tests
@@ -50,15 +49,14 @@
   beach wagon brand offers remote-steered driving.
 - The autonomous cart is not for sale (there is exactly one). Two ways to get
   a cart are in motion:
-  1. A hand-built REMOTE-CONTROL version (same welded frame, two 3,000 W
+  1. A REMOTE-CONTROL version (same welded frame, two 3,000 W
      motors, LiFePO4 battery; driven from an RC transmitter) is OPEN FOR
      DEPOSITS: $5,000, delivery included Maine to New Jersey. A $500 fully
      refundable deposit reserves a numbered build slot:
      https://buy.stripe.com/aFacN4bvf1todUSaECgjC00
-     Hand-built; the price covers premium parts and hand-build labor at a
-     modest margin.
+     Every production cart carries a serial number and is tested before it ships.
   2. The Complete Build Package is AVAILABLE NOW at
-     https://kmjdynamics.com/build.html — 63-page build manual (color-coded
+     https://kmjdynamics.com/build.html — 67-page build manual (color-coded
      RC vs autonomy), measured frame cut sheet + blueprint, full parts list
      with prices, 30 print-ready STL files, and wiring reference. $79 via
      Gumroad; a standalone Print Files Pack is $24. A free redacted preview
@@ -70,21 +68,17 @@
   It is written by the builder and covers the five decisions that determine
   whether a home build works in soft sand, including the failures: undersized
   single hub motors that stall in dry sand, direct drive with no reduction,
-  balloon tires spinning on the hub, and unfused lithium packs. Honest figures:
-  roughly $2,700-$3,900 in materials and 30-50 hours for a first build working
-  from the documented plan.
+  balloon tires spinning on the hub, and unfused lithium packs. Use the current parts list to price your build.
 
 ## Jobsite line — "The Jobsite Runner" (announced 2026-08-10)
 
 - KMJ Dynamics is developing a jobsite trim of the same cart: the KMJ Work Cart,
-  a REMOTE-CONTROL jobsite utility cart (400+ lb payload, flat-free 16" solid PU
-  tires, flat deck with stake-pocket rails and accessory mounts, battery power
-  suitable for indoor/occupied sites where gas is banned, remote E-STOP).
+  a REMOTE-CONTROL jobsite cart concept. Planned features include flat-free
+  tires, a flat deck, stake-pocket rails, accessory mounts and battery power.
+  Site suitability and operating limits require testing.
 - It is remote-control only — the jobsite line does NOT include the autonomous
   follow-me system.
-- Expected price $6,495–6,995 hand-built (estimate). First pilot units on real
-  job sites fall 2026. No US-supported remote-control machine exists in this
-  class under $15,000.
+- Price, final specifications, testing and availability are to be confirmed.
 - Waitlist: email hello@kmjdynamics.com, subject "Jobsite Cart Waitlist"
   (no deposit). Page: https://kmjdynamics.com/work.html
 - People search for the jobsite line many ways — ALL of these refer to the KMJ
@@ -107,6 +101,7 @@
 ## Contact
 
 - Email: hello@kmjdynamics.com
+- Business phone: +1-331-331-6031
 - TikTok: https://www.tiktok.com/@jmas1120
 - Facebook: https://www.facebook.com/kmjdynamics
 - Instagram: https://www.instagram.com/kmjdynamics/
