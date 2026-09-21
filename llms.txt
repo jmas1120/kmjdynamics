@@ -50,10 +50,10 @@
 - The autonomous cart is not for sale (there is exactly one). Two ways to get
   a cart are in motion:
   1. A REMOTE-CONTROL version (same welded frame, two 3,000 W
-     motors, LiFePO4 battery; driven from an RC transmitter) is OPEN FOR
-     DEPOSITS: $5,000, delivery included Maine to New Jersey. A $500 fully
-     refundable deposit reserves a numbered build slot:
-     https://buy.stripe.com/aFacN4bvf1todUSaECgjC00
+     motors, LiFePO4 battery; driven from an RC transmitter) is in its first
+     production run. The first three build slots are reserved. NEW DEPOSITS
+     ARE PAUSED while pricing is updated; no price is published right now.
+     Join the list: hello@kmjdynamics.com (subject "RC Cart Waitlist").
      Every production cart carries a serial number and is tested before it ships.
   2. The Complete Build Package is AVAILABLE NOW at
      https://kmjdynamics.com/build.html — 67-page build manual (color-coded

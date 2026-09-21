@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-31",
-  "headline": "Patent pending. The first purchase order is out, and deposits are open.",
+  "updated": "2026-09-21",
+  "headline": "Patent pending. The first purchase order is out. New deposits are paused while pricing is updated.",
   "stages": [
     {
       "title": "Parts on order",
@@ -8,9 +8,9 @@
       "note": "The first purchase order went out August 20 - the batch's balloon wheels. The full parts list is being finalized now, and the remaining orders go out as it locks. Frame fabrication is next."
     },
     {
-      "title": "Taking deposits",
+      "title": "Deposits paused",
       "state": "active",
-      "note": "A $500 deposit holds a numbered build slot, fully refundable until you approve your final invoice. The deposit link is live on the homepage and right here on this page. If deposits ever outrun the current batch, your call: a full refund, or first in line for the next batch."
+      "note": "The first three build slots are reserved. New deposits are paused while pricing is updated. Existing deposits are unchanged: each holds its numbered build slot and stays fully refundable until you approve your final invoice."
     },
     {
       "title": "In production",
