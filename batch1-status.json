@@ -10,7 +10,7 @@
     {
       "title": "Deposits paused",
       "state": "active",
-      "note": "The first three build slots are reserved. New deposits are paused while pricing is updated. Existing deposits are unchanged: each holds its numbered build slot and stays fully refundable until you approve your final invoice."
+      "note": "New deposits are paused while pricing is updated. Existing deposits are unchanged: each holds its numbered build slot and stays fully refundable until you approve your final invoice."
     },
     {
       "title": "In production",

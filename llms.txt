@@ -51,7 +51,7 @@
   a cart are in motion:
   1. A REMOTE-CONTROL version (same welded frame, two 3,000 W
      motors, LiFePO4 battery; driven from an RC transmitter) is in its first
-     production run. The first three build slots are reserved. NEW DEPOSITS
+     production run. NEW DEPOSITS
      ARE PAUSED while pricing is updated; no price is published right now.
      Join the list: hello@kmjdynamics.com (subject "RC Cart Waitlist").
      Every production cart carries a serial number and is tested before it ships.
