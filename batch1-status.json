@@ -1,21 +1,21 @@
 {
-  "updated": "2026-09-21",
-  "headline": "Patent pending. The first purchase order is out. New deposits are paused while pricing is updated.",
+  "updated": "2026-11-06",
+  "headline": "Patent pending. Production started November 6. Nearly every part for the batch is in the shop; the motors and the custom wheels are the last two still on their way.",
   "stages": [
     {
-      "title": "Parts on order",
+      "title": "Parts in",
       "state": "active",
-      "note": "The first purchase order went out August 20 - the batch's balloon wheels. The full parts list is being finalized now, and the remaining orders go out as it locks. Frame fabrication is next."
+      "note": "Nearly every part for the batch is in the shop. Two items are still coming: the motors, which are in production at the factory with a third-party inspection before they ship, and the custom balloon wheels and tires, whose mold is being made now."
+    },
+    {
+      "title": "In production",
+      "state": "active",
+      "note": "Production started November 6. The first frame is on the table at the fabrication shop. Every cart is built by John in slot order - same hands that built the original cart. Each one gets a serial number and a recorded test before it leaves."
     },
     {
       "title": "Deposits paused",
       "state": "active",
       "note": "New deposits are paused while pricing is updated. Existing deposits are unchanged: each holds its numbered build slot and stays fully refundable until you approve your final invoice."
-    },
-    {
-      "title": "In production",
-      "state": "upcoming",
-      "note": "Frames welded at a professional fabrication shop, then every cart is built by John in slot order - same hands that built the original cart. Each one gets a serial number and a recorded test before it leaves."
     },
     {
       "title": "Delivering",

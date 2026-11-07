@@ -326,7 +326,7 @@ balloonWheel(-12.7, -17, true);
 {
   const goldJoint = () => new THREE.MeshStandardMaterial({ color: 0xb9973f, metalness: 0.9, roughness: 0.35 });
   // U-shaped steering support (fixed — the real support NEVER swivels; the real front end
-  // is two kingpin pivots in 3/4" sleeves at the support ends. This geometry is a simplified
+  // is two kingpin pivots in 7/8" OD sleeves (5/8" kingpins) at the support ends. This geometry is a simplified
   // stand-in and still depicts the old kit yoke — model rebuild queued.)
   {
     const uPts = [
@@ -670,7 +670,7 @@ const SHOTS = [
     labels: ['frame'], dur: 12, xray: 0, door: 0,
     cam: { az: [1.7, 3.1], r: [86, 74], h: [42, 27], tgt: [[0, 16, 0], [0, 17, 0]] } },
   { key: 'steer', chip: 'Steering', title: 'Steering',
-    desc: 'No front axle here — each front wheel steers on its own kingpin, a steel bar that rotates in a 3/4-inch sleeve at each end of a fixed U-shaped support. Steering arms link through a cross tie rod on M8 ball joints, driven by a 24 V Super400 industrial servo. The support never swivels; diagonal braces carry it.',
+    desc: 'No front axle here — each front wheel steers on its own kingpin, a steel bar that rotates in a 7/8-inch OD sleeve (5/8-inch kingpin) at each end of a fixed U-shaped support. Steering arms link through a cross tie rod on M8 ball joints, driven by a 24 V Super400 industrial servo. The support never swivels; diagonal braces carry it.',
     specs: ['300° PWM servo', 'GPIO13 hardware PWM', 'Drag link behind tie rod', 'Slew-limited, 60% throw'],
     labels: ['steer'], dur: 12, xray: 0, door: 0,
     cam: { az: [-0.75, 0.75], r: [58, 44], h: [17, 9], tgt: [[0, 10, 13], [0, 9, 15]] } },
